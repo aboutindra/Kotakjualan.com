@@ -3,9 +3,6 @@ const bp = require('body-parser');
 
 const routes = require('./Routes/Index');
 
-const init = require('./Models/Index');
-const Init = new init("mongodb://127.0.0.1:27017/KoperasiDB");
-
 const app = new express();
 app.use('/api/v1/client' , routes);
 app.use(bp.json);
@@ -19,6 +16,9 @@ app.listen(3001, (err) => {
     app.put('*', async( req, res ) => { res.send({ status: "OK" }) });
     app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
     app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
+
+    const init = require('./Models/Index');
+    const Init = new init().initDB();
 
     console.log("[✔] Successfully running Client Microservices at http://localhost:3001/")
 
