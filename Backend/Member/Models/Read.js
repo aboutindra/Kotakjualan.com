@@ -1,5 +1,3 @@
-const Mongo = require('mongodb').MongoClient;
-
 class Read{
 
     async readAll(clientCol){

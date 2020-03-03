@@ -4,7 +4,7 @@ const bp = require('body-parser');
 const routes = require('./Routes/Index');
 
 const app = new express();
-app.use('/api/v1/client' , routes);
+app.use('/api/v1/member' , routes);
 app.use(bp.json);
 app.use(bp.urlencoded({ extended: true }));
 

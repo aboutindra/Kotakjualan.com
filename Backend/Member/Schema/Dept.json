@@ -1,0 +1,87 @@
+[
+  {
+    "idPlant": 1,
+    "id": 1,
+    "name": "H & S"
+  },
+  {
+    "idPlant": 1,
+    "id": 2,
+    "name": "MAINTENANCE"
+  },
+  {
+    "idPlant": 1,
+    "id": 3,
+    "name": "PE ENGINE"
+  },
+  {
+    "idPlant": 1,
+    "id": 4,
+    "name": "PPC"
+  },
+  {
+    "idPlant": 1,
+    "id": 5,
+    "name": "PROD ENGINE"
+  },
+  {
+    "idPlant": 1,
+    "id": 6,
+    "name": "QE"
+  },
+  {
+    "idPlant": 2,
+    "id": 7,
+    "name": "MAINTENANCE"
+  },
+  {
+    "idPlant": 2,
+    "id": 8,
+    "name": "PE STAMPING"
+  },
+  {
+    "idPlant": 2,
+    "id": 9,
+    "name": "PPC"
+  },
+  {
+    "idPlant": 2,
+    "id": 10,
+    "name": "PROD STAMPING"
+  },
+  {
+    "idPlant": 2,
+    "id": 11,
+    "name": "QE"
+  },
+  {
+    "idPlant": 3,
+    "id": 12,
+    "name": "CONTROLLING"
+  },
+  {
+    "idPlant": 3,
+    "id": 13,
+    "name": "DIRECTOR"
+  },
+  {
+    "idPlant": 3,
+    "id": 14,
+    "name": "GA"
+  },
+  {
+    "idPlant": 3,
+    "id": 15,
+    "name": "HRD"
+  },
+  {
+    "idPlant": 3,
+    "id": 16,
+    "name": "INFORMATION TECHNOLOGY"
+  },
+  {
+    "idPlant": 3,
+    "id": 17,
+    "name": "PROCUREMENT"
+  }
+]

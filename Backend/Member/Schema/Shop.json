@@ -1,0 +1,560 @@
+[
+  {
+    "idPlant" : 1,
+    "idDept": 1,
+    "id": 1,
+    "name": "H & S"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 2,
+    "id": 2,
+    "name" : "MAINTENANCE ENGINE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 2,
+    "id": 3,
+    "name" : "MAINTENANCE MECHANICAL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 2,
+    "id": 4,
+    "name" : "MAINTENANCE POWER HOUSE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 3,
+    "id": 5,
+    "name": "PE ENGINE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 3,
+    "id": 6,
+    "name": "TOOLING"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 7,
+    "name" : "ASSY LINE 1 & 2 CONTROL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 8,
+    "name" : "ASSY LINE TM & MCH CONTROL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 9,
+    "name" : "CKD CONTROL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 10,
+    "name" : "DILEVERY & PACT.EXT.CONTROL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 11,
+    "name" : "PPC ENGINE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept" : 4,
+    "id" : 12,
+    "name" : "VENDOR INVENTORY CONTROL"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 13,
+    "name":"CAM SHAFT"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 14,
+    "name":"CONNECTING ROD"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 15,
+    "name":"CRANK SHAFT"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 16,
+    "name":"CYLINDER HEAD"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 17,
+    "name":"DIFF CASE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 18,
+    "name":"EXTENSION HOUSING"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 19,
+    "name":"FRONT AXLE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 20,
+    "name":"LINE 1 ENGINE ASSY"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 21,
+    "name":"LINE 2 ENGINE ASSY"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 22,
+    "name":"PRODUCTION"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 23,
+    "name":"TEST LINE 1"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 24,
+    "name":"TEST LINE 2"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 25,
+    "name":"TRANS.MACHNING"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 26,
+    "name":"TRANSMISI TD MACHINING"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 27,
+    "name":"TRANSMISI ASSY"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 5,
+    "id": 28,
+    "name":"YOKE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 29,
+    "name":"ENGINE QUALITY"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 30,
+    "name":"QE ASSEMBLING"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 31,
+    "name":"QE ASSURANCE"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 32,
+    "name":"QE CALIBRATION"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 33,
+    "name":"QE LOCAL & CKD PARTS"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 34,
+    "name":"QE MACHINING HEAVY DUTY"
+  },
+  {
+    "idPlant" : 1,
+    "idDept": 6,
+    "id": 35,
+    "name":"QE MACHINING LIGHT DUTY"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 7,
+    "id": 36,
+    "name":"MAINTENANCE ELECTRICAL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 7,
+    "id": 37,
+    "name":"MAINTENANCE STOCK KEEPER"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 7,
+    "id": 38,
+    "name":"MAINTENANCE POWER HOUSE"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 7,
+    "id": 39,
+    "name":"STAMPING MAINTENANCE"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 8,
+    "id": 40,
+    "name":"DIE FINISH & REPAIR"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 8,
+    "id": 41,
+    "name":"DIE MACHINING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 8,
+    "id": 42,
+    "name":"PE STAMPING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 43,
+    "name":"DELIVERY CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 44,
+    "name":"HANDLING IMPROVMENT CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 45,
+    "name":"MATERIAL & CKD CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 46,
+    "name":"PPC STAMPING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 47,
+    "name":"STAMPING A CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 48,
+    "name":"STAMPING B CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 9,
+    "id": 49,
+    "name":"SUB CONT.CONTROL"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 50,
+    "name":"COMMON LINE"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 51,
+    "name":"CROSS MEMBER"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 52,
+    "name":"DATA PROCESSING S"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 53,
+    "name":"HAND WORK"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 54,
+    "name":"IMPORVMENT PROD"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 55,
+    "name":"PAINTING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 56,
+    "name":"PRESS A"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 57,
+    "name":"PRESS B"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 58,
+    "name":"PRESS C"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 59,
+    "name":"PRESS D"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 60,
+    "name":"PRESS E"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 61,
+    "name":"PRESS F"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 62,
+    "name":"PRESS HANDLING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 63,
+    "name":"PRODUCTION (S)"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 64,
+    "name":"REAR AXLE"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 65,
+    "name":"SAFETY"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 66,
+    "name":"SIDE MEMBER"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 67,
+    "name":"SL FRAME"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 68,
+    "name":"WELDING B"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 69,
+    "name":"WELDING C"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 70,
+    "name":"WELDING D"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 71,
+    "name":"WELDING E"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 72,
+    "name":"WELDING F"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 73,
+    "name":"WELDING G"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 74,
+    "name":"WELDING H"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 75,
+    "name":"WELDING I"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 76,
+    "name":"WELDING J"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 10,
+    "id": 77,
+    "name":"WELDING ZC"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 78,
+    "name":"Q.C.STAMPING"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 79,
+    "name":"QE I/H WELDING FACT A"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 80,
+    "name":"QE O/H FACT.B"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 81,
+    "name":"QE O/H PART PURCHASE"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 82,
+    "name":"QE O/H PURCHASE & CUSTOMER"
+  },
+  {
+    "idPlant" : 2,
+    "idDept": 11,
+    "id": 83,
+    "name":"STAMPING QUALITY"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 12,
+    "id": 84,
+    "name":"CONTROLLING"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 13,
+    "id": 84,
+    "name":"DIRECTOR"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 14,
+    "id": 85,
+    "name":"DRIVER"
+  }, 
+  {
+    "idPlant" : 3,
+    "idDept": 14,
+    "id": 86,
+    "name":"GEN.AFFRAIRS"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 14,
+    "id": 87,
+    "name":"OFFICE BOY"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 14,
+    "id": 88,
+    "name":"SECURITY"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 15,
+    "id": 89,
+    "name":"HRD"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 15,
+    "id": 90,
+    "name":"HRM"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 16,
+    "id": 91,
+    "name":"INFORMATION TECHNOLOGY"
+  },
+  {
+    "idPlant" : 3,
+    "idDept": 17,
+    "id": 92,
+    "name":"PROCUREMENT"
+  }
+]
