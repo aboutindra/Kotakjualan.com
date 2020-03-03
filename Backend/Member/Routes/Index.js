@@ -1,5 +1,9 @@
 const express = require('express');
+const bp = require('body-parser');
+
 const app = express.Router();
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: true }));
 
 const get = require('./Get');
 const Get = new get();
@@ -8,12 +12,12 @@ const post = require('./Post');
 const Post = new post();
 
 //Get All Client Data
-app.get('/gc', async (req, res) => {
+app.get('/gm', async (req, res) => {
     res.send( await Get.getAllClient() );
 });
 
-//Post
-app.post('/ic', async (req,res) => {
+//Post  
+app.post('/im', async (req,res) => {
 
     let nokop = req.body.nokop;
     let nik = req.body.nik;
@@ -28,13 +32,7 @@ app.post('/ic', async (req,res) => {
     let stakaryawan = req.body.stakaryawan;
     let ket = req.body.ket;
 
-    let times = () => {
-        let date = new Date(Date.now());
-        return date.toString();
-    };
-
-    let clientParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : times };
-    console.log(clientParam);
+    let clientParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
     res.send( { data : await Post.postDataClient(clientParam)});
 
 });
