@@ -15,5 +15,9 @@ class Post{
         return Control.deleteDataMember(id_member);
     }
 
+    searchDataMember(searchParam){
+        return Control.searchDataMember(searchParam);
+    }
+
 }
 module.exports = Post;

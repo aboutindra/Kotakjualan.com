@@ -53,6 +53,10 @@ class Models{
         return Drop.dropDataMember(id_member, this.members);
     }
 
+    readDataMember(searchParam){
+        return Read.readDataMember(searchParam, this.members);
+    }
+
 }
 
 module.exports = Models;

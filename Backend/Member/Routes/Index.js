@@ -38,6 +38,11 @@ app.post('/im', async (req,res) => {
 
 });
 
+app.post('/fm', async (req, res) => {
+    let searchParam = req.body.parameter;
+    res.send({ data : await Post.searchDataMember(searchParam)})
+});
+
 app.put('/um', async (req, res) => {
 
     let update = req.body.parameter;

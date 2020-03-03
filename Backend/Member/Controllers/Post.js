@@ -15,5 +15,9 @@ class Post{
         return DB.deleteDataMember(id_param);
     }
 
+    searchDataMember(id_param){
+        return DB.readDataMember(id_param);
+    }
+
 }
 module.exports = Post;

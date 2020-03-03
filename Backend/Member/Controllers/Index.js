@@ -22,6 +22,10 @@ class Controllers{
         return Post.deleteDataMember(id_member);
     }
 
+    searchDataMember(id_member){
+        return Post.searchDataMember(id_member);
+    }
+
 }
 
 module.exports = Controllers;
