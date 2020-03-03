@@ -9,6 +9,9 @@ const Insert = new insert();
 const update = require('./Update');
 const Update = new update();
 
+const drop = require('./Drop');
+const Drop = new drop();
+
 const Schema = require('../Schema/Index');
 const schema = new Schema();
 
@@ -44,6 +47,10 @@ class Models{
 
     updateDataMember(clientParam){
         return Update.updateDataMember(clientParam, this.members);
+    }
+
+    deleteDataMember(id_member){
+        return Drop.dropDataMember(id_member, this.members);
     }
 
 }

@@ -45,4 +45,11 @@ app.put('/um', async (req, res) => {
 
 });
 
+app.delete('/dm', async (req, res) => {
+
+    let id_member = req.body.parameter;
+    res.send({ data : await Post.deleteDataMember(id_member)})
+
+});
+
 module.exports = app;

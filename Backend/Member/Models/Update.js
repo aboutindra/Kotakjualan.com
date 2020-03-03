@@ -3,8 +3,6 @@ class Update{
     async updateDataMember(memberParam, membersCol){
 
         let statusUpdate;
-        let wrapData = [].concat(...memberParam);
-        console.log(wrapData);
         let generateUpdateParam = () => {
             return Object.assign({}, ...memberParam);
         };

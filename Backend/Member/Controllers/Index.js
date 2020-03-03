@@ -18,6 +18,10 @@ class Controllers{
         return Post.updateDataMember(clientParam);
     }
 
+    deleteDataMember(id_member){
+        return Post.deleteDataMember(id_member);
+    }
+
 }
 
 module.exports = Controllers;

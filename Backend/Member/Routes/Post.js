@@ -11,5 +11,9 @@ class Post{
         return Control.updateDataMember(clientParam);
     }
 
+    deleteDataMember(id_member){
+        return Control.deleteDataMember(id_member);
+    }
+
 }
 module.exports = Post;

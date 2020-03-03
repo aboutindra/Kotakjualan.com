@@ -11,5 +11,9 @@ class Post{
         return DB.updateDataMember(clientParam);
     }
 
+    deleteDataMember(id_param){
+        return DB.deleteDataMember(id_param);
+    }
+
 }
 module.exports = Post;
