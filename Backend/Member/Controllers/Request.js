@@ -7,6 +7,10 @@ class Request{
         return DB.readAllData();
     }
 
+    getTotalMember(){
+        return DB.readTotalMember();
+    }
+
 }
 
 module.exports = Request;

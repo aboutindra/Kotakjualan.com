@@ -7,6 +7,10 @@ class Get{
         return Control.reqAllClientData();
     }
 
+    getTotalMember(){
+        return Control.reqTotalMember();
+    }
+
 }
 
 module.exports = Get;

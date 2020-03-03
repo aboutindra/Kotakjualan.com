@@ -16,5 +16,11 @@ class Read{
         return status;
     }
 
+    async readTotalMember(memberCol){
+        let getAll = await memberCol.find().toArray();
+        let result = { total : getAll.length };
+        return result;
+    }
+
 }
 module.exports = Read;

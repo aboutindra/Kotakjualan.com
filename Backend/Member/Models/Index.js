@@ -57,6 +57,10 @@ class Models{
         return Read.readDataMember(searchParam, this.members);
     }
 
+    readTotalMember(){
+        return Read.readTotalMember(this.members);
+    }
+
 }
 
 module.exports = Models;

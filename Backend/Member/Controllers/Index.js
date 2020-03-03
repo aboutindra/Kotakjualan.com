@@ -10,6 +10,10 @@ class Controllers{
         return Request.getAllClientData();
     }
 
+    reqTotalMember(){
+        return Request.getTotalMember();
+    }
+
     postDataMember(clientParam){
         return Post.postDataMember(clientParam);
     }
@@ -25,6 +29,7 @@ class Controllers{
     searchDataMember(id_member){
         return Post.searchDataMember(id_member);
     }
+
 
 }
 
