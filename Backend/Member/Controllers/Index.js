@@ -10,8 +10,12 @@ class Controllers{
         return Request.getAllClientData();
     }
 
-    postDataClient(clientParam){
-        return Post.postDataClient(clientParam);
+    postDataMember(clientParam){
+        return Post.postDataMember(clientParam);
+    }
+
+    updateDataMember(clientParam){
+        return Post.updateDataMember(clientParam);
     }
 
 }

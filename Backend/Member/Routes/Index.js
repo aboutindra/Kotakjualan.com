@@ -32,8 +32,16 @@ app.post('/im', async (req,res) => {
     let stakaryawan = req.body.stakaryawan;
     let ket = req.body.ket;
 
-    let clientParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
-    res.send( { data : await Post.postDataClient(clientParam)});
+    let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
+    console.log(memberParam);
+    res.send( { data : await Post.postDataMember(memberParam)});
+
+});
+
+app.put('/um', async (req, res) => {
+
+    let update = req.body.parameter;
+    res.send({ data : await Post.updateDataMember(update) })
 
 });
 

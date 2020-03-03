@@ -3,8 +3,12 @@ const DB = new models();
 
 class Post{
 
-    postDataClient(clientParam){
-        return DB.insertDataClient(clientParam);
+    postDataMember(clientParam){
+        return DB.insertDataMember(clientParam);
+    }
+
+    updateDataMember(clientParam){
+        return DB.updateDataMember(clientParam);
     }
 
 }
