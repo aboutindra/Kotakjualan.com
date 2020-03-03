@@ -1,4 +1,3 @@
-const Object = require('mongodb').ObjectID;
 class Insert{
 
     async insertDataClient(memberData, membersCol, logsCol){
