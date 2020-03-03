@@ -2,6 +2,8 @@ const express = require('express');
 
 const bp = require('body-parser');
 
+const comp = require('compression');
+
 const routes = require('./Routes/Index');
 
 const Model = require('./Models/Index');
@@ -10,6 +12,7 @@ const model = new Model();
 const app = new express();
 
 app.use('/api/v1/member' , routes);
+app.use(comp());
 app.use(bp.json);
 app.use(bp.urlencoded({ extended: true }));
 
