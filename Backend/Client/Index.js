@@ -17,9 +17,6 @@ app.listen(3001, (err) => {
     app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
     app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
 
-    const init = require('./Models/Index');
-    const Init = new init().initDB();
-
     console.log("[✔] Successfully running Client Microservices at http://localhost:3001/")
 
 });

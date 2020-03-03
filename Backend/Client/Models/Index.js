@@ -14,6 +14,7 @@ class Models{
     constructor(){
         this.db = '';
         this.clients = '';
+        this.initDB();
     }
 
     initDB(){
@@ -21,7 +22,8 @@ class Models{
 
             if(err){ console.log("[❌] Failed Connect to Database, Messages : ", err) }
             this.db = con.db('KoperasiDB');
-            this.clients = this.db.collection('Clients');
+            this.members = this.db.collection('Members');
+            this.logs = this.db.collection('Logs')
             Init.createAllCollection(err, con);
 
         });
@@ -33,7 +35,7 @@ class Models{
     }
 
     insertDataClient(clientParam){
-        return Insert.insertDataClient(clientParam, this.clients);
+        return Insert.insertDataClient(clientParam, this.members, this.logs);
     }
 
 }

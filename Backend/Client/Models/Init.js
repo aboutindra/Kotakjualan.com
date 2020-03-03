@@ -6,9 +6,13 @@ class Init{
         if(err) console.log(err);
 
         await Promise.all([
-            db.createCollection("Clients", function (err){
-                if (err) {console.log("[❌] Collection Clients failed to created, err : ", err)};
-                console.log("[✔] Collection Clients created.");
+            db.createCollection("Members", function (err){
+                if (err) {console.log("[❌] Collection Members failed to created, err : ", err)};
+                console.log("[✔] Collection Members created.");
+            }),
+            db.createCollection("Logs", function (err){
+                if (err) {console.log("[❌] Collection Logs failed to created, err : ", err)};
+                console.log("[✔] Collection Logs created.");
             })
         ]);
 
