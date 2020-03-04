@@ -3,8 +3,20 @@ const Control = new controllers();
 
 class Post{
 
-    postDataClient(clientParam){
-        return Control.postDataClient(clientParam);
+    postDataMember(clientParam){
+        return Control.postDataMember(clientParam);
+    }
+
+    updateDataMember(clientParam){
+        return Control.updateDataMember(clientParam);
+    }
+
+    deleteDataMember(id_member){
+        return Control.deleteDataMember(id_member);
+    }
+
+    searchDataMember(searchParam){
+        return Control.searchDataMember(searchParam);
     }
 
 }

@@ -7,6 +7,18 @@ class Request{
         return DB.readAllData();
     }
 
+    getTotalMember(){
+        return DB.readTotalMember();
+    }
+
+    getTotalActiveMember(){
+        return DB.readTotalActiveMember();
+    }
+
+    getTotalNonActiveMember(){
+        return DB.readTotalNonActiveMember();
+    }
+
 }
 
 module.exports = Request;

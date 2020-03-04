@@ -16,6 +16,21 @@ app.get('/gm', async (req, res) => {
     res.send( await Get.getAllClient() );
 });
 
+//Get Total Member Data
+app.get('/tm', async (req, res) => {
+    res.send( await Get.getTotalMember())
+});
+
+//Get Total Active Member
+app.get('/tam', async (req, res) => {
+    res.send( await Get.getTotalActiveMember() )
+});
+
+//Get Total Non-Active Member
+app.get('/tnm', async (req, res) => {
+    res.send( await Get.getTotalNonActiveMember() )
+});
+
 //Post  
 app.post('/im', async (req,res) => {
 
@@ -32,8 +47,28 @@ app.post('/im', async (req,res) => {
     let stakaryawan = req.body.stakaryawan;
     let ket = req.body.ket;
 
-    let clientParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
-    res.send( { data : await Post.postDataClient(clientParam)});
+    let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
+    console.log(memberParam);
+    res.send( { data : await Post.postDataMember(memberParam)});
+
+});
+
+app.post('/fm', async (req, res) => {
+    let searchParam = req.body.parameter;
+    res.send({ data : await Post.searchDataMember(searchParam)})
+});
+
+app.put('/um', async (req, res) => {
+
+    let update = req.body.parameter;
+    res.send({ data : await Post.updateDataMember(update) })
+
+});
+
+app.delete('/dm', async (req, res) => {
+
+    let id_member = req.body.parameter;
+    res.send({ data : await Post.deleteDataMember(id_member)})
 
 });
 

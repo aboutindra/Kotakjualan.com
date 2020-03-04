@@ -10,9 +10,34 @@ class Controllers{
         return Request.getAllClientData();
     }
 
-    postDataClient(clientParam){
-        return Post.postDataClient(clientParam);
+    reqTotalMember(){
+        return Request.getTotalMember();
     }
+
+    reqTotalActiveMember(){
+        return Request.getTotalActiveMember();
+    }
+
+    reqTotalNonActiveMember(){
+        return Request.getTotalNonActiveMember();
+    }
+
+    postDataMember(clientParam){
+        return Post.postDataMember(clientParam);
+    }
+
+    updateDataMember(clientParam){
+        return Post.updateDataMember(clientParam);
+    }
+
+    deleteDataMember(id_member){
+        return Post.deleteDataMember(id_member);
+    }
+
+    searchDataMember(id_member){
+        return Post.searchDataMember(id_member);
+    }
+
 
 }
 
