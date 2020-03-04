@@ -41,8 +41,7 @@ class Models{
             
         this.db = con.db('KoperasiDB');
         this.members = this.db.collection('Members');
-        this.logs = this.db.collection('Logs');
-        schema.createAllCollection(err, con);        
+        this.logs = this.db.collection('Logs');        
 
       });
 
