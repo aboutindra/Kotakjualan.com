@@ -17,9 +17,17 @@ class Read{
     }
 
     async readTotalMember(memberCol){
-        let getAll = await memberCol.find().toArray();
-        let result = { total : getAll.length };
+        let getAll = await memberCol.find().count();
+        let result = { total : getAll };
         return result;
+    }
+
+    async readTotalActiveMember(memberCol){
+
+        let getActive = await memberCol.find({staanggota : "Active"}).count();
+        let result = { total:getActive };
+        return result;
+
     }
 
 }

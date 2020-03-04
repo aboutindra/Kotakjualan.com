@@ -16,8 +16,14 @@ app.get('/gm', async (req, res) => {
     res.send( await Get.getAllClient() );
 });
 
+//Get Total Member Data
 app.get('/tm', async (req, res) => {
     res.send( await Get.getTotalMember())
+});
+
+//Get Total Active Member
+app.get('/tam', async (req, res) => {
+    res.send( await Get.getTotalActiveMember() )
 });
 
 //Post  

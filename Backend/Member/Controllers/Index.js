@@ -14,6 +14,10 @@ class Controllers{
         return Request.getTotalMember();
     }
 
+    reqTotalActiveMember(){
+        return Request.getTotalActiveMember();
+    }
+
     postDataMember(clientParam){
         return Post.postDataMember(clientParam);
     }
