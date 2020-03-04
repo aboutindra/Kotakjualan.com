@@ -26,6 +26,11 @@ app.get('/tam', async (req, res) => {
     res.send( await Get.getTotalActiveMember() )
 });
 
+//Get Total Non-Active Member
+app.get('/tnm', async (req, res) => {
+    res.send( await Get.getTotalNonActiveMember() )
+});
+
 //Post  
 app.post('/im', async (req,res) => {
 

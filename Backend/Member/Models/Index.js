@@ -65,6 +65,10 @@ class Models{
         return Read.readTotalActiveMember(this.members);
     }
 
+    readTotalNonActiveMember(){
+        return Read.readTotalNonActiveMember(this.members);
+    }
+
 }
 
 module.exports = Models;

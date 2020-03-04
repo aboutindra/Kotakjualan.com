@@ -15,6 +15,10 @@ class Request{
         return DB.readTotalActiveMember();
     }
 
+    getTotalNonActiveMember(){
+        return DB.readTotalNonActiveMember();
+    }
+
 }
 
 module.exports = Request;

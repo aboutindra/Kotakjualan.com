@@ -18,6 +18,10 @@ class Controllers{
         return Request.getTotalActiveMember();
     }
 
+    reqTotalNonActiveMember(){
+        return Request.getTotalNonActiveMember();
+    }
+
     postDataMember(clientParam){
         return Post.postDataMember(clientParam);
     }

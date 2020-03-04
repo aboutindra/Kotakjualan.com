@@ -30,5 +30,13 @@ class Read{
 
     }
 
+    async readTotalNonActiveMember(memberCol){
+
+        let getNonActive = await memberCol.find({ staanggota: "Not Active" }).count();
+        let result = { total : getNonActive };
+        return result;
+
+    }
+
 }
 module.exports = Read;

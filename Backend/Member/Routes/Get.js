@@ -15,6 +15,10 @@ class Get{
         return Control.reqTotalActiveMember();
     }
 
+    getTotalNonActiveMember(){
+        return Control.reqTotalNonActiveMember();
+    }
+
 }
 
 module.exports = Get;
