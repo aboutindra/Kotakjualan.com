@@ -2,7 +2,7 @@ const async = require('async');
 
 class Schema{
 
-  createAllCollection(err, con){
+  createAllCollection(err, con){    
 
     let db = con.db('KoperasiDB');
 

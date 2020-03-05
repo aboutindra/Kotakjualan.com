@@ -1,10 +1,18 @@
 const express = require('express');
+
 const bp = require('body-parser');
+
+const comp = require('compression');
 
 const routes = require('./Routes/Index');
 
+const Model = require('./Models/Index');
+const model = new Model();
+
 const app = new express();
+
 app.use('/api/v1/member' , routes);
+app.use(comp());
 app.use(bp.json);
 app.use(bp.urlencoded({ extended: true }));
 
@@ -16,6 +24,8 @@ app.listen(3001, (err) => {
     app.put('*', async( req, res ) => { res.send({ status: "OK" }) });
     app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
     app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
+
+    model.initDB();
 
     console.log("[✔] Successfully running Client Microservices at http://localhost:3001/")
 
