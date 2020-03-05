@@ -38,5 +38,13 @@ class Read{
 
     }
 
+    async readLastIDMember(logsCol){
+
+        let getLastID = await logsCol.find().toArray();
+        let result = { id_member : getLastID[0].id_member };
+        return result;
+
+    }
+
 }
 module.exports = Read;

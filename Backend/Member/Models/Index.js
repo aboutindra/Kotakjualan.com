@@ -69,6 +69,10 @@ class Models{
         return Read.readTotalNonActiveMember(this.members);
     }
 
+    readLastIDMember(){
+        return Read.readLastIDMember(this.logs);
+    }
+
 }
 
 module.exports = Models;
