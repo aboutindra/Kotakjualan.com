@@ -1,7 +1,7 @@
 {
   "name": "client_backend",
   "version": "1.0.0",
-  "description": "Client Microservice",
+  "description": "Member Microservice",
   "main": "index.js",
   "dependencies": {
     "async": "^3.2.0",

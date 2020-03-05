@@ -6,7 +6,7 @@ class Read{
     }
 
     async readDataMember(searchParam, memberCol){
-        let status = {status: false, message: "Member not found"};
+        let status;
         let generateDeleteParam = () => {
             return Object.assign({}, ...searchParam);
         };
