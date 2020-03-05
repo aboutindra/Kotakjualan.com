@@ -36,12 +36,16 @@ app.get('/lim', async (req, res) => {
     res.send( await Get.getLastIDMember() )
 });
 
+//Get Last NoKop
+app.get('/lnk', async (req, res) => {
+    res.send( await Get.getLastNoKop() );
+});
+
 //Post Member Data
 app.post('/im', async (req,res) => {
 
-    let nokop = req.body.nokop;
-    let nik = req.body.nik;
-    let idcard = req.body.idcard;
+    let parameter = req.body.parameter;
+    /*let nik = req.body.nik;
     let nama = req.body.nama;
     let shop = req.body.shop;
     let dept = req.body.dept;
@@ -50,11 +54,11 @@ app.post('/im', async (req,res) => {
     let tglkeluar = req.body.tglkeluar;
     let staanggota = req.body.staanggota;
     let stakaryawan = req.body.stakaryawan;
-    let ket = req.body.ket;
+    let ket = req.body.ket;*/
 
-    let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };
-    console.log(memberParam);
-    res.send( { data : await Post.postDataMember(memberParam)});
+    /*let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };*/
+
+    res.send( { data : await Post.postDataMember(parameter)});
 
 });
 

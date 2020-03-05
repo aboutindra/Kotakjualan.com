@@ -23,6 +23,10 @@ class Request{
         return DB.readLastIDMember();
     }
 
+    getLastNoKop(){
+        return DB.readLastNoKop();
+    }
+
 }
 
 module.exports = Request;

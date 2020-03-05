@@ -23,6 +23,10 @@ class Get{
         return Control.reqLastIDMember();
     }
 
+    getLastNoKop(){
+        return Control.reqLastNoKop();
+    }
+
 }
 
 module.exports = Get;

@@ -42,6 +42,10 @@ class Controllers{
         return Request.getLastIDMember();
     }
 
+    getLastNoKop(){
+        return Request.getLastNoKop();
+    }
+
 }
 
 module.exports = Controllers;

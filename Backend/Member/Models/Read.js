@@ -41,7 +41,15 @@ class Read{
     async readLastIDMember(logsCol){
 
         let getLastID = await logsCol.find().toArray();
-        let result = { id_member : getLastID[0].id_member };
+        let result = { IDCard : getLastID[0].IDCard };
+        return result;
+
+    }
+
+    async readLastNoKop(logsCol) {
+
+        let getLastID = await logsCol.find().toArray();
+        let result = { NoKop : getLastID[0].NoKop };
         return result;
 
     }

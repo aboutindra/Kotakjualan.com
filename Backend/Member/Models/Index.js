@@ -83,6 +83,10 @@ class Models{
         return Read.readLastIDMember(this.logs);
     }
 
+    readLastNoKop(){
+        return Read.readLastNoKop(this.logs);
+    }
+
 }
 
 module.exports = Models;
