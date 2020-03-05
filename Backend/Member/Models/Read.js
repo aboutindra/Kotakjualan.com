@@ -6,7 +6,7 @@ class Read{
     }
 
     async readDataMember(searchParam, memberCol){
-        let status = {status: false, message: "Member not found"};
+        let status;
         let generateDeleteParam = () => {
             return Object.assign({}, ...searchParam);
         };
@@ -34,6 +34,14 @@ class Read{
 
         let getNonActive = await memberCol.find({ staanggota: "Not Active" }).count();
         let result = { total : getNonActive };
+        return result;
+
+    }
+
+    async readLastIDMember(logsCol){
+
+        let getLastID = await logsCol.find().toArray();
+        let result = { id_member : getLastID[0].id_member };
         return result;
 
     }

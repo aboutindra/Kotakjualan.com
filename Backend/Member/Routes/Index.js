@@ -31,7 +31,12 @@ app.get('/tnm', async (req, res) => {
     res.send( await Get.getTotalNonActiveMember() )
 });
 
-//Post  
+//Get Last ID Member
+app.get('/lim', async (req, res) => {
+    res.send( await Get.getLastIDMember() )
+});
+
+//Post Member Data
 app.post('/im', async (req,res) => {
 
     let nokop = req.body.nokop;
@@ -53,11 +58,13 @@ app.post('/im', async (req,res) => {
 
 });
 
+//Post Find Member Data
 app.post('/fm', async (req, res) => {
     let searchParam = req.body.parameter;
     res.send({ data : await Post.searchDataMember(searchParam)})
 });
 
+//Put Update Member Data
 app.put('/um', async (req, res) => {
 
     let update = req.body.parameter;
@@ -65,6 +72,7 @@ app.put('/um', async (req, res) => {
 
 });
 
+//Delete Member Data
 app.delete('/dm', async (req, res) => {
 
     let id_member = req.body.parameter;

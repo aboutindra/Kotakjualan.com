@@ -19,6 +19,10 @@ class Request{
         return DB.readTotalNonActiveMember();
     }
 
+    getLastIDMember(){
+        return DB.readLastIDMember();
+    }
+
 }
 
 module.exports = Request;

@@ -19,6 +19,10 @@ class Get{
         return Control.reqTotalNonActiveMember();
     }
 
+    getLastIDMember(){
+        return Control.reqLastIDMember();
+    }
+
 }
 
 module.exports = Get;

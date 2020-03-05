@@ -38,6 +38,9 @@ class Controllers{
         return Post.searchDataMember(id_member);
     }
 
+    reqLastIDMember(){
+        return Request.getLastIDMember();
+    }
 
 }
 
