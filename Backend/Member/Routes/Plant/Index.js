@@ -16,4 +16,9 @@ app.get('/gp', async (req, res) => {
     res.send( await Get.getAllPlant() );
 });
 
+//Get Plant Data with specific ID
+app.get('/gpi', async (req, res) => {
+    res.send( await Post.searchDataPlant( req.body.parameter ) )
+});
+
 module.exports = app;

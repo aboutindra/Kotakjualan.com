@@ -62,6 +62,10 @@ class Controllers{
         return Post.searchDataMember(id_member);
     }
 
+    searchDataPlant(idPlant){
+        return Post.searchDataPlant(idPlant);
+    }
+
     reqLastIDMember(){
         return Request.getLastIDMember();
     }

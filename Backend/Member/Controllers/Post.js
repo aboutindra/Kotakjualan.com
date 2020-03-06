@@ -35,5 +35,9 @@ class Post{
         return DB.readDataMember(id_param);
     }
 
+    searchDataPlant(idPlant){
+        return DB.readDataPlant(idPlant);
+    }
+
 }
 module.exports = Post;

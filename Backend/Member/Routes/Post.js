@@ -35,5 +35,9 @@ class Post{
         return Control.searchDataMember(searchParam);
     }
 
+    searchDataPlant(searchParam){
+        return Control.searchDataPlant(searchParam);
+    }
+
 }
 module.exports = Post;

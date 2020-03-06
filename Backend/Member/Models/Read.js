@@ -15,6 +15,16 @@ class Read{
         return data
     }
 
+    async readDataPlant(idPlant, plantCol){
+        let status;
+        let unWrap = () => {
+            return Object.assign({}, ...idPlant);
+        };
+        let statusFind = await plantCol.find(unWrap()).toArray();
+        if(statusFind.length !== 0 ? status = statusFind : status = {status: false, message: "Plant not found"} );
+        return status;
+    }
+
     async readDataMember(searchParam, memberCol){
         let status;
         let generateDeleteParam = () => {

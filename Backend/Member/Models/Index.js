@@ -63,6 +63,10 @@ class Models{
         return Read.readAllPlant(this.plant);
     }
 
+    readDataPlant(idPlant){
+        return Read.readDataPlant(idPlant, this.plant);
+    }
+
     insertDataMember(clientParam){
         return Insert.insertDataMember(clientParam, this.members, this.logs);
     }
