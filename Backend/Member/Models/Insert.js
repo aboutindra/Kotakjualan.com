@@ -27,7 +27,7 @@ class Insert{
                 };
 
                 let personalData = Object.assign({}, ...memberParam);
-                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : personalData.nik, nama : personalData.nama, shop : personalData.shop, plant : personalData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : "TRUE", staKaryawan : "TRUE", Ket : "Aktif" };
+                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : personalData.nik, nama : personalData.nama, tglLahir : personalData.tglLahir , shop : personalData.shop, plant : personalData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : "TRUE", staKaryawan : "TRUE", Ket : "Aktif" };
                 console.log(data);
                 return await data;
 

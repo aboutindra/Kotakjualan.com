@@ -4,7 +4,11 @@ const DB = new model();
 class Request{
 
     getAllClientData(){
-        return DB.readAllData();
+        return DB.readAllMemberData();
+    }
+
+    getAllDeptData(){
+        return DB.readAllDeptData();
     }
 
     getTotalMember(){

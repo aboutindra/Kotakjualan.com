@@ -7,6 +7,10 @@ class Get{
         return Control.reqAllClientData();
     }
 
+    getAllDept(){
+        return Control.reqAllDeptData();
+    }
+
     getTotalMember(){
         return Control.reqTotalMember();
     }

@@ -5,6 +5,11 @@ class Read{
        return data;
     }
 
+    async readAllDeptData(deptCol){
+        let data = await deptCol.find().toArray();
+        return data;
+    }
+
     async readDataMember(searchParam, memberCol){
         let status;
         let generateDeleteParam = () => {

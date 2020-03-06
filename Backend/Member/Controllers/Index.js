@@ -10,6 +10,10 @@ class Controllers{
         return Request.getAllClientData();
     }
 
+    reqAllDeptData(){
+        return Request.getAllDeptData();
+    }
+
     reqTotalMember(){
         return Request.getTotalMember();
     }
