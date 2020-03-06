@@ -24,7 +24,7 @@ class Read{
 
     async readTotalActiveMember(memberCol){
 
-        let getActive = await memberCol.find({staKaryawan : "TRUE"}).count();
+        let getActive = await memberCol.find({staMember : "TRUE"}).count();
         let result = { total:getActive };
         return result;
 
@@ -32,7 +32,7 @@ class Read{
 
     async readTotalNonActiveMember(memberCol){
 
-        let getNonActive = await memberCol.find({ staKaryawan: "FALSE" }).count();
+        let getNonActive = await memberCol.find({ staMember: "FALSE" }).count();
         let result = { total : getNonActive };
         return result;
 
