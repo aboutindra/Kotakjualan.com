@@ -75,6 +75,14 @@ class Models{
         return Update.updateDataMember(clientParam, this.members);
     }
 
+    updateDataDept(deptParam){
+        return Update.updateDataDept(deptParam, this.dept);
+    }
+
+    deleteDataDept(deptParam){
+        return Drop.dropDataDept(deptParam, this.dept);
+    }
+
     deleteDataMember(id_member){
         return Drop.dropDataMember(id_member, this.members);
     }

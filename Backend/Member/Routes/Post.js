@@ -23,6 +23,14 @@ class Post{
         return Control.deleteDataMember(id_member);
     }
 
+    updateDataDept(deptParam){
+        return Control.updateDataDept(deptParam)
+    }
+
+    deleteDataDept(deptParam){
+        return Control.deleteDataDept(deptParam)
+    }
+
     searchDataMember(searchParam){
         return Control.searchDataMember(searchParam);
     }

@@ -24,4 +24,12 @@ app.post('/fd', async (req, res) => {
    res.send( await Post.postFindDataDept( req.body.parameter ))
 });
 
+app.update('/ud', async (req, res) => {
+    res.send( await Post.updateDataDept( await req.body.parameter ));
+});
+
+app.delete('/dd', async (req, res) => {
+    res.send( await Post.deleteDataDept( await req.body.parameter ));
+});
+
 module.exports = app;

@@ -23,6 +23,14 @@ class Post{
         return DB.deleteDataMember(id_param);
     }
 
+    updateDataDept(clientParam){
+        return DB.updateDataDept(clientParam);
+    }
+
+    deleteDataDept(id_param){
+        return DB.deleteDataDept(id_param);
+    }
+
     searchDataMember(id_param){
         return DB.readDataMember(id_param);
     }

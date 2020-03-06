@@ -15,5 +15,20 @@ class Update{
 
     }
 
+    async updateDataDept(deptParam, deptCol){
+
+        let statusUpdate;
+        let generateUpdateParam = () => {
+            return Object.assign({}, ...deptParam);
+        };
+        console.log(generateUpdateParam());
+        generateUpdateParam();
+        let statusUpdateData = await deptCol.findOneAndUpdate(deptParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Dept data successfully updated"} : statusUpdate = { status: false, message: "1 Dept data failed to updated" });
+
+        return statusUpdate;
+
+    }
+
 }
 module.exports = Update;

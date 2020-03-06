@@ -46,6 +46,14 @@ class Controllers{
         return Post.deleteDataMember(id_member);
     }
 
+    updateDataDept(deptParam){
+        return Post.updateDataDept(deptParam);
+    }
+
+    deleteDataDept(deptParam){
+        return Post.deleteDataDept(deptParam);
+    }
+
     searchDataMember(id_member){
         return Post.searchDataMember(id_member);
     }
