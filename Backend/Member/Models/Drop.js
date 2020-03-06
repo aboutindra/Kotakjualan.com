@@ -10,4 +10,4 @@ class Drop{
         return status;
     }
 }
-module.exports = Drop
+module.exports = Drop;

@@ -7,6 +7,10 @@ class Get{
         return Control.reqAllClientData();
     }
 
+    getAllDept(){
+        return Control.reqAllDeptData();
+    }
+
     getTotalMember(){
         return Control.reqTotalMember();
     }
@@ -21,6 +25,10 @@ class Get{
 
     getLastIDMember(){
         return Control.reqLastIDMember();
+    }
+
+    getLastNoKop(){
+        return Control.reqLastNoKop();
     }
 
 }

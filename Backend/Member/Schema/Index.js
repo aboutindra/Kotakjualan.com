@@ -16,7 +16,7 @@ class Schema{
 
       },
 
-      createPlant :async function(){
+      createPlant : async function(){
 
         await db.createCollection("Plant");        
 

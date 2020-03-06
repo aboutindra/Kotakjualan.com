@@ -5,6 +5,11 @@ class Read{
        return data;
     }
 
+    async readAllDeptData(deptCol){
+        let data = await deptCol.find().toArray();
+        return data;
+    }
+
     async readDataMember(searchParam, memberCol){
         let status;
         let generateDeleteParam = () => {
@@ -24,7 +29,7 @@ class Read{
 
     async readTotalActiveMember(memberCol){
 
-        let getActive = await memberCol.find({staanggota : "Active"}).count();
+        let getActive = await memberCol.find({staMember : "TRUE"}).count();
         let result = { total:getActive };
         return result;
 
@@ -32,7 +37,7 @@ class Read{
 
     async readTotalNonActiveMember(memberCol){
 
-        let getNonActive = await memberCol.find({ staanggota: "Not Active" }).count();
+        let getNonActive = await memberCol.find({ staMember: "FALSE" }).count();
         let result = { total : getNonActive };
         return result;
 
@@ -41,7 +46,15 @@ class Read{
     async readLastIDMember(logsCol){
 
         let getLastID = await logsCol.find().toArray();
-        let result = { id_member : getLastID[0].id_member };
+        let result = { idCard : getLastID[0].idCard };
+        return result;
+
+    }
+
+    async readLastNoKop(logsCol) {
+
+        let getLastID = await logsCol.find().toArray();
+        let result = { noKop : getLastID[0].noKop };
         return result;
 
     }

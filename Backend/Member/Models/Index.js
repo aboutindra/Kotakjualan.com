@@ -42,13 +42,21 @@ class Models{
         this.db = con.db('KoperasiDB');
         this.members = this.db.collection('Members');
         this.logs = this.db.collection('Logs');        
+        this.dept = this.db.collection('Dept');
+        this.plant = this.db.collection('Plant');
+        this.shop = this.db.collection('Shop');
+
 
       });
 
     }
 
-    readAllData(){
+    readAllMemberData(){
         return Read.readAll(this.members);
+    }
+
+    readAllDeptData(){
+        return Read.readAllDeptData(this.dept);
     }
 
     insertDataMember(clientParam){
@@ -81,6 +89,10 @@ class Models{
 
     readLastIDMember(){
         return Read.readLastIDMember(this.logs);
+    }
+
+    readLastNoKop(){
+        return Read.readLastNoKop(this.logs);
     }
 
 }

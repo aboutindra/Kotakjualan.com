@@ -10,6 +10,10 @@ class Controllers{
         return Request.getAllClientData();
     }
 
+    reqAllDeptData(){
+        return Request.getAllDeptData();
+    }
+
     reqTotalMember(){
         return Request.getTotalMember();
     }
@@ -40,6 +44,10 @@ class Controllers{
 
     reqLastIDMember(){
         return Request.getLastIDMember();
+    }
+
+    reqLastNoKop(){
+        return Request.getLastNoKop();
     }
 
 }
