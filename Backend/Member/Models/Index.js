@@ -91,6 +91,10 @@ class Models{
         return Update.updateDataDept(deptParam, this.dept);
     }
 
+    updateDataPlant(plantParam){
+        return Update.updateDataPlant(plantParam, this.plant)
+    }
+
     deleteDataDept(deptParam){
         return Drop.dropDataDept(deptParam, this.dept);
     }

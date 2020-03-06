@@ -31,6 +31,10 @@ class Post{
         return DB.updateDataDept(clientParam);
     }
 
+    updateDataPlant(plantParam){
+        return DB.updateDataPlant(plantParam);
+    }
+
     deleteDataDept(id_param){
         return DB.deleteDataDept(id_param);
     }

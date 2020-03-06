@@ -31,6 +31,10 @@ class Post{
         return Control.updateDataDept(deptParam)
     }
 
+    updateDataPlant(plantParam){
+        return Control.updateDataPlant(plantParam)
+    }
+
     deleteDataDept(deptParam){
         return Control.deleteDataDept(deptParam)
     }

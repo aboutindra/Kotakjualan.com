@@ -50,6 +50,10 @@ class Controllers{
         return Post.updateDataMember(clientParam);
     }
 
+    updateDataPlant(plantParam){
+        return Post.updateDataPlant(plantParam);
+    }
+
     deleteDataMember(id_member){
         return Post.deleteDataMember(id_member);
     }
