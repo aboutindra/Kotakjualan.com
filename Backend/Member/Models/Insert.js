@@ -27,7 +27,7 @@ class Insert{
                 };
 
                 let personalData = Object.assign({}, ...memberParam);
-                let data = { IDCard : getID[0].IDCard, NoKop : getID[0].NoKop, NIK : personalData.NIK, Nama : personalData.Nama, Shop : personalData.Shop, Plant : personalData.Plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : "TRUE", staKaryawan : "TRUE", Ket : "Aktif" }
+                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : personalData.nik, nama : personalData.nama, shop : personalData.shop, plant : personalData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : "TRUE", staKaryawan : "TRUE", Ket : "Aktif" };
                 console.log(data);
                 return await data;
 
@@ -38,7 +38,7 @@ class Insert{
             let statusInsert = await membersCol.insertOne(await dataWantToInsert());
             if( statusInsert ? hasilnya2 = { status: true, message: "1 Member successfully inserted"  } : hasilnya2 = { status: false, message: "1 Member failed inserted" }  )
 
-                logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set : { IDCard: getID[0].IDCard + 1 , NoKop : getID[0].NoKop + 1 }});
+                logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set : { idCard: getID[0].idCard + 1 , noKop : getID[0].noKop + 1 }});
 
             return hasilnya2;
 

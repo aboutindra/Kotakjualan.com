@@ -42,7 +42,7 @@ class Controllers{
         return Request.getLastIDMember();
     }
 
-    getLastNoKop(){
+    reqLastNoKop(){
         return Request.getLastNoKop();
     }
 
