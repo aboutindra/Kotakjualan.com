@@ -26,6 +26,10 @@ class Controllers{
         return Request.getTotalNonActiveMember();
     }
 
+    postDataDept(deptParam){
+        return Post.postDataDept(deptParam);
+    }
+
     postDataMember(clientParam){
         return Post.postDataMember(clientParam);
     }

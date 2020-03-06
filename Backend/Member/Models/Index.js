@@ -63,6 +63,10 @@ class Models{
         return Insert.insertDataMember(clientParam, this.members, this.logs);
     }
 
+    insertDataDept(deptParam){
+        return Insert.insertDataDept(deptParam, this.dept, this.logs);
+    }
+
     updateDataMember(clientParam){
         return Update.updateDataMember(clientParam, this.members);
     }

@@ -16,4 +16,9 @@ app.get('/gd', async (req, res) => {
     res.send( await Get.getAllDept() );
 });
 
+app.post('/id', async (req, res) => {
+   res.send( await Post.postDataDept( req.body.parameter ))
+});
+
+
 module.exports = app;

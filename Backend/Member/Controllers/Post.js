@@ -7,6 +7,10 @@ class Post{
         return DB.insertDataMember(clientParam);
     }
 
+    postDataDept(deptParam){
+        return DB.insertDataDept(deptParam);
+    }
+
     updateDataMember(clientParam){
         return DB.updateDataMember(clientParam);
     }

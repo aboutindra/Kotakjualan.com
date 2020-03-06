@@ -7,6 +7,10 @@ class Post{
         return Control.postDataMember(clientParam);
     }
 
+    postDataDept(deptParam){
+        return Control.postDataDept(deptParam);
+    }
+
     updateDataMember(clientParam){
         return Control.updateDataMember(clientParam);
     }

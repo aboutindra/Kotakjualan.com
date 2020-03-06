@@ -48,5 +48,37 @@ class Insert{
 
     }
 
+    async insertDataDept(deptParam, deptCol, logsCol){
+
+        let checkDataIsComplete = true;
+
+        for(let i = 0; i <= 1; i++){
+
+            if(deptParam[i] === null || deptParam[i] === undefined || deptParam[i] === ""){
+                checkDataIsComplete = false;
+            }
+
+        }
+
+        if(checkDataIsComplete){
+
+            let hasilnya;
+            let getID = await logsCol.find().toArray();
+            let deptParams = Object.assign({}, ...deptParam);
+            console.log(deptParams.nama, deptParams.idPlant);
+
+            let dataWantToInsert = { idDept : getID[0].idDept, name : deptParams.nama, idPlant : Number(deptParams.idPlant) };
+            let statusInsert = await deptCol.insertOne(dataWantToInsert);
+
+            if(statusInsert ? hasilnya = { status: true, message: "1 Dept successfully inserted"  } : hasilnya = { status: false, message: "1 Dept failed to inserted"  });
+            logsCol.findOneAndUpdate({_id : getID[0]._id}, {$set : {idDept : getID[0].idDept + 1}});
+            return hasilnya;
+
+        } else {
+            return checkDataIsComplete;
+        }
+
+    }
+
 }
 module.exports = Insert;
