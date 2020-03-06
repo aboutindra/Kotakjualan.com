@@ -103,6 +103,10 @@ class Models{
         return Drop.dropDataMember(id_member, this.members);
     }
 
+    deleteDataPlant(plantParam){
+        return Drop.dropDataPlant(plantParam, this.plant);
+    }
+
     readDataMember(searchParam){
         return Read.readDataMember(searchParam, this.members);
     }

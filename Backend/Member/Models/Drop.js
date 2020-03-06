@@ -6,7 +6,7 @@ class Drop{
             return Object.assign({}, ...id_member);
         };
         let statusDrop = await membersCol.findOneAndDelete(generateDeleteParam());
-        if(statusDrop ? status = { status: true, message: "1 Member data successfully updated" } : status = { status: false, message: "1 Member data failed updated" });
+        if(statusDrop ? status = { status: true, message: "1 Member data successfully deleted" } : status = { status: false, message: "1 Member data failed deleted" });
         return status;
     }
 
@@ -16,8 +16,19 @@ class Drop{
             return Object.assign({}, ...idDept);
         };
         let statusDrop = await deptCol.findOneAndDelete(generateDeleteParam());
-        if(statusDrop ? status = { status: true, message: "1 Dept data successfully updated" } : status = { status: false, message: "1 Dept data failed updated" });
+        if(statusDrop ? status = { status: true, message: "1 Dept data successfully deleted" } : status = { status: false, message: "1 Dept data failed deleted" });
         return status;
     }
+
+    async dropDataPlant(plantParam, plantCol){
+        let status;
+        let generateDeleteParam = () => {
+            return Object.assign({}, ...plantParam);
+        };
+        let statusDrop = await plantCol.findOneAndDelete(generateDeleteParam());
+        if( statusDrop ? status = { status: true, message: "1 Plant data successfully deleted" } : status = { status: false, message: "1 Dept data failed deleted" } );
+        return status;
+    }
+
 }
 module.exports = Drop;

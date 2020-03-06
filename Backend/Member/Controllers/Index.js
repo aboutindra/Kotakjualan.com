@@ -66,6 +66,10 @@ class Controllers{
         return Post.deleteDataDept(deptParam);
     }
 
+    deleteDataPlant(plantParam){
+        return Post.deleteDataPlant(plantParam);
+    }
+
     searchDataMember(id_member){
         return Post.searchDataMember(id_member);
     }
