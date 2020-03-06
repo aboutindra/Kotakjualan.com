@@ -80,8 +80,14 @@ class Insert{
 
     }
 
-    async findDataDept(deptParam, deptCol){
+    async insertDataPlant(plantParam, plantCol, logsCol){
+        let checkDataIsComplete = true;
 
+        if( plantParam !== 0 ? checkDataIsComplete = true : checkDataIsComplete = false );
+
+        if(checkDataIsComplete){
+
+        }
     }
 
 }

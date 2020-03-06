@@ -11,6 +11,10 @@ class Post{
         return Control.postDataDept(deptParam);
     }
 
+    postDataPlant(plantParam){
+        return Control.postDataPlant(plantParam);
+    }
+
     postFindDataDept(deptParam){
         return Control.postFindDataDept(deptParam);
     }

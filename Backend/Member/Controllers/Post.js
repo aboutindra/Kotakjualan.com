@@ -15,6 +15,10 @@ class Post{
         return DB.insertFindDataDept(deptParam);
     }
 
+    postDataPlant(plantParam){
+        return DB.insertDataPlant(plantParam);
+    }
+
     updateDataMember(clientParam){
         return DB.updateDataMember(clientParam);
     }

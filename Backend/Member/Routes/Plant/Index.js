@@ -21,4 +21,8 @@ app.get('/gpi', async (req, res) => {
     res.send( await Post.searchDataPlant( req.body.parameter ) )
 });
 
+app.post('/ip', async (req, res) => {
+    res.send( await Post.postDataPlant( req.body.parameter ) )
+});
+
 module.exports = app;

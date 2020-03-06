@@ -42,6 +42,10 @@ class Controllers{
         return Post.postDataMember(clientParam);
     }
 
+    postDataPlant(plantParam){
+        return Post.postDataPlant(plantParam);
+    }
+
     updateDataMember(clientParam){
         return Post.updateDataMember(clientParam);
     }
