@@ -11,6 +11,10 @@ class Post{
         return Control.postDataDept(deptParam);
     }
 
+    postFindDataDept(deptParam){
+        return Control.postFindDataDept(deptParam);
+    }
+
     updateDataMember(clientParam){
         return Control.updateDataMember(clientParam);
     }

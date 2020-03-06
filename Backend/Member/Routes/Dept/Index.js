@@ -20,5 +20,8 @@ app.post('/id', async (req, res) => {
    res.send( await Post.postDataDept( req.body.parameter ))
 });
 
+app.post('/fd', async (req, res) => {
+   res.send( await Post.postFindDataDept( req.body.parameter ))
+});
 
 module.exports = app;

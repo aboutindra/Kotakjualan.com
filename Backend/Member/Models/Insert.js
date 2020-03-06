@@ -80,5 +80,9 @@ class Insert{
 
     }
 
+    async findDataDept(deptParam, deptCol){
+
+    }
+
 }
 module.exports = Insert;

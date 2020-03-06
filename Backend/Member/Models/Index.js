@@ -67,6 +67,10 @@ class Models{
         return Insert.insertDataDept(deptParam, this.dept, this.logs);
     }
 
+    insertFindDataDept(deptParam){
+        return Read.readDataDept(deptParam, this.dept);
+    }
+
     updateDataMember(clientParam){
         return Update.updateDataMember(clientParam, this.members);
     }

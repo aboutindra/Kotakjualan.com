@@ -21,6 +21,17 @@ class Read{
         return status;
     }
 
+    async readDataDept(searchParam, deptCol){
+        let status;
+        let generateDeleteparam = () => {
+            return Object.assign({}, ...searchParam);
+        }
+        console.log(generateDeleteparam());
+        let statusFind = await deptCol.find(generateDeleteparam()).toArray();
+        if(statusFind.length !== 0 ? status = statusFind : status = { status: false, message : "Dept not found" } );
+        return status;
+    }
+
     async readTotalMember(memberCol){
         let getAll = await memberCol.find().count();
         let result = { total : getAll };

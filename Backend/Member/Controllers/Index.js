@@ -30,6 +30,10 @@ class Controllers{
         return Post.postDataDept(deptParam);
     }
 
+    postFindDataDept(deptParam){
+        return Post.postFindDataDept(deptParam);
+    }
+
     postDataMember(clientParam){
         return Post.postDataMember(clientParam);
     }
