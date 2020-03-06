@@ -11,6 +11,10 @@ class Get{
         return Control.reqAllDeptData();
     }
 
+    getAllPlant(){
+        return Control.reqAllPlantData();
+    }
+
     getTotalMember(){
         return Control.reqTotalMember();
     }

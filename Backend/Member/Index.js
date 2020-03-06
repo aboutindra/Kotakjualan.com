@@ -6,6 +6,7 @@ const comp = require('compression');
 
 const memberRoutes = require('./Routes/Index');
 const deptRoutes = require('./Routes/Dept/Index');
+const plantRoutes = require('./Routes/Plant/Index');
 
 const Model = require('./Models/Index');
 const model = new Model();
@@ -14,6 +15,7 @@ const app = new express();
 
 app.use('/api/v1/member' , memberRoutes);
 app.use('/api/v1/dept' , deptRoutes);
+app.use('/api/v1/plant' , plantRoutes);
 app.use(comp());
 app.use(bp.json);
 app.use(bp.urlencoded({ extended: true }));

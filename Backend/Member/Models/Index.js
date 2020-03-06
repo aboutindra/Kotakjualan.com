@@ -56,7 +56,11 @@ class Models{
     }
 
     readAllDeptData(){
-        return Read.readAllDeptData(this.dept);
+        return Read.readAllDept(this.dept);
+    }
+
+    readAllPlantData(){
+        return Read.readAllPlant(this.plant);
     }
 
     insertDataMember(clientParam){

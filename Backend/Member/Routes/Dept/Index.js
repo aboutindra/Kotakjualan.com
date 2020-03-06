@@ -24,7 +24,7 @@ app.post('/fd', async (req, res) => {
    res.send( await Post.postFindDataDept( req.body.parameter ))
 });
 
-app.update('/ud', async (req, res) => {
+app.put('/ud', async (req, res) => {
     res.send( await Post.updateDataDept( await req.body.parameter ));
 });
 

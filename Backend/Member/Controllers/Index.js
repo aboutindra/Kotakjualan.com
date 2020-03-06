@@ -14,6 +14,10 @@ class Controllers{
         return Request.getAllDeptData();
     }
 
+    reqAllPlantData(){
+        return Request.getAllPlantData();
+    }
+
     reqTotalMember(){
         return Request.getTotalMember();
     }

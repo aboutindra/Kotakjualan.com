@@ -5,9 +5,14 @@ class Read{
        return data;
     }
 
-    async readAllDeptData(deptCol){
+    async readAllDept(deptCol){
         let data = await deptCol.find().toArray();
         return data;
+    }
+
+    async readAllPlant(plantCol){
+        let data = await plantCol.find().toArray();
+        return data
     }
 
     async readDataMember(searchParam, memberCol){

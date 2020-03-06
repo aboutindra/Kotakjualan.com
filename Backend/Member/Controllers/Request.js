@@ -10,6 +10,10 @@ class Request{
     getAllDeptData(){
         return DB.readAllDeptData();
     }
+    
+    getAllPlantData(){
+        return DB.readAllPlantData();
+    }
 
     getTotalMember(){
         return DB.readTotalMember();
