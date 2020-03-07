@@ -25,4 +25,12 @@ app.post('/ip', async (req, res) => {
     res.send( await Post.postDataPlant( req.body.parameter ) )
 });
 
+app.put('/up', async (req, res) => {
+    res.send( await Post.updateDataPlant( req.body.parameter ) )
+});
+
+app.delete('/dp', async (req, res) => {
+    res.send( await Post.deleteDataPlant( req.body.parameter ))
+});
+
 module.exports = app;

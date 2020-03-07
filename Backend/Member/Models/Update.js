@@ -30,5 +30,19 @@ class Update{
 
     }
 
+    async updateDataPlant(plantParam, plantCol){
+
+        let statusUpdate;
+        let generateUpdateParam = () => {
+            return Object.assign({}, ...plantParam);
+        };
+        console.log(generateUpdateParam());
+        let statusUpdateData = await plantCol.findOneAndUpdate(plantParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Plant data successfully updated" } : statusUpdate = { status: false, message: "1 Plant data failed to updated" });
+
+        return statusUpdate;
+
+    }
+
 }
 module.exports = Update;

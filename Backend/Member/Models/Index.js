@@ -91,12 +91,20 @@ class Models{
         return Update.updateDataDept(deptParam, this.dept);
     }
 
+    updateDataPlant(plantParam){
+        return Update.updateDataPlant(plantParam, this.plant)
+    }
+
     deleteDataDept(deptParam){
         return Drop.dropDataDept(deptParam, this.dept);
     }
 
     deleteDataMember(id_member){
         return Drop.dropDataMember(id_member, this.members);
+    }
+
+    deleteDataPlant(plantParam){
+        return Drop.dropDataPlant(plantParam, this.plant);
     }
 
     readDataMember(searchParam){

@@ -27,8 +27,16 @@ class Post{
         return Control.deleteDataMember(id_member);
     }
 
+    deleteDataPlant(plantParam){
+        return Control.deleteDataPlant(plantParam);
+    }
+
     updateDataDept(deptParam){
         return Control.updateDataDept(deptParam)
+    }
+
+    updateDataPlant(plantParam){
+        return Control.updateDataPlant(plantParam)
     }
 
     deleteDataDept(deptParam){

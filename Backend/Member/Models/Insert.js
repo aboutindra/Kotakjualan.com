@@ -86,8 +86,19 @@ class Insert{
         if( plantParam !== 0 ? checkDataIsComplete = true : checkDataIsComplete = false );
 
         if(checkDataIsComplete){
+            let hasilnya;
+            let getID = await logsCol.find().toArray();
+            let dataWantToInsert = { id : getID[0].idPlant, name : plantParam[0].name };
 
+            let statusInsert = await plantCol.insertOne(dataWantToInsert);
+
+            if(statusInsert ? hasilnya = { status: true, message: "1 Dept successfully inserted" } : hasilnya = { status: false, message: "1 Dept failed inserted" } );
+            logsCol.findOneAndUpdate({ _id : getID[0]._id }, { $set : { idPlant : getID[0].idPlant + 1 }});
+            return hasilnya;
+        }else {
+            return checkDataIsComplete;
         }
+
     }
 
 }
