@@ -83,6 +83,10 @@ class Models{
         return Insert.insertDataDept(deptParam, this.dept, this.logs);
     }
 
+    insertDataShop(shopParam){
+        return Insert.insertDataShop(shopParam, this.shop, this.logs);
+    }
+
     insertFindDataDept(deptParam){
         return Read.readDataDept(deptParam, this.dept);
     }

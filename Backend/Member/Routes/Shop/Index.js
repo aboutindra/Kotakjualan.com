@@ -42,7 +42,7 @@ app.get('/lnk', async (req, res) => {
 });
 
 //Post Member Data
-app.post('/im', async (req,res) => {
+app.post('/is', async (req,res) => {
 
     let parameter = req.body.parameter;
     /*let nik = req.body.nik;
@@ -58,7 +58,7 @@ app.post('/im', async (req,res) => {
 
     /*let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };*/
 
-    res.send( { data : await Post.postDataMember(parameter)});
+    res.send( await Post.postDataShop(parameter) );
 
 });
 

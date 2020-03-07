@@ -50,6 +50,10 @@ class Controllers{
         return Post.postDataPlant(plantParam);
     }
 
+    postDataShop(shopParam){
+        return Post.postDataShop(shopParam);
+    }
+
     updateDataMember(clientParam){
         return Post.updateDataMember(clientParam);
     }

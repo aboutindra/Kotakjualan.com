@@ -19,6 +19,10 @@ class Post{
         return DB.insertDataPlant(plantParam);
     }
 
+    postDataShop(shopParam){
+        return DB.insertDataShop(shopParam);
+    }
+
     updateDataMember(clientParam){
         return DB.updateDataMember(clientParam);
     }

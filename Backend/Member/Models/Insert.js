@@ -88,7 +88,7 @@ class Insert{
     async insertDataPlant(plantParam, plantCol, logsCol){
         let checkDataIsComplete = true;
 
-        if( plantParam !== 0 ? checkDataIsComplete = true : checkDataIsComplete = false );
+        if( plantParam.length !== 0 ? checkDataIsComplete = true : checkDataIsComplete = false );
 
         if(checkDataIsComplete){
             let hasilnya;
@@ -104,6 +104,32 @@ class Insert{
             return checkDataIsComplete;
         }
 
+    }
+
+    async insertDataShop(shopParam, shopCol, logsCol){
+        let checkDataIsComplete = true;
+
+        for(let i =0; i <= 2; i++){
+
+            if(shopParam[i] === null || shopParam[i] === undefined || shopParam [i] === ""){
+                checkDataIsComplete = false;
+            }
+
+        }
+
+        if(checkDataIsComplete){
+            let hasilnya;
+            let getID = await logsCol.find().toArray();
+            let shopParams = Object.assign({}, ...shopParam);
+            let dataWantToInsert = { id : getID[0].idShop, shopParams };
+            let statusInsert = await shopCol.insertOne(shopParams);
+
+            if(statusInsert ? hasilnya = { status: true, message: "1 Shop successfully inserted" } : hasilnya = { status: false, message: "1 Shop failed inserted" } );
+            await logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set: {idShop: getID[0].idShop + 1}});
+            return hasilnya;
+        }else {
+            return checkDataIsComplete;
+        }
     }
 
 }
