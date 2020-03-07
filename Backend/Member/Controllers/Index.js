@@ -74,12 +74,16 @@ class Controllers{
         return Post.deleteDataPlant(plantParam);
     }
 
-    searchDataMember(id_member){
-        return Post.searchDataMember(id_member);
+    searchDataMember(searchParam){
+        return Post.searchDataMember(searchParam);
     }
 
-    searchDataPlant(idPlant){
-        return Post.searchDataPlant(idPlant);
+    searchDataPlant(searchParam){
+        return Post.searchDataPlant(searchParam);
+    }
+
+    searchDataShop(searchParam){
+        return Post.searchDataShop(searchParam);
     }
 
     reqLastIDMember(){

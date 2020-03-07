@@ -63,9 +63,9 @@ app.post('/im', async (req,res) => {
 });
 
 //Post Find Member Data
-app.post('/fm', async (req, res) => {
+app.post('/fs', async (req, res) => {
     let searchParam = req.body.parameter;
-    res.send({ data : await Post.searchDataMember(searchParam)})
+    res.send( await Post.searchDataShop(searchParam) );
 });
 
 //Put Update Member Data

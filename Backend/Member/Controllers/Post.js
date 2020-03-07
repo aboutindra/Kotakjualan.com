@@ -43,12 +43,16 @@ class Post{
         return DB.deleteDataPlant(plantParam);
     }
 
-    searchDataMember(id_param){
-        return DB.readDataMember(id_param);
+    searchDataMember(idMember){
+        return DB.readDataMember(idMember);
     }
 
     searchDataPlant(idPlant){
         return DB.readDataPlant(idPlant);
+    }
+
+    searchDataShop(searchParam){
+        return DB.readDataShop(searchParam)
     }
 
 }

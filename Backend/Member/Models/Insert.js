@@ -98,7 +98,7 @@ class Insert{
             let statusInsert = await plantCol.insertOne(dataWantToInsert);
 
             if(statusInsert ? hasilnya = { status: true, message: "1 Dept successfully inserted" } : hasilnya = { status: false, message: "1 Dept failed inserted" } );
-            logsCol.findOneAndUpdate({ _id : getID[0]._id }, { $set : { idPlant : getID[0].idPlant + 1 }});
+            await logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set: {idPlant: getID[0].idPlant + 1}});
             return hasilnya;
         }else {
             return checkDataIsComplete;

@@ -51,5 +51,9 @@ class Post{
         return Control.searchDataPlant(searchParam);
     }
 
+    searchDataShop(searchParam){
+        return Control.searchDataShop(searchParam);
+    }
+
 }
 module.exports = Post;

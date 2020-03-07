@@ -135,6 +135,10 @@ class Models{
         return Read.readLastNoKop(this.logs);
     }
 
+    readDataShop(searchParam){
+        return Read.readDataShop(searchParam, this.shop);
+    }
+
 }
 
 module.exports = Models;
