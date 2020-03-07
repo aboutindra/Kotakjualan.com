@@ -15,6 +15,11 @@ class Read{
         return data
     }
 
+    async readAllShop(shopCol){
+        let data = await shopCol.find().toArray();
+        return data;
+    }
+
     async readDataPlant(idPlant, plantCol){
         let status;
         let unWrap = () => {

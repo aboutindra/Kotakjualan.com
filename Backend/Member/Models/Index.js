@@ -63,6 +63,10 @@ class Models{
         return Read.readAllPlant(this.plant);
     }
 
+    readAllShopData(){
+        return Read.readAllShop(this.shop);
+    }
+
     readDataPlant(idPlant){
         return Read.readDataPlant(idPlant, this.plant);
     }

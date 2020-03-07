@@ -12,8 +12,8 @@ const post = require('../Post');
 const Post = new post();
 
 //Get All Client Data
-app.get('/gm', async (req, res) => {
-    res.send( await Get.getAllClient() );
+app.get('/gs', async (req, res) => {
+    res.send( await Get.getAllShop() );
 });
 
 //Get Total Member Data

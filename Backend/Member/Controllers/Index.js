@@ -22,6 +22,10 @@ class Controllers{
         return Request.getTotalMember();
     }
 
+    reqAllShopData(){
+        return Request.getAllShopData();
+    }
+
     reqTotalActiveMember(){
         return Request.getTotalActiveMember();
     }
