@@ -54,6 +54,10 @@ class Controllers{
         return Post.updateDataMember(clientParam);
     }
 
+    updateDataPlant(plantParam){
+        return Post.updateDataPlant(plantParam);
+    }
+
     deleteDataMember(id_member){
         return Post.deleteDataMember(id_member);
     }
@@ -64,6 +68,10 @@ class Controllers{
 
     deleteDataDept(deptParam){
         return Post.deleteDataDept(deptParam);
+    }
+
+    deleteDataPlant(plantParam){
+        return Post.deleteDataPlant(plantParam);
     }
 
     searchDataMember(id_member){
