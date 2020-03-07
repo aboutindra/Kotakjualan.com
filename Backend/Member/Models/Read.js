@@ -1,23 +1,19 @@
 class Read{
 
     async readAll(clientCol){
-       let data = await clientCol.find().toArray();
-       return data;
+        return await clientCol.find().toArray();
     }
 
     async readAllDept(deptCol){
-        let data = await deptCol.find().toArray();
-        return data;
+        return await deptCol.find().toArray();
     }
 
     async readAllPlant(plantCol){
-        let data = await plantCol.find().toArray();
-        return data
+        return await plantCol.find().toArray()
     }
 
     async readAllShop(shopCol){
-        let data = await shopCol.find().toArray();
-        return data;
+        return await shopCol.find().toArray();
     }
 
     async readDataPlant(idPlant, plantCol){
@@ -45,7 +41,7 @@ class Read{
         let status;
         let generateDeleteparam = () => {
             return Object.assign({}, ...searchParam);
-        }
+        };
         console.log(generateDeleteparam());
         let statusFind = await deptCol.find(generateDeleteparam()).toArray();
         if(statusFind.length !== 0 ? status = statusFind : status = { status: false, message : "Dept not found" } );
@@ -54,39 +50,34 @@ class Read{
 
     async readTotalMember(memberCol){
         let getAll = await memberCol.find().count();
-        let result = { total : getAll };
-        return result;
+        return {total: getAll};
     }
 
     async readTotalActiveMember(memberCol){
 
         let getActive = await memberCol.find({staMember : "TRUE"}).count();
-        let result = { total:getActive };
-        return result;
+        return {total: getActive};
 
     }
 
     async readTotalNonActiveMember(memberCol){
 
         let getNonActive = await memberCol.find({ staMember: "FALSE" }).count();
-        let result = { total : getNonActive };
-        return result;
+        return {total: getNonActive};
 
     }
 
     async readLastIDMember(logsCol){
 
         let getLastID = await logsCol.find().toArray();
-        let result = { idCard : getLastID[0].idCard };
-        return result;
+        return {idCard: getLastID[0].idCard};
 
     }
 
     async readLastNoKop(logsCol) {
 
         let getLastID = await logsCol.find().toArray();
-        let result = { noKop : getLastID[0].noKop };
-        return result;
+        return {noKop: getLastID[0].noKop};
 
     }
 
