@@ -69,18 +69,18 @@ app.post('/fs', async (req, res) => {
 });
 
 //Put Update Member Data
-app.put('/um', async (req, res) => {
+app.put('/us', async (req, res) => {
 
     let update = req.body.parameter;
-    res.send({ data : await Post.updateDataMember(update) })
+    res.send({ data : await Post.updateDataShop(update) })
 
 });
 
 //Delete Member Data
-app.delete('/dm', async (req, res) => {
+app.delete('/ds', async (req, res) => {
 
     let id_member = req.body.parameter;
-    res.send({ data : await Post.deleteDataMember(id_member)})
+    res.send({ data : await Post.deleteDataShop(id_member)})
 
 });
 

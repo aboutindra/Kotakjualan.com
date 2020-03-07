@@ -39,12 +39,20 @@ class Post{
         return DB.updateDataPlant(plantParam);
     }
 
+    updateDataShop(shopParam){
+        return DB.updateDataShop(shopParam);
+    }
+
     deleteDataDept(id_param){
         return DB.deleteDataDept(id_param);
     }
 
     deleteDataPlant(plantParam){
         return DB.deleteDataPlant(plantParam);
+    }
+
+    deleteDataShop(shopParam){
+        return DB.deleteDataShop(shopParam);
     }
 
     searchDataMember(idMember){

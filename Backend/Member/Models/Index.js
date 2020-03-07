@@ -103,6 +103,10 @@ class Models{
         return Update.updateDataPlant(plantParam, this.plant)
     }
 
+    updateDataShop(shopParam){
+        return Update.updateDataShop(shopParam, this.shop);
+    }
+
     deleteDataDept(deptParam){
         return Drop.dropDataDept(deptParam, this.dept);
     }
@@ -113,6 +117,10 @@ class Models{
 
     deleteDataPlant(plantParam){
         return Drop.dropDataPlant(plantParam, this.plant);
+    }
+
+    deleteDataShop(shopParam){
+        return Drop.dropDataShop(shopParam, this.shop);
     }
 
     readDataMember(searchParam){
