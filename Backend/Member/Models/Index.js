@@ -42,21 +42,57 @@ class Models{
         this.db = con.db('KoperasiDB');
         this.members = this.db.collection('Members');
         this.logs = this.db.collection('Logs');        
+        this.dept = this.db.collection('Dept');
+        this.plant = this.db.collection('Plant');
+        this.shop = this.db.collection('Shop');
+
 
       });
 
     }
 
-    readAllData(){
+    readAllMemberData(){
         return Read.readAll(this.members);
+    }
+
+    readAllDeptData(){
+        return Read.readAllDept(this.dept);
+    }
+
+    readAllPlantData(){
+        return Read.readAllPlant(this.plant);
+    }
+
+    readDataPlant(idPlant){
+        return Read.readDataPlant(idPlant, this.plant);
+    }
+
+    insertDataPlant(plantParam){
+        return Insert.insertDataPlant( plantParam, this.plant, this.logs );
     }
 
     insertDataMember(clientParam){
         return Insert.insertDataMember(clientParam, this.members, this.logs);
     }
 
+    insertDataDept(deptParam){
+        return Insert.insertDataDept(deptParam, this.dept, this.logs);
+    }
+
+    insertFindDataDept(deptParam){
+        return Read.readDataDept(deptParam, this.dept);
+    }
+
     updateDataMember(clientParam){
         return Update.updateDataMember(clientParam, this.members);
+    }
+
+    updateDataDept(deptParam){
+        return Update.updateDataDept(deptParam, this.dept);
+    }
+
+    deleteDataDept(deptParam){
+        return Drop.dropDataDept(deptParam, this.dept);
     }
 
     deleteDataMember(id_member){
@@ -81,6 +117,10 @@ class Models{
 
     readLastIDMember(){
         return Read.readLastIDMember(this.logs);
+    }
+
+    readLastNoKop(){
+        return Read.readLastNoKop(this.logs);
     }
 
 }

@@ -7,6 +7,18 @@ class Post{
         return DB.insertDataMember(clientParam);
     }
 
+    postDataDept(deptParam){
+        return DB.insertDataDept(deptParam);
+    }
+
+    postFindDataDept(deptParam){
+        return DB.insertFindDataDept(deptParam);
+    }
+
+    postDataPlant(plantParam){
+        return DB.insertDataPlant(plantParam);
+    }
+
     updateDataMember(clientParam){
         return DB.updateDataMember(clientParam);
     }
@@ -15,8 +27,20 @@ class Post{
         return DB.deleteDataMember(id_param);
     }
 
+    updateDataDept(clientParam){
+        return DB.updateDataDept(clientParam);
+    }
+
+    deleteDataDept(id_param){
+        return DB.deleteDataDept(id_param);
+    }
+
     searchDataMember(id_param){
         return DB.readDataMember(id_param);
+    }
+
+    searchDataPlant(idPlant){
+        return DB.readDataPlant(idPlant);
     }
 
 }

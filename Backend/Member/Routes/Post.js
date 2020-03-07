@@ -7,6 +7,18 @@ class Post{
         return Control.postDataMember(clientParam);
     }
 
+    postDataDept(deptParam){
+        return Control.postDataDept(deptParam);
+    }
+
+    postDataPlant(plantParam){
+        return Control.postDataPlant(plantParam);
+    }
+
+    postFindDataDept(deptParam){
+        return Control.postFindDataDept(deptParam);
+    }
+
     updateDataMember(clientParam){
         return Control.updateDataMember(clientParam);
     }
@@ -15,8 +27,20 @@ class Post{
         return Control.deleteDataMember(id_member);
     }
 
+    updateDataDept(deptParam){
+        return Control.updateDataDept(deptParam)
+    }
+
+    deleteDataDept(deptParam){
+        return Control.deleteDataDept(deptParam)
+    }
+
     searchDataMember(searchParam){
         return Control.searchDataMember(searchParam);
+    }
+
+    searchDataPlant(searchParam){
+        return Control.searchDataPlant(searchParam);
     }
 
 }
