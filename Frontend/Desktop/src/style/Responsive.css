@@ -1,0 +1,13 @@
+@media screen and (max-width:800px){
+
+  .BodMember .container .col1{
+    width: 100%;
+    float: left;  
+  }
+  
+  .BodMember .container .col2{
+    width: 100%;
+    float: left;
+  }
+
+}
