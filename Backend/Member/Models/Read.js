@@ -1,19 +1,19 @@
 class Read{
 
     async readAll(clientCol){
-        return await clientCol.find().toArray();
+        return await clientCol.find().sort({ noKop : -1 }).toArray();
     }
 
     async readAllDept(deptCol){
-        return await deptCol.find().toArray();
+        return await deptCol.find().sort({ id : -1 }).toArray();
     }
 
     async readAllPlant(plantCol){
-        return await plantCol.find().toArray()
+        return await plantCol.find().sort({ id : -1 }).toArray()
     }
 
     async readAllShop(shopCol){
-        return await shopCol.find().toArray();
+        return await shopCol.find().sort({ id : -1 }).toArray();
     }
 
     async readDataPlant(searchParam, plantCol){

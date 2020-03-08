@@ -35,7 +35,6 @@ class Insert{
                 let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
                 console.log(data);
                 return data;
-
             };
 
             console.log(await dataWantToInsert());
