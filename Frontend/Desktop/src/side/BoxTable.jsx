@@ -172,6 +172,12 @@ export default function BoxTable(){
 
   }
 
+  const atEnter = (e) => {
+    if(e.key === "Enter"){
+      atSearch();
+    }
+  }
+
   useEffect(()=>{
 
     getData();
@@ -198,7 +204,7 @@ export default function BoxTable(){
           
           <div className="col">                    
             <div className="input">                      
-              <select value={opt} onChange={(e)=>{setOpt(e.target.value)}} >
+              <select onChange={(e)=>{setOpt(e.target.value)}} >
                 {
                   optFilter.map((e,i)=>
                     <option value={e.val} key={i} >{e.txt}</option>
@@ -210,7 +216,7 @@ export default function BoxTable(){
 
           <div className="col">                    
             <div className="input">
-              <input type="text" onChange={(e)=>setTxtCari(e.target.value)} />
+              <input type="text" onKeyDown={atEnter} onChange={(e)=>setTxtCari(e.target.value)} />
             </div>
           </div>
 
