@@ -138,7 +138,8 @@ export default function BoxTable(){
 
     else if(idx === "1"){      
       tempData.forEach((e)=>{        
-        if(e.nama.search(param) >= 0 ){          
+        let tempNama = e.nama.toUpperCase();
+        if(tempNama.search(param) >= 0 ){          
           tempCari.push(e);                  
         }      
       });    
