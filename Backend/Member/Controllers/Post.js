@@ -19,6 +19,10 @@ class Post{
         return DB.insertDataPlant(plantParam);
     }
 
+    postDataShop(shopParam){
+        return DB.insertDataShop(shopParam);
+    }
+
     updateDataMember(clientParam){
         return DB.updateDataMember(clientParam);
     }
@@ -35,6 +39,10 @@ class Post{
         return DB.updateDataPlant(plantParam);
     }
 
+    updateDataShop(shopParam){
+        return DB.updateDataShop(shopParam);
+    }
+
     deleteDataDept(id_param){
         return DB.deleteDataDept(id_param);
     }
@@ -43,12 +51,20 @@ class Post{
         return DB.deleteDataPlant(plantParam);
     }
 
-    searchDataMember(id_param){
-        return DB.readDataMember(id_param);
+    deleteDataShop(shopParam){
+        return DB.deleteDataShop(shopParam);
+    }
+
+    searchDataMember(idMember){
+        return DB.readDataMember(idMember);
     }
 
     searchDataPlant(idPlant){
         return DB.readDataPlant(idPlant);
+    }
+
+    searchDataShop(searchParam){
+        return DB.readDataShop(searchParam)
     }
 
 }

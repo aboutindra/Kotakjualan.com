@@ -1,37 +1,47 @@
 class Read{
 
     async readAll(clientCol){
-       let data = await clientCol.find().toArray();
-       return data;
+        return await clientCol.find().toArray();
     }
 
     async readAllDept(deptCol){
-        let data = await deptCol.find().toArray();
-        return data;
+        return await deptCol.find().toArray();
     }
 
     async readAllPlant(plantCol){
-        let data = await plantCol.find().toArray();
-        return data
+        return await plantCol.find().toArray()
     }
 
-    async readDataPlant(idPlant, plantCol){
+    async readAllShop(shopCol){
+        return await shopCol.find().toArray();
+    }
+
+    async readDataPlant(searchParam, plantCol){
         let status;
-        let unWrap = () => {
-            return Object.assign({}, ...idPlant);
+        let generateDeleteparam = () => {
+            return Object.assign({}, ...searchParam );
         };
-        let statusFind = await plantCol.find(unWrap()).toArray();
+        let unWrapObject = generateDeleteparam();
+        let formattedObject = async function(obj){
+            await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
+            return obj;
+        };
+        let statusFind = await plantCol.find(await formattedObject(unWrapObject)).toArray();
         if(statusFind.length !== 0 ? status = statusFind : status = {status: false, message: "Plant not found"} );
         return status;
     }
 
     async readDataMember(searchParam, memberCol){
         let status;
-        let generateDeleteParam = () => {
-            return Object.assign({}, ...searchParam);
+        let generateDeleteparam = () => {
+            return Object.assign({}, ...searchParam );
         };
-        console.log(generateDeleteParam());
-        let statusFind = await memberCol.find(generateDeleteParam()).toArray();
+        let unWrapObject = generateDeleteparam();
+        let formattedObject = async function(obj){
+            await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
+            return obj;
+        };
+        let statusFind = await memberCol.find( await formattedObject(unWrapObject)).toArray();
         if(statusFind.length !== 0 ? status = statusFind : status = {status: false, message: "Member not found"} );
         return status;
     }
@@ -39,50 +49,65 @@ class Read{
     async readDataDept(searchParam, deptCol){
         let status;
         let generateDeleteparam = () => {
-            return Object.assign({}, ...searchParam);
-        }
-        console.log(generateDeleteparam());
-        let statusFind = await deptCol.find(generateDeleteparam()).toArray();
+            return Object.assign({}, ...searchParam );
+        };
+        let unWrapObject = generateDeleteparam();
+        let formattedObject = async function(obj){
+            await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
+            return obj;
+        };
+        let statusFind = await deptCol.find( await formattedObject(unWrapObject)).toArray();
         if(statusFind.length !== 0 ? status = statusFind : status = { status: false, message : "Dept not found" } );
         return status;
     }
 
     async readTotalMember(memberCol){
         let getAll = await memberCol.find().count();
-        let result = { total : getAll };
-        return result;
+        return {total: getAll};
     }
 
     async readTotalActiveMember(memberCol){
 
         let getActive = await memberCol.find({staMember : "TRUE"}).count();
-        let result = { total:getActive };
-        return result;
+        return {total: getActive};
 
     }
 
     async readTotalNonActiveMember(memberCol){
 
         let getNonActive = await memberCol.find({ staMember: "FALSE" }).count();
-        let result = { total : getNonActive };
-        return result;
+        return {total: getNonActive};
 
     }
 
     async readLastIDMember(logsCol){
 
         let getLastID = await logsCol.find().toArray();
-        let result = { idCard : getLastID[0].idCard };
-        return result;
+        return {idCard: getLastID[0].idCard};
 
     }
 
     async readLastNoKop(logsCol) {
 
         let getLastID = await logsCol.find().toArray();
-        let result = { noKop : getLastID[0].noKop };
-        return result;
+        return {noKop: getLastID[0].noKop};
 
+    }
+
+    async readDataShop(searchParam, shopCol){
+        let status;
+        let generateDeleteparam = () => {
+            return Object.assign({}, ...searchParam );
+        };
+        let unWrapObject = generateDeleteparam();
+        let formattedObject = async function(obj){
+            await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
+            return obj;
+        };
+        console.log(await formattedObject(unWrapObject));
+        let statusFind = await shopCol.find( await formattedObject(unWrapObject) ).toArray();
+        if(statusFind.length !== 0 ? status = statusFind : status = { status: false, message : "Shop not found" } );
+        return status;
     }
 
 }

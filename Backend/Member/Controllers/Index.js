@@ -22,6 +22,10 @@ class Controllers{
         return Request.getTotalMember();
     }
 
+    reqAllShopData(){
+        return Request.getAllShopData();
+    }
+
     reqTotalActiveMember(){
         return Request.getTotalActiveMember();
     }
@@ -46,6 +50,10 @@ class Controllers{
         return Post.postDataPlant(plantParam);
     }
 
+    postDataShop(shopParam){
+        return Post.postDataShop(shopParam);
+    }
+
     updateDataMember(clientParam){
         return Post.updateDataMember(clientParam);
     }
@@ -54,12 +62,16 @@ class Controllers{
         return Post.updateDataPlant(plantParam);
     }
 
-    deleteDataMember(id_member){
-        return Post.deleteDataMember(id_member);
-    }
-
     updateDataDept(deptParam){
         return Post.updateDataDept(deptParam);
+    }
+
+    updateDataShop(shopParam){
+        return Post.updateDataShop(shopParam);
+    }
+
+    deleteDataMember(id_member){
+        return Post.deleteDataMember(id_member);
     }
 
     deleteDataDept(deptParam){
@@ -70,12 +82,20 @@ class Controllers{
         return Post.deleteDataPlant(plantParam);
     }
 
-    searchDataMember(id_member){
-        return Post.searchDataMember(id_member);
+    deleteDataShop(shopParam){
+        return Post.deleteDataShop(shopParam)
     }
 
-    searchDataPlant(idPlant){
-        return Post.searchDataPlant(idPlant);
+    searchDataMember(searchParam){
+        return Post.searchDataMember(searchParam);
+    }
+
+    searchDataPlant(searchParam){
+        return Post.searchDataPlant(searchParam);
+    }
+
+    searchDataShop(searchParam){
+        return Post.searchDataShop(searchParam);
     }
 
     reqLastIDMember(){

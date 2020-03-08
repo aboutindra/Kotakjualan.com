@@ -15,6 +15,10 @@ class Request{
         return DB.readAllPlantData();
     }
 
+    getAllShopData(){
+        return DB.readAllShopData();
+    }
+
     getTotalMember(){
         return DB.readTotalMember();
     }

@@ -15,6 +15,10 @@ class Post{
         return Control.postDataPlant(plantParam);
     }
 
+    postDataShop(shopParam){
+        return Control.postDataShop(shopParam);
+    }
+
     postFindDataDept(deptParam){
         return Control.postFindDataDept(deptParam);
     }
@@ -31,12 +35,20 @@ class Post{
         return Control.deleteDataPlant(plantParam);
     }
 
+    deleteDataShop(shopParam){
+        return Control.deleteDataShop(shopParam);
+    }
+
     updateDataDept(deptParam){
         return Control.updateDataDept(deptParam)
     }
 
     updateDataPlant(plantParam){
         return Control.updateDataPlant(plantParam)
+    }
+
+    updateDataShop(shopParam){
+        return Control.updateDataShop(shopParam);
     }
 
     deleteDataDept(deptParam){
@@ -49,6 +61,10 @@ class Post{
 
     searchDataPlant(searchParam){
         return Control.searchDataPlant(searchParam);
+    }
+
+    searchDataShop(searchParam){
+        return Control.searchDataShop(searchParam);
     }
 
 }

@@ -63,6 +63,10 @@ class Models{
         return Read.readAllPlant(this.plant);
     }
 
+    readAllShopData(){
+        return Read.readAllShop(this.shop);
+    }
+
     readDataPlant(idPlant){
         return Read.readDataPlant(idPlant, this.plant);
     }
@@ -77,6 +81,10 @@ class Models{
 
     insertDataDept(deptParam){
         return Insert.insertDataDept(deptParam, this.dept, this.logs);
+    }
+
+    insertDataShop(shopParam){
+        return Insert.insertDataShop(shopParam, this.shop, this.logs);
     }
 
     insertFindDataDept(deptParam){
@@ -95,6 +103,10 @@ class Models{
         return Update.updateDataPlant(plantParam, this.plant)
     }
 
+    updateDataShop(shopParam){
+        return Update.updateDataShop(shopParam, this.shop);
+    }
+
     deleteDataDept(deptParam){
         return Drop.dropDataDept(deptParam, this.dept);
     }
@@ -105,6 +117,10 @@ class Models{
 
     deleteDataPlant(plantParam){
         return Drop.dropDataPlant(plantParam, this.plant);
+    }
+
+    deleteDataShop(shopParam){
+        return Drop.dropDataShop(shopParam, this.shop);
     }
 
     readDataMember(searchParam){
@@ -129,6 +145,10 @@ class Models{
 
     readLastNoKop(){
         return Read.readLastNoKop(this.logs);
+    }
+
+    readDataShop(searchParam){
+        return Read.readDataShop(searchParam, this.shop);
     }
 
 }

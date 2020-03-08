@@ -44,5 +44,19 @@ class Update{
 
     }
 
+    async updateDataShop(shopParam, shopCol){
+
+        let statusUpdate;
+        let generateUpdateParam = () => {
+            return Object.assign({}, ...shopParam);
+        };
+        console.log(generateUpdateParam());
+        let statusUpdateData = await shopCol.findOneAndUpdate(shopParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Shop data successfully updated" } : statusUpdate = { status: false, message: "1 Shop data failed to updated" });
+
+        return statusUpdate;
+
+    }
+
 }
 module.exports = Update;

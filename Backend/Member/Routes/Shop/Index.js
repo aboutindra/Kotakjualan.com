@@ -12,8 +12,8 @@ const post = require('../Post');
 const Post = new post();
 
 //Get All Client Data
-app.get('/gm', async (req, res) => {
-    res.send( await Get.getAllClient() );
+app.get('/gs', async (req, res) => {
+    res.send( await Get.getAllShop() );
 });
 
 //Get Total Member Data
@@ -42,7 +42,7 @@ app.get('/lnk', async (req, res) => {
 });
 
 //Post Member Data
-app.post('/im', async (req,res) => {
+app.post('/is', async (req,res) => {
 
     let parameter = req.body.parameter;
     /*let nik = req.body.nik;
@@ -58,29 +58,29 @@ app.post('/im', async (req,res) => {
 
     /*let memberParam = { nokop : nokop, nik : nik, idcard : idcard, nama : nama, shop : shop, dept : dept, plant : plant, tglmasuk : tglmasuk, tglkeluar : tglkeluar, staanggota : staanggota, stakaryawan : stakaryawan, ket : ket , TglTerdaftar : new Date(Date.now()).toString() };*/
 
-    res.send( { data : await Post.postDataMember(parameter)});
+    res.send( await Post.postDataShop(parameter) );
 
 });
 
 //Post Find Member Data
-app.post('/fm', async (req, res) => {
+app.post('/fs', async (req, res) => {
     let searchParam = req.body.parameter;
-    res.send({ data : await Post.searchDataMember(searchParam)})
+    res.send( await Post.searchDataShop(searchParam) );
 });
 
 //Put Update Member Data
-app.put('/um', async (req, res) => {
+app.put('/us', async (req, res) => {
 
     let update = req.body.parameter;
-    res.send({ data : await Post.updateDataMember(update) })
+    res.send({ data : await Post.updateDataShop(update) })
 
 });
 
 //Delete Member Data
-app.delete('/dm', async (req, res) => {
+app.delete('/ds', async (req, res) => {
 
     let id_member = req.body.parameter;
-    res.send({ data : await Post.deleteDataMember(id_member)})
+    res.send({ data : await Post.deleteDataShop(id_member)})
 
 });
 
