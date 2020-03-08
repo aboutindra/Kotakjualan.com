@@ -32,6 +32,26 @@ export default function BoxTable(){
 
   const [page, setPage] = useState(0);
 
+  const reload = () => {
+
+    let temp = d;
+
+    let tempData = [];
+
+    let count = awal;                        
+
+    temp.forEach((e, i)=>{
+      if(i >= awal){
+        if(count <= akhir){          
+          tempData.push(e);
+          count++;         
+        }
+      }
+    });
+    
+    setTempD(tempData); 
+
+  }
 
   const getData = async () => {
     
@@ -131,7 +151,7 @@ export default function BoxTable(){
           tempCari.push(e);        
         }      
       });    
-    }
+    }    
 
     return tempCari;
 
@@ -139,15 +159,16 @@ export default function BoxTable(){
 
   const atSearch = () => {              
 
-    if(txtCari === ""){
-      setTempD(d);      
+    if(txtCari === ""){      
+      reload();
     }
-
+    else if(opt < 0){
+      reload();
+    }
     else{
       let temp = cariMember(opt, txtCari.toUpperCase());      
       setTempD(temp);      
-    }
-
+    }    
 
   }
 
