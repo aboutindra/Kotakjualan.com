@@ -2,11 +2,26 @@ import React, { Suspense, lazy } from 'react';
 
 import Sidebar from '../component/Sidebar';
 
-import { FiSearch } from 'react-icons/fi';
+import Loader from '../component/Loader';
 
-const Box = lazy(()=>import('../side/boxTable'));
+import { useState } from 'react';
+
+const Box = lazy(()=>import('../side/BoxTable'));
 
 export default function Member(){  
+
+  const [nik, setNik] = useState(0);
+
+  const [nama, setNama] = useState("");
+
+  const [lahir, setLahir] = useState("");
+
+  const [plant, setPlant] = useState("");
+
+  const [dept, setDept] =  useState("")
+
+  const [shop, setShop] = useState("");  
+
   return(
     <div className="BodMember">
 
@@ -87,65 +102,10 @@ export default function Member(){
                 yang berkaitan dengan data anggota dengan sangat efisien dan cepat.
               </span>
             </div>                        
-            <div className="boxTable">
-
-              <div className="wrap">
-
-              <div className="row1">
-                
-                <div className="col">                    
-                  <div className="input">                      
-                    <select>
-                      <option value="ni">NIK</option>
-                      <option val ue="nm">Nama</option>
-                      <option value="nk">NoKop</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="col">                    
-                  <div className="input">
-                    <input type="text" />
-                  </div>
-                </div>
-
-                <div className="col">                    
-                  <div className="btn">
-                    <button><FiSearch/></button>
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="row2">
-
-                <div className="itemHead">
-                  <div className="nokop">
-                    <span>NOKOP</span>
-                  </div>
-                  <div className="nik">
-                    <span>NIK</span>
-                  </div>  
-                  <div className="idcard">
-                    <span>IDCARD</span>
-                  </div>
-                  <div className="nama">
-                    <span>NAMA</span>
-                  </div>
-                  <div className="sta">
-                    <span>ACTION</span>
-                  </div>
-                </div>
-               
-                <Suspense fallback={<div>Loading..</div>}>
-                  <Box></Box>
-                </Suspense>
-
-                </div>
-
-              </div>            
-
-            </div>
+            
+            <Suspense fallback={<Loader></Loader>}>
+              <Box></Box>
+            </Suspense>
                       
             </div>
 

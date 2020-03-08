@@ -10,3 +10,11 @@ export const get = async (url) => {
   return temp.data;
 }
 
+export const post = async (url, param) => {
+  let temp = await axios({
+    method:"POST",
+    url:`${baseURL}${url}`,
+    data:{param}
+  });
+  return temp.data;
+}
