@@ -27,7 +27,12 @@ class Insert{
                 };
 
                 let personalData = Object.assign({}, ...memberParam);
-                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : personalData.nik, nama : personalData.nama, tglLahir : personalData.tglLahir , shop : personalData.shop, plant : personalData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : "TRUE", staKaryawan : "TRUE", Ket : "Aktif", tglInput : await generateDate() };
+                let formattedObject = async function(obj){
+                    await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                    return obj;
+                };
+                let formattedData = formattedObject(personalData);
+                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
                 console.log(data);
                 return data;
 
