@@ -75,9 +75,12 @@ class Insert{
             let hasilnya;
             let getID = await logsCol.find().toArray();
             let deptParams = Object.assign({}, ...deptParam);
-            console.log(deptParams.nama, deptParams.idPlant);
-
-            let dataWantToInsert = { idDept : getID[0].idDept, name : deptParams.nama, idPlant : Number(deptParams.idPlant) };
+            let formattedObject = async function(obj){
+                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                return obj;
+            };
+            let formattedData = formattedObject(deptParams);
+            let dataWantToInsert = { idDept : getID[0].idDept, name : formattedData.nama, idPlant : Number(deptParams.idPlant) };
             let statusInsert = await deptCol.insertOne(dataWantToInsert);
 
             if(statusInsert ? hasilnya = { status: true, message: "1 Dept successfully inserted"  } : hasilnya = { status: false, message: "1 Dept failed to inserted"  });
@@ -98,7 +101,7 @@ class Insert{
         if(checkDataIsComplete){
             let hasilnya;
             let getID = await logsCol.find().toArray();
-            let dataWantToInsert = { id : getID[0].idPlant, name : plantParam[0].name };
+            let dataWantToInsert = { id : getID[0].idPlant, name : plantParam[0].name.toUpperCase() };
 
             let statusInsert = await plantCol.insertOne(dataWantToInsert);
 
@@ -126,8 +129,13 @@ class Insert{
             let hasilnya;
             let getID = await logsCol.find().toArray();
             let shopParams = Object.assign({}, ...shopParam);
-            let dataWantToInsert = { id : getID[0].idShop, shopParams };
-            let statusInsert = await shopCol.insertOne(shopParams);
+            let formattedObject = async function(obj){
+                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                return obj;
+            };
+            let formattedData = formattedObject(shopParams);
+            let dataWantToInsert = { id : getID[0].idShop, formattedData };
+            let statusInsert = await shopCol.insertOne(dataWantToInsert);
 
             if(statusInsert ? hasilnya = { status: true, message: "1 Shop successfully inserted" } : hasilnya = { status: false, message: "1 Shop failed inserted" } );
             await logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set: {idShop: getID[0].idShop + 1}});
