@@ -15,7 +15,7 @@ class Insert{
 
             let hasilnya2;
             let getID = await logsCol.find().toArray();
-
+            console.log(getID);
             let dataWantToInsert = async () => {
 
                 let generateDate = async () => {
@@ -32,7 +32,7 @@ class Insert{
                     return obj;
                 };
                 let formattedData = formattedObject(personalData);
-                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.Dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
+                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
                 console.log(data);
                 return data;
 
