@@ -2,8 +2,8 @@ class Insert{
 
     async insertDataMember(memberParam, membersCol, logsCol){
         let checkDataIsComplete = true;
-
-        for(let i = 0; i <= 4; i++ ){
+        console.log(memberParam);
+        for(let i = 0; i <= 5; i++ ){
 
             if( memberParam[i] === null || memberParam[i] === "" || memberParam[i] === undefined){
                 checkDataIsComplete = false;
@@ -28,10 +28,11 @@ class Insert{
 
                 let personalData = Object.assign({}, ...memberParam);
                 let formattedObject = async function(obj){
-                    await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                    await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key] } });
                     return obj;
                 };
-                let formattedData = formattedObject(personalData);
+                let formattedData = personalData;
+
                 let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
                 console.log(data);
                 return data;
@@ -75,10 +76,10 @@ class Insert{
             let getID = await logsCol.find().toArray();
             let deptParams = Object.assign({}, ...deptParam);
             let formattedObject = async function(obj){
-                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key] } });
                 return obj;
             };
-            let formattedData = formattedObject(deptParams);
+            let formattedData = deptParam;
             let dataWantToInsert = { idDept : getID[0].idDept, name : formattedData.nama, idPlant : Number(deptParams.idPlant) };
             let statusInsert = await deptCol.insertOne(dataWantToInsert);
 
@@ -100,7 +101,7 @@ class Insert{
         if(checkDataIsComplete){
             let hasilnya;
             let getID = await logsCol.find().toArray();
-            let dataWantToInsert = { id : getID[0].idPlant, name : plantParam[0].name.toUpperCase() };
+            let dataWantToInsert = { id : getID[0].idPlant, name : plantParam[0].name };
 
             let statusInsert = await plantCol.insertOne(dataWantToInsert);
 
@@ -129,10 +130,10 @@ class Insert{
             let getID = await logsCol.find().toArray();
             let shopParams = Object.assign({}, ...shopParam);
             let formattedObject = async function(obj){
-                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key].toUpperCase() } });
+                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key] } });
                 return obj;
             };
-            let formattedData = formattedObject(shopParams);
+            let formattedData = shopParams;
             let dataWantToInsert = { id : getID[0].idShop, formattedData };
             let statusInsert = await shopCol.insertOne(dataWantToInsert);
 
