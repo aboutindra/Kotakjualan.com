@@ -31,6 +31,8 @@ export default function BoxTable(){
   const [akhir, ] = useState(stan-1);
 
   const [page, setPage] = useState(0);
+  
+  const [staPaginate, setStaPaginate] = useState(true);
 
   const reload = () => {
 
@@ -47,9 +49,11 @@ export default function BoxTable(){
           count++;         
         }
       }
-    });
-    
-    setTempD(tempData); 
+    });    
+
+    setStaPaginate(true);
+
+    setTempD(tempData);   
 
   }
 
@@ -63,22 +67,30 @@ export default function BoxTable(){
     
     temp = await getAll();
 
-    let len = temp.length/stan;
-
-    setCountPage(len);    
-
-    setD(temp);    
-
-    temp.forEach((e, i)=>{
-      if(i >= awal){
-        if(count <= akhir){          
-          tempData.push(e);
-          count++;         
+    if(temp.length >= 20){
+      let len = temp.length/stan;
+  
+      setCountPage(len);    
+  
+      setD(temp);    
+  
+      temp.forEach((e, i)=>{
+        if(i >= awal){
+          if(count <= akhir){          
+            tempData.push(e);
+            count++;         
+          }
         }
-      }
-    });
-    
-    setTempD(tempData);
+      });
+      
+      setTempD(tempData);
+    }
+
+    else{
+      setTempD(temp);
+    }  
+
+    setStaPaginate(true);
     
     setSta(true);
 
@@ -152,7 +164,9 @@ export default function BoxTable(){
           tempCari.push(e);        
         }      
       });    
-    }    
+    }        
+
+    setStaPaginate(false);
 
     return tempCari;
 
@@ -161,14 +175,14 @@ export default function BoxTable(){
   const atSearch = () => {              
 
     if(txtCari === ""){      
-      reload();
+      reload();      
     }
     else if(opt < 0){
       reload();
     }
     else{
       let temp = cariMember(opt, txtCari.toUpperCase());      
-      setTempD(temp);      
+      setTempD(temp);
     }    
 
   }
@@ -286,19 +300,26 @@ export default function BoxTable(){
 
           <div className="row3">
 
-            <ReactPaginate
-              previousLabel={"<<"}
-              nextLabel={">>"}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={countPage}
-              marginPagesDisplayed={1}
-              pageRangeDisplayed={1}
-              onPageChange={atPaginate}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}
-            />
+            {
+              
+              (!staPaginate) ? null :
+              
+              <ReactPaginate
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={countPage}
+                marginPagesDisplayed={1}
+                pageRangeDisplayed={1}
+                onPageChange={atPaginate}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+              />
+
+            }
+
 
           </div>
 
