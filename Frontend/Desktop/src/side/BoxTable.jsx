@@ -10,7 +10,7 @@ import { getAll } from '../lib/api';
 
 export default function BoxTable(){
 
-  const stan = 15;
+  const stan = 10;
 
   const [d, setD] = useState([]);  
   
@@ -75,7 +75,7 @@ export default function BoxTable(){
     
     temp = await getAll();
 
-    if(temp.length >= 20){
+    if(temp.length >= stan){
       let len = temp.length/stan;
   
       setCountPage(len);    
@@ -205,7 +205,7 @@ export default function BoxTable(){
       });    
     }        
 
-    if(tempCari.length <= 50){
+    if(tempCari.length <= stan){
       setTempD(tempCari);
       setStaPaginate(false);
     } 

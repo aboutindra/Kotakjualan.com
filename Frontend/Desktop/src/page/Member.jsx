@@ -36,6 +36,8 @@ export default function Member(){
 
   const [optShop, setOptShop] = useState("");  
 
+  const [txtBtn, setTxtBtn] = useState("Save to Member");
+
   const atLoad = () => {
     
     async.parallel({
@@ -141,6 +143,35 @@ export default function Member(){
 
   },[optDept]);  
 
+  const clearAll = () => {
+
+    let lenInput = document.getElementsByTagName("input").length;
+
+    let lenSelect = document.getElementsByTagName("select").length;
+
+    let i = 0;  
+
+    while(i<lenInput){
+
+      document.getElementsByTagName("input")[i].value = "";
+
+      i++;
+
+    }
+
+    i = 0;
+
+    while(i<lenSelect){
+
+      document.getElementsByTagName("select")[i].value = "-1";
+
+      i++;
+
+    }    
+    
+
+  }
+
   const checkInput = () => {
     
     if(nik === "" || nik === undefined){
@@ -194,6 +225,8 @@ export default function Member(){
 
   const atClick = async () => {
     
+    setTxtBtn("Loading..");
+
     if(checkInput()){      
 
       let frm = formatedInput();
@@ -204,6 +237,7 @@ export default function Member(){
 
       if(temp){
         alert("Succes");
+        clearAll();        
       }
       else{
         alert("Gagal");
@@ -212,8 +246,10 @@ export default function Member(){
     }
     else{
       alert("Field masih belum lengkap");
+      clearAll();
     }
 
+    setTxtBtn("Save to Member");
 
   }
 
@@ -224,8 +260,9 @@ export default function Member(){
 
       <div className="container">                
 
-        <div className="col1">
-          <div className="wrapAdd">
+        <div className="col1">          
+
+          <div className="wrapAdd">            
 
             <div className="boxAdd">
               
@@ -287,7 +324,7 @@ export default function Member(){
                 </div>
 
                 <div className="btn">
-                  <button onClick={atClick} >Save to member</button>
+                  <button onClick={atClick} >{txtBtn}</button>
                 </div>
 
               </div>
