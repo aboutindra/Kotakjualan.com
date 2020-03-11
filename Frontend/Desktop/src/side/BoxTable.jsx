@@ -8,6 +8,8 @@ import ReactPaginate from 'react-paginate';
 
 import { getAll } from '../lib/api';
 
+import { buildIO } from '../lib/io';
+
 export default function BoxTable(){
 
   const stan = 10;
@@ -36,18 +38,20 @@ export default function BoxTable(){
   
   const [staPaginate, setStaPaginate] = useState(true);
 
+  const io = buildIO();
+  
   const reload = () => {
-
+    
     let temp = d;
-
+    
     let tempData = [];
-
+    
     let count = awal;                        
-
+    
     let len = temp.length / stan;
 
     setCountPage(len);
-
+    
     temp.forEach((e, i)=>{
       if(i >= awal){
         if(count <= akhir){          
@@ -56,15 +60,56 @@ export default function BoxTable(){
         }
       }
     });    
-
+    
     setStaPaginate(true);
+    
+    setDatCari(temp);
 
+    setTempD(tempData);   
+    
+  }
+
+  const reloadRealTime = (param) => {
+    
+    let temp = param;
+    
+    let tempData = [];
+    
+    let count = awal;                        
+    
+    let len = temp.length / stan;
+
+    setCountPage(len);
+    
+    temp.forEach((e, i)=>{
+      if(i >= awal){
+        if(count <= akhir){          
+          tempData.push(e);
+          count++;         
+        }
+      }
+    });    
+    
+    setStaPaginate(true);
+    
     setDatCari(temp);
 
     setTempD(tempData);   
 
+    console.log("Hello");
+    
   }
 
+  useEffect(()=>{
+    
+    io.on("packageAllMember", res => {      
+
+      reloadRealTime(res);
+
+    });
+
+  },[]);
+  
   const getData = async () => {
     
     let temp = [];
@@ -73,7 +118,7 @@ export default function BoxTable(){
 
     let count = awal;
     
-    temp = await getAll();
+    temp = await getAll();    
 
     if(temp.length >= stan){
       let len = temp.length/stan;
@@ -92,7 +137,9 @@ export default function BoxTable(){
       });
       
       setTempD(tempData);
+
       setDatCari(temp);      
+
     }
 
     else{

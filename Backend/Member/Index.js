@@ -19,21 +19,21 @@ app.use('/api/v1/plant' , plantRoutes);
 app.use('/api/v1/shop', shopRoutes);
 
 app.use(comp());
-app.use(bp.json);
+app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
+app.put('*', async( req, res ) => { res.send({ status: "OK" }) });
+app.post('*', async( req, res ) => { res.send({ status: "OK" }) });
+app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
+
 app.listen(3001, (err) => {
 
-    if(err){ console.log("[❌] Failed to run Client Microservices, \nMessages : ", err) }
-
-    app.post('*', async( req, res ) => { res.send({ status: "OK" }) });
-    app.put('*', async( req, res ) => { res.send({ status: "OK" }) });
-    app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
-    app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
+    if(err){ console.log("[❌] Failed to run Member Microservices, \nMessages : ", err) }    
 
     model.initDB();
 
-    console.log("[✔] Successfully running Client Microservices at http://localhost:3001/")
+    console.log("[✔] Successfully running Member Microservices at http://localhost:3001/")
 
 });

@@ -10,6 +10,8 @@ import async from 'async';
 
 import { getAllPlant, getAllDept, getAllShop, insertMember } from '../lib/api';
 
+import { loadMember } from '../lib/io';
+
 const Box = lazy(()=>import('../side/BoxTable'));
 
 export default function Member(){  
@@ -58,8 +60,8 @@ export default function Member(){
       }
 
 
-    },(err)=>{      
-      
+    }, (err)=>{                
+
     });
 
   }
@@ -237,7 +239,8 @@ export default function Member(){
 
       if(temp){
         alert("Succes");
-        clearAll();        
+        clearAll();   
+        loadMember();     
       }
       else{
         alert("Gagal");
