@@ -3,6 +3,7 @@ class Insert{
     async insertDataMember(memberParam, membersCol, logsCol){
         let checkDataIsComplete = true;
         console.log(memberParam);
+
         for(let i = 0; i <= 5; i++ ){
 
             if( memberParam[i] === null || memberParam[i] === "" || memberParam[i] === undefined){
