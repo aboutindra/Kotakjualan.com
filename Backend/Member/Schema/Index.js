@@ -32,6 +32,12 @@ class Schema{
 
         await db.createCollection("Shop");        
 
+      },
+
+      logs : async function(){
+
+        await db.createCollection("Logs");
+
       }
 
     },function(err, res){
