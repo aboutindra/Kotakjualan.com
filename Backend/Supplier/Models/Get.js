@@ -1,0 +1,38 @@
+class Get{
+
+  constructor(connectionDB){
+    this.con = connectionDB;
+    this.supp = this.con.collection("Supplier");
+  }
+
+  async getAllSupp(){
+    let temp = await this.supp.find().toArray();
+    return temp;;
+  }
+
+  //param = {Object}
+  async getWithParamSupp(param){
+    let temp = await this.supp.find(param).toArray();
+    return temp;
+  }
+
+  //lim = Integer
+  async getWithLimitSupp(lim){
+    let temp = await this.supp.find().limit(lim).toArray();
+    return temp;
+  }
+
+  //range = {start, len} => {Mulainya mau darimana, Banyak data yang mau di ambil}
+  async getWithRangeSupp(range){
+    
+    let start = range.start;
+    let len = range.len;
+
+    let temp = await this.supp.find().skip(start).limit(len).toArray();
+    return temp;
+
+  }  
+
+}
+
+module.exports = Get;
