@@ -13,6 +13,8 @@ export default function BoxTable(){
   const stan = 15;
 
   const [d, setD] = useState([]);  
+  
+  const [datCari, setDatCari] = useState([]);
 
   const [tempD, setTempD] = useState([]);
 
@@ -42,6 +44,10 @@ export default function BoxTable(){
 
     let count = awal;                        
 
+    let len = temp.length / stan;
+
+    setCountPage(len);
+
     temp.forEach((e, i)=>{
       if(i >= awal){
         if(count <= akhir){          
@@ -52,6 +58,8 @@ export default function BoxTable(){
     });    
 
     setStaPaginate(true);
+
+    setDatCari(temp);
 
     setTempD(tempData);   
 
@@ -84,10 +92,12 @@ export default function BoxTable(){
       });
       
       setTempD(tempData);
+      setDatCari(temp);      
     }
 
     else{
       setTempD(temp);
+      setDatCari(temp);      
     }  
 
     setStaPaginate(true);
@@ -100,7 +110,7 @@ export default function BoxTable(){
 
     let nowPage = page;    
 
-    let temp = d;    
+    let temp = datCari;    
 
     let tempData = [];
 
@@ -132,6 +142,35 @@ export default function BoxTable(){
     eventPaginate();
 
   },[page]);
+
+  const autoPaginate = param => {
+
+    let temp = param;    
+    
+    let tempData = [];
+
+    let count = awal;     
+    
+    let len = temp.length / stan;
+
+    setCountPage(len);
+
+    setDatCari(temp);
+
+    temp.forEach((e, i)=>{
+      if(i >= awal){
+        if(count <= akhir){          
+          tempData.push(e);
+          count++;         
+        }
+      }
+    });    
+
+    setStaPaginate(true);    
+
+    setTempD(tempData);
+
+  }
 
   const cariMember = (idx, param) => {
     
@@ -166,9 +205,15 @@ export default function BoxTable(){
       });    
     }        
 
-    setStaPaginate(false);
-
-    return tempCari;
+    if(tempCari.length <= 50){
+      setTempD(tempCari);
+      setStaPaginate(false);
+    } 
+    
+    else{
+      autoPaginate(tempCari);
+      setStaPaginate(true);
+    }    
 
   }
 
@@ -177,12 +222,12 @@ export default function BoxTable(){
     if(txtCari === ""){      
       reload();      
     }
-    else if(opt < 0){
+    else if(opt < 0){      
       reload();
+      alert("Pilih tipe pencarian terlebih dahulu");
     }
     else{
-      let temp = cariMember(opt, txtCari.toUpperCase());      
-      setTempD(temp);
+      cariMember(opt, txtCari.toUpperCase());            
     }    
 
   }
