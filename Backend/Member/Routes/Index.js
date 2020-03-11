@@ -1,9 +1,12 @@
 const express = require('express');
 const bp = require('body-parser');
-
+const cors = require('cors');
 const app = express.Router();
+
+app.use(cors());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
+
 
 const get = require('./Get');
 const Get = new get();

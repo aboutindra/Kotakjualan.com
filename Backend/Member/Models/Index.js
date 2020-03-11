@@ -15,6 +15,9 @@ const Drop = new drop();
 const Schema = require('../Schema/Index');
 const schema = new Schema();
 
+const cors = require('cors');
+app.use(cors());
+
 let publicCount = 0;
 
 class Models{
