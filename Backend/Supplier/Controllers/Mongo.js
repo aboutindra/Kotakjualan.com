@@ -280,43 +280,8 @@ class Mongo{
   async delSupp(param){
     
     let temp = true;
-
-    let resId = 0;
-  
-    try {
-      
-      let res = await model.get.getAllLogs();
-
-      resId = res[0].idSupp;          
-
-      if(resId === undefined){
-
-        let res = await model.get.getLastId();
-
-        resId = res;
-
-      }
-
-    } 
     
-    catch (error) {
-                
-      console.log("Have problem with GetLastID");  
-
-    }        
-    
-    async.parallel({
-
-      t1:async ()=>{
-        await model.del.deleteOneSupp(param);
-      },
-
-      t2:async ()=>{
-        await model.put.updateOneLogs({idSupp : resId - 1});
-      }
-
-    })
-
+    temp = await model.del.deleteOneSupp(param);    
 
     if(temp){
       return {sta:"OK", mess:"Proses delete berhasil :)"}
