@@ -3,6 +3,9 @@ const async = require('async');
 const Model = require('../Models/Index');
 const model = new Model();
 
+const ModelLogs = require("../../Logs/Models/Index");
+const modelLogs = new ModelLogs();
+
 const FormatDate = require('./FormatDate');;
 const frmt = new FormatDate();
 
@@ -91,8 +94,8 @@ class Mongo{
           },
   
           t2: async () => {
-  
-            await model.put.updateOneLogs({idSupp : resId + 1});
+
+            await modelLogs.put.updateOneLogs({idSupp : resId + 1});            
   
           }
   
@@ -130,7 +133,7 @@ class Mongo{
   
           t2: async () => {
   
-            await model.put.updateOneLogs({idSupp : tempId-1});
+            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
   
           }
   
@@ -148,7 +151,7 @@ class Mongo{
   
         try {
           
-          let res = await model.get.getAllLogs();
+          let res = await modelLogs.get.getAll();
   
           resId = res[0].idSupp;          
 
@@ -184,7 +187,7 @@ class Mongo{
   
           t2: async () => {
   
-            await model.put.updateOneLogs({idSupp : resId + 1});
+            await modelLogs.put.updateOneLogs({idSupp : resId + 1});
   
           }
   
@@ -198,7 +201,7 @@ class Mongo{
   
         try {
           
-          let res = await model.get.getAllLogs();
+          let res = await modelLogs.get.getAll();
   
           resId = res[0].idSupp;          
 
@@ -244,7 +247,7 @@ class Mongo{
   
           t2: async () => {
   
-            await model.put.updateOneLogs({idSupp : tempId-1});
+            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
   
           }
   

@@ -1,0 +1,15 @@
+{
+  "name":"PT.Blabla",
+  "address":"Kota Bekasi",
+  "telp":"081808909645",
+  "id":1,
+  "sta":true,
+  "tglInput":"12/3/2020",
+  "item":[
+    {
+      "idBarang":12321321,
+      "name":"Indomie",
+      "price":1000
+    }
+  ]
+}
