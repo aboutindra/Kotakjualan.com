@@ -23,14 +23,9 @@ class Get{
   }
 
   //range = {start, len} => {Mulainya mau darimana, Banyak data yang mau di ambil}
-  async getWithRangeSupp(range){
-    
-    let start = range.start;
-    let len = range.len;
-
+  async getWithRangeSupp(start, len){      
     let temp = await this.supp.find().skip(start).limit(len).toArray();
     return temp;
-
   }  
 
 }

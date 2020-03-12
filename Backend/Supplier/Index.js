@@ -6,9 +6,13 @@ const comp = require('compression');
 
 const bp = require('body-parser');
 
+const Supp = require('./Routes/Supp');
+
 app.use(bp.json());
 app.use(cors());
 app.use(comp());
+
+app.use("/api/v1/supp", Supp);
 
 app.get('*', ( req, res ) => { res.send({ status: "OK" }) });
 app.put('*', ( req, res ) => { res.send({ status: "OK" }) });
