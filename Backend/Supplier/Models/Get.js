@@ -3,6 +3,7 @@ class Get{
   constructor(connectionDB){
     this.con = connectionDB;
     this.supp = this.con.collection("Supplier");
+    this.logs = this.con.collection("Logs");
   }
 
   async getAllSupp(){
@@ -27,6 +28,23 @@ class Get{
     let temp = await this.supp.find().skip(start).limit(len).toArray();
     return temp;
   }  
+
+  async getLastId(){
+    let temp = await this.supp.find().toArray();    
+    let len = temp.length;
+    let tempLastId =  temp[len-1].id;
+    return tempLastId;    
+  }
+
+  async getCount() {
+    let temp =  await this.supp.countDocuments();    
+    return temp;
+  }
+
+  async getAllLogs(){
+    let temp = await this.logs.find().toArray();
+    return temp;
+  }
 
 }
 

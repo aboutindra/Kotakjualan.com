@@ -17,33 +17,42 @@ class Model{
 
   constructor(){
 
-    this.database;    
+    this.database;      
     
+    this.get;
+    
+    this.post;
+    
+    this.put;
+    
+    this.del;
+
     this.__init();
-    
-    this.get = new Get(this.database);
-
-    this.post = new Post(this.database);
-
-    this.put = new Put(this.database);
-
-    this.del = new Del(this.database);
     
   }
 
   __init(){
 
-    mongo.connect("mongodb://127.0.0.1:27017/KoperasiDB", {useNewUrlParser:true, useUnifiedTopology:true},(err, con) => {
+    mongo.connect("mongodb://127.0.0.1:27017/KoperasiDB", {useNewUrlParser:true, useUnifiedTopology:true}, async (err, con) => {
 
       if(err) console.log("[❌] Failed Connect to Database, Messages : ", err);
 
       if(publicCount === 0){
-        schema.createAllCollection(err, con);
+        console.log("Masuk");
+        await schema.createAllCollection(err, con);
         publicCount++;
       }
     
       this.database = con.db("KoperasiDB");      
 
+      this.get = new Get(this.database);
+
+      this.post = new Post(this.database);
+
+      this.put = new Put(this.database);
+
+      this.del = new Del(this.database);
+    
     });
 
     
