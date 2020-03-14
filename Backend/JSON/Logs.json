@@ -1,6 +1,7 @@
 [
   {
-    "IDCard" : 881997961,
+    "id":1,
+    "idCard" : 881997961,
     "noKop" : 2148,
     "idDept" : 17,
     "idPlant" : 3,

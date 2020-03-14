@@ -3,6 +3,7 @@ class Put{
   constructor(connectionDB){
     this.con = connectionDB;
     this.supp = this.con.collection("Supplier");
+    this.logs = this.con.collection("Logs");
   }
 
   //param = [{find}, {set}];
@@ -15,6 +16,16 @@ class Put{
     
     catch (error) {return false;}
 
+  }
+
+  async updateOneLogs(param){
+    
+    try {
+      await this.logs.updateOne({id:1},{$set:param});
+      return true;
+    } 
+    
+    catch (error) {console.log(error);return false}
   }
 
 }

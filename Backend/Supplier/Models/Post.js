@@ -15,7 +15,9 @@ class Post{
 
     } 
     
-    catch (error) {return false;}
+    catch (error) {      
+      return false;
+    }
 
   }
 
