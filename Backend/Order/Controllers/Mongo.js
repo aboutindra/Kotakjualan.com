@@ -3,7 +3,7 @@ const model = new Model();
 
 class Mongo{
 
-  getOrder(param){
+  async getOrder(param){
     
     let tipe = param.t;
 
@@ -13,7 +13,7 @@ class Mongo{
       
       case 1 :
 
-        temp =  model.get.getAll();        
+        temp = await model.get.getAll();        
  
         break;
 
@@ -21,7 +21,7 @@ class Mongo{
 
         let tempLimit = param.l;
 
-        temp = model.get.getWithLimit(tempLimit);
+        temp = await model.get.getWithLimit(tempLimit);
 
         break;
 
@@ -29,7 +29,7 @@ class Mongo{
 
         let tempParam = {s:param.s, e:param.e}
 
-        temp = model.get.getWithScope();
+        temp = await model.get.getWithScope();
 
         break;
 
@@ -37,7 +37,13 @@ class Mongo{
 
         let tempParam = param.f;
 
-        temp = model.get.getWithParam(tempParam);
+        temp = await model.get.getWithParam(tempParam);
+
+        break;
+
+      default:
+
+        temp = [];
 
         break;
 
@@ -45,7 +51,7 @@ class Mongo{
 
   }
 
-  postOrder(param){
+  async postOrder(param){
 
     let sta = true;
 
@@ -69,9 +75,7 @@ class Mongo{
 
       try {
         
-        model.post.insertObject(param);
-
-        res = true;
+        res = await model.post.insertObject(param);
 
       } catch (error) {
         
@@ -85,9 +89,7 @@ class Mongo{
 
       try {
         
-        model.post.insertWithArray(param);
-
-        res = true;
+        res = await model.post.insertWithArray(param);
 
       } catch (error) {
         
@@ -101,7 +103,7 @@ class Mongo{
 
   }
 
-  putOrder(param){
+  async putOrder(param){
 
     let res = true;
 
@@ -111,7 +113,7 @@ class Mongo{
 
     try {
       
-      res = model.put.putOne(f, s);
+      res = await model.put.putOne(f, s);
 
     } catch (error) {
       
@@ -123,13 +125,13 @@ class Mongo{
 
   }
 
-  delOrder(param){
+  async delOrder(param){
 
     let res = true;
 
     try {
       
-      res = model.del.delOne(param);
+      res = await model.del.delOne(param);
 
     } catch (error) {
       
