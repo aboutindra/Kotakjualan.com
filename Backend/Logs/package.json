@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "async": "^3.2.0",
+    "mongodb": "^3.5.5"
+  }
+}

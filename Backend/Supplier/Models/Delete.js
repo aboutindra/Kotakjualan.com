@@ -9,7 +9,7 @@ class Del{
   //param = {Object}
   async deleteOneSupp(param){
 
-    try {
+    try {      
       await this.supp.deleteOne(param);
       return true;  
     } 

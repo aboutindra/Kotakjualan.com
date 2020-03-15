@@ -12,8 +12,8 @@ app.use(cors());
 app.use(comp());
 app.use(bp.json());
 
-app.get("/e",async (req, res)=>{
-  let temp = await cntrl.mongo.getSupp(req.body.param);  
+app.get("/e",async (req, res)=>{  
+  let temp = await cntrl.mongo.getSupp(req.body.param);    
   res.send({result:temp});
 });
 
@@ -31,6 +31,7 @@ app.delete("/e", async (req, res)=>{
   let temp = await cntrl.mongo.delSupp(req.body.param);
   res.send({result:temp});
 });
+
 
 app.get('*', ( req, res ) => { res.send({ status: "OK" }) });
 app.put('*', ( req, res ) => { res.send({ status: "OK" }) });

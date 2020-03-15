@@ -2,8 +2,7 @@ class Get{
 
   constructor(connectionDB){
     this.con = connectionDB;
-    this.supp = this.con.collection("Supplier");
-    this.logs = this.con.collection("Logs");
+    this.supp = this.con.collection("Supplier");    
   }
 
   async getAllSupp(){
@@ -39,12 +38,7 @@ class Get{
   async getCount() {
     let temp =  await this.supp.countDocuments();    
     return temp;
-  }
-
-  async getAllLogs(){
-    let temp = await this.logs.find().toArray();
-    return temp;
-  }
+  }    
 
 }
 
