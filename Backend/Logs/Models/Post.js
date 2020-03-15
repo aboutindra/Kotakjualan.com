@@ -4,7 +4,7 @@ class Post{
     
     this.con  = con;
 
-    this.logs = this.con.collection("Logs");
+    this.logs = this.con.collection("Logs");    
 
   }
 

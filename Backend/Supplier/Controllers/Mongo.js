@@ -44,7 +44,7 @@ class Mongo{
     
     else if(tipe === 6){
       temp = await model.get.getCount();            
-    }
+    }    
     
     else{
       return false; 

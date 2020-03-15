@@ -38,7 +38,7 @@ class Get{
   async getCount() {
     let temp =  await this.supp.countDocuments();    
     return temp;
-  }  
+  }    
 
 }
 
