@@ -24,6 +24,11 @@ class Models{
       this.db;
       this.members;
 
+      this.insert = new Insert(this.db);
+      this.update = new Update(this.db);
+      this.drop = new Drop(this.db);
+      this.read = new Read(this.db);
+      
       this.initDB();
 
     }
