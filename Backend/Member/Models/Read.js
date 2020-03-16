@@ -1,7 +1,13 @@
 class Read{
 
-    async readAll(clientCol){
-        return await clientCol.find().sort({ noKop : -1 }).toArray();
+    constructor(conDB) {
+        this.db = conDB;
+        this.member = this.db.collection("Members");
+        this.logs = this.db.collection("Logs");
+    }
+
+    async readAll(){
+        return await this.member.find().sort({ noKop : -1 }).toArray();
     }
 
     async readAllDept(deptCol){
@@ -31,17 +37,20 @@ class Read{
         return status;
     }
 
-    async readDataMember(searchParam, memberCol){
+    async readDataMemberWithParam(keyword){
+        console.log(keyword);
         let status;
         let generateDeleteparam = () => {
-            return Object.assign({}, ...searchParam );
+            return Object.assign({}, ...keyword );
         };
+        console.log(generateDeleteparam());
         let unWrapObject = generateDeleteparam();
         let formattedObject = async function(obj){
             await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
             return obj;
         };
-        let statusFind = await memberCol.find( await formattedObject(unWrapObject)).toArray();
+        console.log(await formattedObject(unWrapObject));
+        let statusFind = await this.member.find( await formattedObject(unWrapObject)).toArray();
         if(statusFind.length !== 0 ? status = statusFind : status = {status: false, message: "Member not found"} );
         return status;
     }
@@ -61,35 +70,35 @@ class Read{
         return status;
     }
 
-    async readTotalMember(memberCol){
-        let getAll = await memberCol.find().count();
+    async readTotalMember(){
+        let getAll = await this.member.find().count();
         return {total: getAll};
     }
 
-    async readTotalActiveMember(memberCol){
+    async readTotalActiveMember(){
 
-        let getActive = await memberCol.find({staMember : "TRUE"}).count();
+        let getActive = await this.member.find({staMember : "TRUE"}).count();
         return {total: getActive};
 
     }
 
-    async readTotalNonActiveMember(memberCol){
+    async readTotalNonActiveMember(){
 
-        let getNonActive = await memberCol.find({ staMember: "FALSE" }).count();
+        let getNonActive = await this.member.find({ staMember: "FALSE" }).count();
         return {total: getNonActive};
 
     }
 
-    async readLastIDMember(logsCol){
+    async readLastIDMember(){
 
-        let getLastID = await logsCol.find().toArray();
+        let getLastID = await this.logs.find().toArray();
         return {idCard: getLastID[0].idCard};
 
     }
 
-    async readLastNoKop(logsCol) {
+    async readLastNoKop() {
 
-        let getLastID = await logsCol.find().toArray();
+        let getLastID = await this.logs.find().toArray();
         return {noKop: getLastID[0].noKop};
 
     }

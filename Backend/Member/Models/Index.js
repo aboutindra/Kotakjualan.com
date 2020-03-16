@@ -1,16 +1,12 @@
 const Mongo = require('mongodb').MongoClient;
 
 const read = require('./Read');
-const Read = new read();
 
 const insert = require('./Insert');
-const Insert = new insert();
 
 const update = require('./Update');
-const Update = new update();
 
 const drop = require('./Drop');
-const Drop = new drop();
 
 const Schema = require('../Schema/Index');
 const schema = new Schema();
@@ -20,15 +16,13 @@ let publicCount = 0;
 class Models{
 
     constructor(){
-        
-      this.db;
-      this.members;
 
-      this.insert = new Insert(this.db);
-      this.update = new Update(this.db);
-      this.drop = new Drop(this.db);
-      this.read = new Read(this.db);
-      
+      this.db;
+      this.insert ;
+      this.update ;
+      this.drop ;
+      this.read ;
+
       this.initDB();
 
     }
@@ -45,18 +39,16 @@ class Models{
         }
             
         this.db = con.db('KoperasiDB');
-        this.members = this.db.collection('Members');
-        this.logs = this.db.collection('Logs');        
-        this.dept = this.db.collection('Dept');
-        this.plant = this.db.collection('Plant');
-        this.shop = this.db.collection('Shop');
-
+        this.insert = new insert(this.db);
+        this.update = new update(this.db);
+        this.drop = new drop(this.db);
+        this.read = new read(this.db);
 
       });
 
     }
 
-    readAllMemberData(){
+    /*readAllMemberData(){
         return Read.readAll(this.members);
     }
 
@@ -155,7 +147,7 @@ class Models{
     readDataShop(searchParam){
         return Read.readDataShop(searchParam, this.shop);
     }
-
+*/
 }
 
 module.exports = Models;

@@ -7,12 +7,21 @@ app.use(cors());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
+const db = require('../Controllers/Database');
+const DB = new db();
 
 const get = require('./Get');
 const Get = new get();
 
 const post = require('./Post');
 const Post = new post();
+
+app.get('/m', async (req, res) => {
+    let id = req.body.id;
+    let keyword = req.body.keyword;
+    let param = { id : id, keyword : keyword };
+    res.send( await DB.getMember(param) );
+});
 
 //Get All Client Data
 app.get('/gm', async (req, res) => {
