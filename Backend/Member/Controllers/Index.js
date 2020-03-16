@@ -4,7 +4,16 @@ const Request = new request();
 const post = require('./Post');
 const Post = new post();
 
+const db = require('./Database');
+
 class Controllers{
+
+    constructor() {
+
+        this.db = new db();
+
+    }
+
 
     reqAllClientData(){
         return Request.getAllClientData();

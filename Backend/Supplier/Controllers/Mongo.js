@@ -6,7 +6,7 @@ const model = new Model();
 const ModelLogs = require("../../Logs/Models/Index");
 const modelLogs = new ModelLogs();
 
-const FormatDate = require('./FormatDate');;
+const FormatDate = require('./FormatDate');
 const frmt = new FormatDate();
 
 class Mongo{
@@ -30,7 +30,7 @@ class Mongo{
     
     else if(tipe === 4){
       let str = param.s;
-      let len = parama.l;
+      let len = param.l;
       temp = await model.get.getWithRangeSupp(str, len);
     }
     
