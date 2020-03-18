@@ -1,13 +1,19 @@
 class Get{
 
   constructor(connectionDB){
+    
     this.con = connectionDB;
-    this.supp = this.con.collection("Supplier");    
-  }
+    
+    this.supp = this.con.collection("Supplier");     
 
-  async getAllSupp(){
-    let temp = await this.supp.find().toArray();
-    return temp;;
+  }    
+
+  async getAllSupp(){                
+
+    let res = await this.supp.find().toArray();
+
+    return res;
+
   }
 
   //param = {Object}

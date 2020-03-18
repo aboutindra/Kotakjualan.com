@@ -12,7 +12,9 @@ const frmt = new FormatDate();
 class Mongo{
 
   async getSupp(param){    
+    
     let tipe = param.t;    
+
     let temp = [];
     
     if(tipe === 1){

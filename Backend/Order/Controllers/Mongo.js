@@ -1,5 +1,13 @@
+const async = require('async');
+
 const Model = require("..//Models/Index");
 const model = new Model();
+
+const ModelLogs = require("../../Logs/Models/Index");
+const modelLogs = new ModelLogs();
+
+const FormatDate = require('./FormatDate');
+const frmt = new FormatDate();
 
 class Mongo{
 
@@ -51,55 +59,197 @@ class Mongo{
 
   }
 
+  async detectArray(param){
+
+    let len = param.length;
+
+    if(len === undefined){
+      return false;
+    }
+
+    return true;
+
+  }
+
   async postOrder(param){
 
     let sta = true;
 
+    let len = 0;
+
+    let resId = 0;
+
+    let logs;
+
     let res;
 
-    try {
-      
-      let len = param.length;
+    
+    sta = this.detectArray(param);
 
-      if(len === undefined){
-        sta = false;
+    len = await model.get.getCount();
+
+    
+    if(len === 0){
+
+      if(!sta){
+        
+        param.id = resId + 1;
+  
+        param.sta = true;
+  
+        param.tglInput = frmt.getFormat();
+  
+        async.parallel({
+  
+          t1: async () => {
+  
+            res = await model.post.insertObject(param);
+  
+          },  
+  
+          t2: async () => {
+  
+            await modelLogs.put.updateOneLogs({idOrder: resId + 1});
+  
+          }
+  
+        });
+
       }
 
-    } catch (error) {
-      
-      console.log("Some error in Insert on Order");
+      else{
 
-    }
+        let tempId = resId + 1;
 
-    if(!sta){
+        let i = 0;
 
-      try {
-        
-        res = await model.post.insertObject(param);
+        while(i<len){
 
-      } catch (error) {
-        
-        res = false;
+          param[i].id = tempId;
+          tempId++;
+
+          param[i].sta = true;        
+
+          param[i].tglInput = frmt.getFormat();
+
+          i++;
+        }
+
+        async.parallel({
+          
+          t1: async () => {
+            
+            res = await model.post.insertWithArray(param);
+  
+          },
+  
+          t2: async () => {
+  
+            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
+  
+          }
+  
+        });        
 
       }
+
 
     }
 
     else{
 
-      try {
-        
-        res = await model.post.insertWithArray(param);
+      async.parallel({
 
-      } catch (error) {
-        
-        res = false;
+        t1: async () => {
+
+          logs = await modelLogs.get.getAll();
+
+        },
+
+        t2: async () => {
+
+          resId = await model.get.getLastId();
+
+        }
+
+      })
+
+      if(logs != undefined){
+
+        resId = logs;
+
+      }
+
+      if(!sta){
+
+        param.id = resId + 1;
+
+        param.sta = true;        
+
+        param.tglInput = frmt.getFormat();        
+  
+        async.parallel({
+          
+          t1: async () => {
+            
+            res = await model.post.insertObject(param);      
+  
+          },
+  
+          t2: async () => {
+  
+            await modelLogs.put.updateOneLogs({idSupp : resId + 1});
+  
+          }
+  
+        });
+
+      }
+
+      else{
+
+        let tempId = resId + 1;
+  
+        let i = 0;
+  
+        while(i<len){
+  
+          param[i].id = tempId;
+          tempId++;
+
+          param[i].sta = true;        
+
+          param[i].tglInput = frmt.getFormat();
+  
+          i++;
+        }
+  
+        async.parallel({
+          
+          t1: async () => {
+            
+            res = await model.post.insertWithArray(param);
+  
+          },
+  
+          t2: async () => {
+  
+            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
+  
+          }
+  
+        });
 
       }
 
     }
-
-    return res;
+    
+    if(res){
+      return {sta:"OK", mess:"Proses insert berhasil :)"}
+    }
+    else{
+      return {sta:"NO", mess:"Proses insert gagal :("}
+    }
 
   }
 
@@ -145,4 +295,4 @@ class Mongo{
 
 }
 
-module.exports = Mongo;
+module.exports = Mongo;return res;

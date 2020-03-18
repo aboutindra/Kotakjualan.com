@@ -31,6 +31,18 @@ class Get{
     return temp;
   }
 
+  async getCount(){
+    let temp = await this.order.countDocuments();
+    return temp;
+  }
+
+  async getLastId(){
+    let temp = await this.order.find().toArray();    
+    let len = temp.length;
+    let tempLastId =  temp[len-1].id;
+    return tempLastId;    
+  }
+
 }
 
 module.exports = Get;
