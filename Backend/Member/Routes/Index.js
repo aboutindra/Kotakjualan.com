@@ -37,6 +37,13 @@ app.put('/m', async ( req, res ) => {
     res.send( await DB.updateMember(param) );
 });
 
+app.delete('/m', async (req, res) => {
+    let id = req.body.id;
+    let data = req.body.data;
+    let param = { id : id, data : data };
+    res.send( await DB.deleteMember(param) );
+});
+
 //Get All Client Data
 app.get('/gm', async (req, res) => {
     res.send( await Get.getAllClient() );

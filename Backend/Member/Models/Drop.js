@@ -1,12 +1,17 @@
 class Drop{
 
-    async dropDataMember(id_member, membersCol){
-        let status = {status: false, message: "1 Member data failed updated"};
+    constructor(DBCon){
+        this.db = DBCon;
+        this.members = this.db.collection('Members');
+    }
+
+    async dropDataMember(dataMember){
+        let status;
         let generateDeleteParam = () => {
-            return Object.assign({}, ...id_member);
+            return Object.assign({}, ...dataMember);
         };
-        let statusDrop = await membersCol.findOneAndDelete(generateDeleteParam());
-        if(statusDrop ? status = { status: true, message: "1 Member data successfully deleted" } : status = { status: false, message: "1 Member data failed deleted" });
+        let statusDrop = await this.members.findOneAndDelete(generateDeleteParam());
+        if(statusDrop ? status = true : status = false );
         return status;
     }
 

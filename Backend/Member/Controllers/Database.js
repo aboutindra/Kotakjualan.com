@@ -39,5 +39,12 @@ class DatabaseController{
             return { updateMembers : await updateMembers }
         }
     }
+
+    async deleteMember(param){
+        if( param.id === 1 ){
+            let deleteMembers = model.drop.dropDataMember(param.data);
+            return { deleteMembers : await deleteMembers }
+        }
+    }
 }
 module.exports = DatabaseController;
