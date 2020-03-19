@@ -29,6 +29,11 @@ class DatabaseController{
             let updateLogsDept =  model.update.updateDataLogs("Dept");
             let result = { status : [ {insertDept : await insertDept}, {updateLogsDept : await updateLogsDept}] };
             return result;
+        }else if( param.id === 2 ){
+            let insertPlant =  model.insert.insertDataPlant(param.data);
+            let updateLogsPlant =  model.update.updateDataLogs("Plant");
+            let result = { status : [ {insertPlant : await insertPlant}, {updateLogsPlant : await updateLogsPlant}] };
+            return result;
         }
     }
 

@@ -77,7 +77,12 @@ class Update{
             let getDataLogs = await this.logs.find().toArray();
             let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, {$set:{ "idDept" : getDataLogs[0].idCard + 1}});
             if( dataEdit ? hasil = true : hasil = false  );
-            console.log(hasil);
+            return hasil;
+        } else if ( typeUpdate === "Plant" ){
+            let hasil;
+            let getDataLogs = await this.logs.find().toArray();
+            let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, {$set:{ "idPlant" : getDataLogs[0].idCard + 1}});
+            if( dataEdit ? hasil = true : hasil = false  );
             return hasil;
         }
     }
