@@ -30,6 +30,13 @@ app.post('/m', async (req, res) => {
     res.send( await DB.postMember(param) );
 });
 
+app.put('/m', async ( req, res ) => {
+    let id = req.body.id;
+    let data = req.body.data;
+    let param = { id : id, data : data };
+    res.send( await DB.updateMember(param) );
+});
+
 //Get All Client Data
 app.get('/gm', async (req, res) => {
     res.send( await Get.getAllClient() );

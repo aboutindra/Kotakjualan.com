@@ -6,7 +6,7 @@ class Update{
         this.logs = this.db.collection('Logs');
     }
 
-    async updateDataMember(memberParam, membersCol){
+    async updateDataMember(memberParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
@@ -14,8 +14,8 @@ class Update{
         };
         console.log(generateUpdateParam());
         generateUpdateParam();
-        let statusUpdateData = await membersCol.findOneAndUpdate(memberParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Member data successfully updated"} : statusUpdate = { status: false, message: "1 Member data failed to updated" });
+        let statusUpdateData = await this.members.findOneAndUpdate(memberParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true : statusUpdate = false );
 
         return statusUpdate;
 

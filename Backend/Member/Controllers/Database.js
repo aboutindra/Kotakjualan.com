@@ -26,12 +26,17 @@ class DatabaseController{
 
     async postMember(param){
         if( param.id === 1 ){
-            var insertHasil = [];
-            let updateLogs;
             let insertMembers =  model.insert.insertDataMember(param.data);
             let updateLogsMembers =  model.update.updateDataLogs("Members");
             let result = { status : [ {insertMembers : await insertMembers}, {updateLogsMembers : await updateLogsMembers}] };
             return result;
+        }
+    }
+
+    async updateMember(param){
+        if( param.id === 1 ){
+            let updateMembers = model.update.updateDataMember(param.data);
+            return { updateMembers : await updateMembers }
         }
     }
 }
