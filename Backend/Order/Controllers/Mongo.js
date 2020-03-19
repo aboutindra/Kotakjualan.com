@@ -184,16 +184,12 @@ class Mongo{
 
       logs = await modelLogs.get.getAll();
 
-      console.log(logs.idOrder);
-
       if(logs.idOrder === undefined){
         resId = await model.get.getLastId();
       }
       else{
         resId = logs.idOrder;
-      }
-
-      console.log(resId);
+      }      
 
 
       if(!sta){
@@ -228,9 +224,7 @@ class Mongo{
 
         console.log(tempId);
   
-        let i = 0;
-
-        console.log("Len = "+len);
+        let i = 0;        
   
         while(i<len){
 
