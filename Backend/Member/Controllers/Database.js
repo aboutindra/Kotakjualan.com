@@ -1,5 +1,4 @@
 const async = require('async');
-
 const Model = require('../Models/Index');
 const model = new Model();
 
@@ -23,6 +22,17 @@ class DatabaseController{
             hasil = await  model.read.readTotalNonActiveMember();
         }
         return hasil;
+    }
+
+    async postMember(param){
+        if( param.id === 1 ){
+            var insertHasil = [];
+            let updateLogs;
+            let insertMembers =  model.insert.insertDataMember(param.data);
+            let updateLogsMembers =  model.update.updateDataLogs("Members");
+            let result = { status : [ {insertMembers : await insertMembers}, {updateLogsMembers : await updateLogsMembers}] };
+            return result;
+        }
     }
 }
 module.exports = DatabaseController;

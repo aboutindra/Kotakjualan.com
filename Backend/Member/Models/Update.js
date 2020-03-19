@@ -1,5 +1,11 @@
 class Update{
 
+    constructor(DBCon) {
+        this.db = DBCon;
+        this.members = this.db.collection('Members');
+        this.logs = this.db.collection('Logs');
+    }
+
     async updateDataMember(memberParam, membersCol){
 
         let statusUpdate;
@@ -56,6 +62,17 @@ class Update{
 
         return statusUpdate;
 
+    }
+
+    async updateDataLogs(typeUpdate){
+        if( typeUpdate === "Members" ){
+            let hasil;
+            let getDataLogs = await this.logs.find().toArray();
+            let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, {$set:{ "idCard" : getDataLogs[0].idCard + 1, "noKop" : getDataLogs[0].noKop + 1 }});
+            if( dataEdit ? hasil = true : hasil = false  );
+            console.log(hasil);
+            return hasil;
+        }
     }
 
 }

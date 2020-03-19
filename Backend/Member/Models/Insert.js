@@ -1,8 +1,13 @@
 class Insert{
 
-    async insertDataMember(memberParam, membersCol, logsCol){
+    constructor(DBCon) {
+        this.db = DBCon;
+        this.members = this.db.collection("Members");
+        this.logs = this.db.collection("Logs");
+    }
+
+    async insertDataMember(memberParam){
         let checkDataIsComplete = true;
-        console.log(memberParam);
 
         for(let i = 0; i <= 5; i++ ){
 
@@ -15,7 +20,7 @@ class Insert{
         if(checkDataIsComplete){
 
             let hasilnya2;
-            let getID = await logsCol.find().toArray();
+            let getID = await this.logs.find().toArray();
             console.log(getID);
             let dataWantToInsert = async () => {
 
@@ -28,10 +33,6 @@ class Insert{
                 };
 
                 let personalData = Object.assign({}, ...memberParam);
-                let formattedObject = async function(obj){
-                    await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key] } });
-                    return obj;
-                };
                 let formattedData = personalData;
 
                 let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
@@ -39,18 +40,10 @@ class Insert{
                 return data;
             };
 
-            console.log(await dataWantToInsert());
+            let statusInsert = await this.members.insertOne(await dataWantToInsert());
+            if( statusInsert ? hasilnya2 = true : hasilnya2 = false  )
 
-            let statusInsert = await membersCol.insertOne(await dataWantToInsert());
-            if( statusInsert ? hasilnya2 = { status: true, message: "1 Member successfully inserted"  } : hasilnya2 = { status: false, message: "1 Member failed inserted" }  )
-
-                await logsCol.findOneAndUpdate({_id: getID[0]._id}, {
-                    $set: {
-                        idCard: getID[0].idCard + 1,
-                        noKop: getID[0].noKop + 1
-                    }
-                });
-
+            console.log(hasilnya2);
             return hasilnya2;
 
         } else {
