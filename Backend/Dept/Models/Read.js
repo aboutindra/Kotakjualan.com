@@ -51,6 +51,28 @@ class Read{
         return status;
     }
 
+    async readShop(){
+        return await this.shop.find().sort({ noKop : -1 }).toArray();
+    }
+
+    async readDataShopWithParam(keyword){
+        console.log(keyword);
+        let status;
+        let generateDeleteparam = () => {
+            return Object.assign({}, ...keyword );
+        };
+        console.log(generateDeleteparam());
+        let unWrapObject = generateDeleteparam();
+        let formattedObject = async function(obj){
+            await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = new RegExp(obj[key]) } });
+            return obj;
+        };
+        console.log(await formattedObject(unWrapObject));
+        let statusFind = await this.shop.find( await formattedObject(unWrapObject)).toArray();
+        if(statusFind.length !== 0 ? status = statusFind : status = {status: false, message: "Member not found"} );
+        return status;
+    }
+
 
 }
 module.exports = Read;
