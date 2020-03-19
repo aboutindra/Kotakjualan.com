@@ -11,9 +11,10 @@ class Post{
   //param = {Object}
   async insertObject(param){
     try {
-      await this.order.insertOne(param);
+      let temp = await this.order.insertOne(param);
       return true;
     } catch (error) {
+      console.log("error");
       return false;
     }
   }
@@ -21,7 +22,7 @@ class Post{
   //param = [Object]
   async insertWithArray(param){
     try {
-      await this.order.insertMany(param);
+      let temp = await this.order.insertMany(param);
       return true;
     } catch (error) {
       return false;

@@ -37,15 +37,15 @@ class Mongo{
 
         let tempParam = {s:param.s, e:param.e}
 
-        temp = await model.get.getWithScope();
+        temp = await model.get.getWithScope(tempParam);
 
         break;
 
       case 4:
 
-        let tempParam = param.f;
+        let tempParam2 = param.f;
 
-        temp = await model.get.getWithParam(tempParam);
+        temp = await model.get.getWithParam(tempParam2);
 
         break;
 
@@ -59,7 +59,7 @@ class Mongo{
 
   }
 
-  async detectArray(param){
+  detectArray(param){
 
     let len = param.length;
 
@@ -72,6 +72,8 @@ class Mongo{
   }
 
   async postOrder(param){
+
+    console.log('Masuk');
 
     let sta = true;
 
@@ -86,34 +88,59 @@ class Mongo{
     
     sta = this.detectArray(param);
 
+    console.log(sta);
+
     len = await model.get.getCount();
 
     
     if(len === 0){
 
-      if(!sta){
+      if(sta === false){
         
         param.id = resId + 1;
   
         param.sta = true;
   
         param.tglInput = frmt.getFormat();
+
+        console.log("Masuk");
   
-        async.parallel({
+        res = await (async ()=>{
+          
+          return async.parallel({
+    
+            t1: (callback) => {
+              
+              ( async ()=>{
   
-          t1: async () => {
+                let tempRes = await model.post.insertObject(param);
+    
+                console.log(tempRes);
+    
+                callback(null, tempRes);
   
-            res = await model.post.insertObject(param);
+              })();
   
-          },  
+    
+            },  
+    
+            t2: async () => {
+    
+              await modelLogs.put.updateOneLogs({idOrder: resId + 1});
+    
+            }
+    
+          },(err, result) =>{
   
-          t2: async () => {
+            console.log(result);
   
-            await modelLogs.put.updateOneLogs({idOrder: resId + 1});
+            return result.t1;
   
-          }
-  
-        });
+          });                
+
+        })();
+
+        console.log(res);
 
       }
 
@@ -145,7 +172,7 @@ class Mongo{
   
           t2: async () => {
   
-            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
+            await modelLogs.put.updateOneLogs({idOrder : tempId-1});
   
           }
   
@@ -198,7 +225,7 @@ class Mongo{
   
           t2: async () => {
   
-            await modelLogs.put.updateOneLogs({idSupp : resId + 1});
+            await modelLogs.put.updateOneLogs({idOrder : resId + 1});
   
           }
   
@@ -234,7 +261,7 @@ class Mongo{
   
           t2: async () => {
   
-            await modelLogs.put.updateOneLogs({idSupp : tempId-1});
+            await modelLogs.put.updateOneLogs({idOrder : tempId-1});
   
           }
   
@@ -295,4 +322,4 @@ class Mongo{
 
 }
 
-module.exports = Mongo;return res;
+module.exports = Mongo;

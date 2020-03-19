@@ -36,6 +36,7 @@ class Model{
 
       if(publicCount === 0){
         schema.createAllCollection(err, con);
+        publicCount++;
       }
 
       this.get = new Get(this.database);
