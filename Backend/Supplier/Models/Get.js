@@ -1,13 +1,19 @@
 class Get{
 
   constructor(connectionDB){
+    
     this.con = connectionDB;
-    this.supp = this.con.collection("Supplier");    
-  }
+    
+    this.supp = this.con.collection("Supplier");     
 
-  async getAllSupp(){
-    let temp = await this.supp.find().toArray();
-    return temp;;
+  }    
+
+  async getAllSupp(){                
+
+    let res = await this.supp.find().toArray();
+
+    return res;
+
   }
 
   //param = {Object}
@@ -39,6 +45,40 @@ class Get{
     let temp =  await this.supp.countDocuments();    
     return temp;
   }    
+
+  async getAllItem(){
+    
+    let tempData = await this.supp.find().toArray();
+    
+    let res = [];
+
+    let tempItem = [];
+
+    let tempRes = [];
+
+    tempData.forEach(e => {
+
+      tempRes = res;
+
+      tempItem = e.item;
+
+      res = tempRes.concat(tempItem);
+
+    });
+
+    return res;
+
+  }
+
+  async getItemWithParam(param){
+
+    let tempData = await this.supp.find(param).toArray();
+    
+    let res = tempData[0].item;
+
+    return res;
+
+  }
 
 }
 

@@ -12,7 +12,9 @@ const frmt = new FormatDate();
 class Mongo{
 
   async getSupp(param){    
+    
     let tipe = param.t;    
+
     let temp = [];
     
     if(tipe === 1){
@@ -44,7 +46,15 @@ class Mongo{
     
     else if(tipe === 6){
       temp = await model.get.getCount();            
-    }    
+    }
+    
+    else if(tipe === 7){
+      temp  = await model.get.getAllItem();
+    }
+
+    else if(tipe === 8){
+      temp  = await model.get.getItemWithParam(param);
+    }
     
     else{
       return false; 
