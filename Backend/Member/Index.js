@@ -23,10 +23,10 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('*', async( req, res ) => { res.send({ status: "OK" }) });
-app.put('*', async( req, res ) => { res.send({ status: "OK" }) });
-app.post('*', async( req, res ) => { res.send({ status: "OK" }) });
-app.delete('*', async( req, res ) => { res.send({ status: "OK" }) });
+app.get('/*', async( req, res ) => { res.send({ status: "OK" }) });
+app.put('/*', async( req, res ) => { res.send({ status: "OK" }) });
+app.post('/*', async( req, res ) => { res.send({ status: "OK" }) });
+app.delete('/*', async( req, res ) => { res.send({ status: "OK" }) });
 
 app.listen(3001, (err) => {
 
