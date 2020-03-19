@@ -2,14 +2,14 @@ class Insert{
 
     constructor(DBCon) {
         this.db = DBCon;
-        this.members = this.db.collection("Members");
+        this.dept = this.db.collection("Dept");
         this.logs = this.db.collection("Logs");
     }
 
-    async insertDataMember(memberParam){
+    async insertDataDept(memberParam){
         let checkDataIsComplete = true;
-
-        for(let i = 0; i <= 5; i++ ){
+        console.log(memberParam);
+        for(let i = 0; i <= 1; i++ ){
 
             if( memberParam[i] === null || memberParam[i] === "" || memberParam[i] === undefined){
                 checkDataIsComplete = false;
@@ -24,23 +24,14 @@ class Insert{
             console.log(getID);
             let dataWantToInsert = async () => {
 
-                let generateDate = async () => {
-                    let date = new Date();
-                    let tgl = date.getDate();
-                    let month = date.getMonth() + 1;
-                    let year = date.getFullYear();
-                    return tgl + "/" + month + "/" + year;
-                };
+                let formattedData = Object.assign({}, ...memberParam);
 
-                let personalData = Object.assign({}, ...memberParam);
-                let formattedData = personalData;
-
-                let data = { idCard : getID[0].idCard, noKop : getID[0].noKop, nik : formattedData.nik, nama : formattedData.nama, tglLahir : personalData.tglLahir , shop : formattedData.shop, plant : formattedData.plant, Dept : personalData.dept, tglMasuk : await generateDate(), tglKeluar : "", staMember : true, staKaryawan : true, Ket : "Aktif", tglInput : await generateDate() };
+                let data = { id : getID[0].idDept, idPlant : formattedData.idPlant, name : formattedData.name };
                 console.log(data);
                 return data;
             };
 
-            let statusInsert = await this.members.insertOne(await dataWantToInsert());
+            let statusInsert = await this.dept.insertOne(await dataWantToInsert());
             if( statusInsert ? hasilnya2 = true : hasilnya2 = false  )
 
             console.log(hasilnya2);
@@ -52,7 +43,7 @@ class Insert{
 
     }
 
-    async insertDataDept(deptParam, deptCol, logsCol){
+    /*async insertDataDept(deptParam, deptCol, logsCol){
 
         let checkDataIsComplete = true;
 
@@ -85,7 +76,7 @@ class Insert{
             return checkDataIsComplete;
         }
 
-    }
+    }*/
 
     async insertDataPlant(plantParam, plantCol, logsCol){
         let checkDataIsComplete = true;

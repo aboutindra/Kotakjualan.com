@@ -23,11 +23,11 @@ class DatabaseController{
         return hasil;
     }
 
-    async postMember(param){
+    async postDept(param){
         if( param.id === 1 ){
-            let insertMembers =  model.insert.insertDataMember(param.data);
-            let updateLogsMembers =  model.update.updateDataLogs("Members");
-            let result = { status : [ {insertMembers : await insertMembers}, {updateLogsMembers : await updateLogsMembers}] };
+            let insertDept =  model.insert.insertDataDept(param.data);
+            let updateLogsDept =  model.update.updateDataLogs("Dept");
+            let result = { status : [ {insertDept : await insertDept}, {updateLogsDept : await updateLogsDept}] };
             return result;
         }
     }
