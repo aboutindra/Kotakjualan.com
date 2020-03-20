@@ -7,35 +7,35 @@ app.use(cors());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
-const db = require('../Controllers/Database');
+const db = require('../../Controllers/Database');
 const DB = new db();
 
-app.get('/m', async (req, res) => {
+app.get('/d', async (req, res) => {
     let id = req.body.id;
     let keyword = req.body.keyword;
     let param = { id : id, keyword : keyword };
-    res.send( await DB.getMember(param) );
+    res.send( await DB.getDept(param) );
 });
 
-app.post('/m', async (req, res) => {
+app.post('/d', async (req, res) => {
     let id = req.body.id;
     let data = req.body.data;
     let param = { id : id, data : data };
-    res.send( await DB.postMember(param) );
+    res.send( await DB.postDept(param) );
 });
 
-app.put('/m', async ( req, res ) => {
+app.put('/d', async ( req, res ) => {
     let id = req.body.id;
     let data = req.body.data;
     let param = { id : id, data : data };
-    res.send( await DB.updateMember(param) );
+    res.send( await DB.updateDept(param) );
 });
 
-app.delete('/m', async (req, res) => {
+app.delete('/d', async (req, res) => {
     let id = req.body.id;
     let data = req.body.data;
     let param = { id : id, data : data };
-    res.send( await DB.deleteMember(param) );
+    res.send( await DB.deleteDept(param) );
 });
 
 module.exports = app;
