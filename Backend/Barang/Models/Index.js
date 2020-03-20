@@ -33,12 +33,12 @@ class Model{
         Mongo.connect('mongodb://127.0.0.1:27017/KoperasiDB', {useNewUrlParser:true, useUnifiedTopology:true}, async (err, con)=>{
             
             if(count == 0){
-                await schema.createAllCollection();
+                await schema.createAllCollection(err, con);
                 count++;
             }
 
             this.database = con.db("KoperasiDB");
-
+            
             this.get = new Get(this.database);
 
             this.post = new Post(this.database);

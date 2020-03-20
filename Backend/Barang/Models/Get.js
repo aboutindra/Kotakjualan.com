@@ -7,7 +7,7 @@ class Get{
     }
 
     async getAll(){
-        return await this.barang.find({}).toArray()p;
+        return await this.barang.find({}).toArray();
     }
 
     async getWithParam(param){

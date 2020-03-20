@@ -64,9 +64,9 @@ class Mongo{
     }
 
 
-    addItemObject(p, q, sta){
+    addItemObject(p, q, s){
 
-        let sta = sta;
+        let sta = s;
 
         if(sta){
 
