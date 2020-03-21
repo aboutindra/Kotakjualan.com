@@ -2,46 +2,38 @@ class Drop{
 
     constructor(DBCon){
         this.db = DBCon;
-        this.members = this.db.collection('Members');
+        this.dept = this.db.collection('Dept');
+        this.plant = this.db.collection('Plant');
+        this.shop = this.db.collection('Shop');
     }
 
-    async dropDataMember(dataMember){
-        let status;
-        let generateDeleteParam = () => {
-            return Object.assign({}, ...dataMember);
-        };
-        let statusDrop = await this.members.findOneAndDelete(generateDeleteParam());
-        if(statusDrop ? status = true : status = false );
-        return status;
-    }
-
-    async dropDataDept(idDept, deptCol){
+    async dropDataDept(idDept){
         let status;
         let generateDeleteParam = () => {
             return Object.assign({}, ...idDept);
         };
-        let statusDrop = await deptCol.findOneAndDelete(generateDeleteParam());
-        if(statusDrop ? status = { status: true, message: "1 Dept data successfully deleted" } : status = { status: false, message: "1 Dept data failed deleted" });
+        let statusDrop = await this.dept.findOneAndDelete(generateDeleteParam());
+        if(statusDrop ? status = true : status = false );
         return status;
     }
 
-    async dropDataPlant(plantParam, plantCol){
+    async dropDataPlant(plantParam){
         let status;
         let generateDeleteParam = () => {
             return Object.assign({}, ...plantParam);
         };
-        let statusDrop = await plantCol.findOneAndDelete(generateDeleteParam());
-        if( statusDrop ? status = { status: true, message: "1 Plant data successfully deleted" } : status = { status: false, message: "1 Dept data failed deleted" } );
+        let statusDrop = await this.plant.findOneAndDelete(generateDeleteParam());
+        if( statusDrop ? status = true : status = false );
         return status;
     }
 
-    async dropDataShop(shopParam, shopCol){
+    async dropDataShop(shopParam){
         let status;
         let generateDeleteParam = () => {
             return Object.assign({}, ...shopParam);
         };
-        let statusDrop = await shopCol.findOneAndDelete(generateDeleteParam());
-        if( statusDrop ? status = { status: true, message: "1 Shop data successfully deleted" } : status = { status: false, message: "1 Shop data failed deleted" } );
+        let statusDrop = await this.shop.findOneAndDelete(generateDeleteParam());
+        if( statusDrop ? status = ture : status = false );
         return status;
     }
 

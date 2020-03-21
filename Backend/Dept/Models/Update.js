@@ -4,25 +4,12 @@ class Update{
         this.db = DBCon;
         this.members = this.db.collection('Members');
         this.shop = this.db.collection('Shop');
+        this.dept = this.db.collection('Dept');
+        this.plant = this.db.collection('Plant');
         this.logs = this.db.collection('Logs');
     }
 
-    async updateDataMember(memberParam){
-
-        let statusUpdate;
-        let generateUpdateParam = () => {
-            return Object.assign({}, ...memberParam);
-        };
-        console.log(generateUpdateParam());
-        generateUpdateParam();
-        let statusUpdateData = await this.members.findOneAndUpdate(memberParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = true : statusUpdate = false );
-
-        return statusUpdate;
-
-    }
-
-    async updateDataDept(deptParam, deptCol){
+    async updateDataDept(deptParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
@@ -30,22 +17,22 @@ class Update{
         };
         console.log(generateUpdateParam());
         generateUpdateParam();
-        let statusUpdateData = await deptCol.findOneAndUpdate(deptParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Dept data successfully updated"} : statusUpdate = { status: false, message: "1 Dept data failed to updated" });
+        let statusUpdateData = await this.dept.findOneAndUpdate(deptParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true : statusUpdate = false);
 
         return statusUpdate;
 
     }
 
-    async updateDataPlant(plantParam, plantCol){
+    async updateDataPlant(plantParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
             return Object.assign({}, ...plantParam);
         };
         console.log(generateUpdateParam());
-        let statusUpdateData = await plantCol.findOneAndUpdate(plantParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Plant data successfully updated" } : statusUpdate = { status: false, message: "1 Plant data failed to updated" });
+        let statusUpdateData = await this.plant.findOneAndUpdate(plantParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true: statusUpdate = false );
 
         return statusUpdate;
 
