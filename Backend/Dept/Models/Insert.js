@@ -4,6 +4,7 @@ class Insert{
         this.db = DBCon;
         this.dept = this.db.collection("Dept");
         this.plant = this.db.collection("Plant");
+        this.shop = this.db.collection("Shop");
         this.logs = this.db.collection("Logs");
     }
 
@@ -57,7 +58,7 @@ class Insert{
 
     }
 
-    async insertDataShop(shopParam, shopCol, logsCol){
+    async insertDataShop(shopParam){
         let checkDataIsComplete = true;
 
         for(let i =0; i <= 2; i++){
@@ -70,18 +71,13 @@ class Insert{
 
         if(checkDataIsComplete){
             let hasilnya;
-            let getID = await logsCol.find().toArray();
+            let getID = await this.logs.find().toArray();
             let shopParams = Object.assign({}, ...shopParam);
-            let formattedObject = async function(obj){
-                await Object.keys(obj).forEach(function(key){ if( !Number.isInteger(obj[key])){ obj[key] = obj[key] } });
-                return obj;
-            };
-            let formattedData = shopParams;
-            let dataWantToInsert = { id : getID[0].idShop, formattedData };
-            let statusInsert = await shopCol.insertOne(dataWantToInsert);
 
-            if(statusInsert ? hasilnya = { status: true, message: "1 Shop successfully inserted" } : hasilnya = { status: false, message: "1 Shop failed inserted" } );
-            await logsCol.findOneAndUpdate({_id: getID[0]._id}, {$set: {idShop: getID[0].idShop + 1}});
+            let dataWantToInsert = { id : getID[0].idShop, idPlant : shopParams.idPlant, idDept : shopParams.idDept, name : shopParams.name };
+            let statusInsert = await this.shop.insertOne(dataWantToInsert);
+
+            if(statusInsert ? hasilnya = true : hasilnya = false );
             return hasilnya;
         }else {
             return checkDataIsComplete;

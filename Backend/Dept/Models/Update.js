@@ -3,6 +3,7 @@ class Update{
     constructor(DBCon) {
         this.db = DBCon;
         this.members = this.db.collection('Members');
+        this.shop = this.db.collection('Shop');
         this.logs = this.db.collection('Logs');
     }
 
@@ -50,15 +51,15 @@ class Update{
 
     }
 
-    async updateDataShop(shopParam, shopCol){
+    async updateDataShop(shopParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
             return Object.assign({}, ...shopParam);
         };
         console.log(generateUpdateParam());
-        let statusUpdateData = await shopCol.findOneAndUpdate(shopParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Shop data successfully updated" } : statusUpdate = { status: false, message: "1 Shop data failed to updated" });
+        let statusUpdateData = await this.shop.findOneAndUpdate(shopParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true : statusUpdate = false);
 
         return statusUpdate;
 
@@ -82,6 +83,12 @@ class Update{
             let hasil;
             let getDataLogs = await this.logs.find().toArray();
             let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, {$set:{ "idPlant" : getDataLogs[0].idCard + 1}});
+            if( dataEdit ? hasil = true : hasil = false  );
+            return hasil;
+        } else if( typeUpdate === "Shop" ){
+            let hasil;
+            let getDataLogs = await this.logs.find().toArray();
+            let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, { $set : { "idShop" : getDataLogs[0].idShop + 1 } });
             if( dataEdit ? hasil = true : hasil = false  );
             return hasil;
         }

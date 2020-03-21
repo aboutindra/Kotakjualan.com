@@ -34,6 +34,11 @@ class DatabaseController{
             let updateLogsPlant =  model.update.updateDataLogs("Plant");
             let result = { status : [ {insertPlant : await insertPlant}, {updateLogsPlant : await updateLogsPlant}] };
             return result;
+        }else if( param.id === 3 ){
+            let insertShop =  model.insert.insertDataShop(param.data);
+            let updateLogsShop =  model.update.updateDataLogs("Shop");
+            let result = { status : [ {insertShop : await insertShop}, {updateLogsShop : await updateLogsShop }] };
+            return result;
         }
     }
 
