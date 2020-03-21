@@ -73,9 +73,9 @@ class Mongo{
 
   async postOrder(param){
 
-    console.log('Masuk');
-
     let sta = true;
+
+    let len2 = 0;
 
     let len = 0;
 
@@ -83,64 +83,61 @@ class Mongo{
 
     let logs;
 
-    let res;
+    let res = true;
+
+    len = param.length;
+
+    sta = this.detectArray(param);    
+
+    len2 = await model.get.getCount();
 
     
-    sta = this.detectArray(param);
-
-    console.log(sta);
-
-    len = await model.get.getCount();
-
-    
-    if(len === 0){
+    if(len2 === 0){
 
       if(sta === false){
         
         param.id = resId + 1;
   
-        param.sta = true;
+        param.sta = false;
   
         param.tglInput = frmt.getFormat();
-
-        console.log("Masuk");
+        
   
-        res = await (async ()=>{
+        try {
           
-          return async.parallel({
+          (async ()=>{
+            
+            return async.parallel({
+      
+              t1: (callback) => {
+                
+                ( async ()=>{
     
-            t1: (callback) => {
-              
-              ( async ()=>{
+                  let tempRes = await model.post.insertObject(param);                  
+      
+                  callback(null, tempRes);
+    
+                })();
+    
+      
+              },  
+      
+              t2: async () => {
+      
+                await modelLogs.put.updateOneLogs({idOrder: resId + 1});
+      
+              }
+      
+            });                
   
-                let tempRes = await model.post.insertObject(param);
-    
-                console.log(tempRes);
-    
-                callback(null, tempRes);
-  
-              })();
-  
-    
-            },  
-    
-            t2: async () => {
-    
-              await modelLogs.put.updateOneLogs({idOrder: resId + 1});
-    
-            }
-    
-          },(err, result) =>{
-  
-            console.log(result);
-  
-            return result.t1;
-  
-          });                
+          })();
 
-        })();
+        } catch (error) {
+          
+          res = false;
 
-        console.log(res);
+        }
+
 
       }
 
@@ -155,7 +152,7 @@ class Mongo{
           param[i].id = tempId;
           tempId++;
 
-          param[i].sta = true;        
+          param[i].sta = false;        
 
           param[i].tglInput = frmt.getFormat();
 
@@ -185,33 +182,21 @@ class Mongo{
 
     else{
 
-      async.parallel({
+      logs = await modelLogs.get.getAll();
 
-        t1: async () => {
-
-          logs = await modelLogs.get.getAll();
-
-        },
-
-        t2: async () => {
-
-          resId = await model.get.getLastId();
-
-        }
-
-      })
-
-      if(logs != undefined){
-
-        resId = logs;
-
+      if(logs.idOrder === undefined){
+        resId = await model.get.getLastId();
       }
+      else{
+        resId = logs.idOrder;
+      }      
+
 
       if(!sta){
 
         param.id = resId + 1;
 
-        param.sta = true;        
+        param.sta = false;        
 
         param.tglInput = frmt.getFormat();        
   
@@ -236,15 +221,21 @@ class Mongo{
       else{
 
         let tempId = resId + 1;
+
+        console.log(tempId);
   
-        let i = 0;
+        let i = 0;        
   
         while(i<len){
+
+          console.log(param[i]);
+
+          console.log(tempId);
   
           param[i].id = tempId;
           tempId++;
 
-          param[i].sta = true;        
+          param[i].sta = false;        
 
           param[i].tglInput = frmt.getFormat();
   
