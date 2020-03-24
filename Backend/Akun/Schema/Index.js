@@ -1,27 +1,17 @@
 class Schema{
 
-  createAllCollection(err, con){    
+  async createAllCollection(err, con){    
 
     let db = con.db('KoperasiDB');
 
     if(err) console.log(err);    
 
-    async.parallel({
+    await db.createCollection("Akun");        
 
-      createAkun : async function(){
+    if(err) console.log("[ ❌ ] Collection Akun failed to created");
 
-        await db.createCollection("Akun");        
+    console.log("[✔] Collection Akun created.");            
 
-      }
-
-    },function(err, res){
-
-      if(err) console.log("[ ❌ ] Collection Barang failed to created");
-
-      console.log("[✔] Collection Barang created.");            
-
-
-    });
     
   }
 

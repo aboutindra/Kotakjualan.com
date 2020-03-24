@@ -6,12 +6,12 @@ class Post{
 
   }
 
-  postOne(param){
+  async postOne(param){
 
     let sta = new Boolean(true);
 
     try {
-      this.akun.insertOne(param);
+      await this.akun.insertOne(param);
     } catch (error) {
       sta = false;  
     }

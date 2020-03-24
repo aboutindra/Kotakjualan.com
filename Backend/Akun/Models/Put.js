@@ -6,12 +6,12 @@ class Put{
 
   }
 
-  putOne(param){
+  async putOne(param){
 
     let sta = new Boolean(true);
 
     try {
-      this.akun.updateOne(param.f, {$set:param.s});
+      await this.akun.updateOne(param.f, {$set:param.s});
     } catch (error) {
       sta = false;
     }

@@ -6,12 +6,12 @@ class Get{
 
   }
 
-  getAccount(param){
-    return this.akun.find(param).toArray();
+  async getAccount(param){
+    return await this.akun.find(param).toArray();
   }
 
-  getCount(){
-    return this.akun.countDocuments();
+  async getCount(){
+    return await this.akun.countDocuments();
   }
 
 }

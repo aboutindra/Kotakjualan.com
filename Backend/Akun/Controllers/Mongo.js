@@ -3,14 +3,23 @@ const mdl = new Model();
 
 class Mongo{
 
-  cekAccount(param){
+  async cekAccount(param){
 
     if(param.u != undefined || param.u != ""){
 
-      let akun = mdl.get.getAccount(param.u);
-  
-      if(akun[0].pass === param.p){
-        return akun[0].user;
+      let akun = await mdl.get.getAccount(param.u);
+
+      if(akun.length != 0){
+        if(akun[0].p === param.p){
+          return akun[0].u;
+        }
+        else{
+          return false;
+        }
+      }
+    
+      else{
+        return false;
       }
 
     }
@@ -22,14 +31,14 @@ class Mongo{
 
   }
 
-  get(param){
+  async get(param){
 
     if(param.t == 1){
-      return this.cekAccount(param.f);
+      return await this.cekAccount(param.f);
     }
 
     else if(param.t == 2){
-      return mdl.get.getCount();
+      return await mdl.get.getCount();
     }
 
     else{
@@ -38,12 +47,12 @@ class Mongo{
 
   }
 
-  post(param){
+  async post(param){
 
-    let arr = mdl.get.getAccount(param.u);
+    let arr = await mdl.get.getAccount(param.u);
 
     if(arr.length === 0){
-      return mdl.post.postOne(param);
+      return await mdl.post.postOne(param);
     }
     else{
       return false;
@@ -52,12 +61,12 @@ class Mongo{
 
   }
 
-  put(param){
-    return mdl.put.putOne(param);
+  async put(param){
+    return await mdl.put.putOne(param);
   }
 
-  del(param){
-    return mdl.del.delOne(param);
+  async del(param){
+    return await mdl.del.delOne(param);
   }
 
 }

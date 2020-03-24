@@ -1,6 +1,9 @@
 {
   "name": "akun",
   "version": "1.0.0",
+  "scripts":{
+  	"start":"node Index.js"
+  },
   "main": "Index.js",
   "license": "MIT",
   "dependencies": {

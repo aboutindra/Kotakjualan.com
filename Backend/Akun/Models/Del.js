@@ -6,12 +6,12 @@ class Del{
 
   }
 
-  delOne(param){
+  async delOne(param){
 
     let sta = new Boolean(true);
 
     try {
-      this.akun.deleteOne(param);
+      await this.akun.deleteOne(param);
     } catch (error) {
       sta = false;
     }
