@@ -14,10 +14,6 @@ const model = new Model();
 const app = new express();
 
 app.use('/api/v1/member' , memberRoutes);
-app.use('/api/v1/dept' , deptRoutes);
-app.use('/api/v1/plant' , plantRoutes);
-app.use('/api/v1/shop', shopRoutes);
-
 app.use(comp());
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));

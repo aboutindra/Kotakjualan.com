@@ -3,25 +3,13 @@ class Update{
     constructor(DBCon) {
         this.db = DBCon;
         this.members = this.db.collection('Members');
+        this.shop = this.db.collection('Shop');
+        this.dept = this.db.collection('Dept');
+        this.plant = this.db.collection('Plant');
         this.logs = this.db.collection('Logs');
     }
 
-    async updateDataMember(memberParam){
-
-        let statusUpdate;
-        let generateUpdateParam = () => {
-            return Object.assign({}, ...memberParam);
-        };
-        console.log(generateUpdateParam());
-        generateUpdateParam();
-        let statusUpdateData = await this.members.findOneAndUpdate(memberParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = true : statusUpdate = false );
-
-        return statusUpdate;
-
-    }
-
-    async updateDataDept(deptParam, deptCol){
+    async updateDataDept(deptParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
@@ -29,36 +17,36 @@ class Update{
         };
         console.log(generateUpdateParam());
         generateUpdateParam();
-        let statusUpdateData = await deptCol.findOneAndUpdate(deptParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Dept data successfully updated"} : statusUpdate = { status: false, message: "1 Dept data failed to updated" });
+        let statusUpdateData = await this.dept.findOneAndUpdate(deptParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true : statusUpdate = false);
 
         return statusUpdate;
 
     }
 
-    async updateDataPlant(plantParam, plantCol){
+    async updateDataPlant(plantParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
             return Object.assign({}, ...plantParam);
         };
         console.log(generateUpdateParam());
-        let statusUpdateData = await plantCol.findOneAndUpdate(plantParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Plant data successfully updated" } : statusUpdate = { status: false, message: "1 Plant data failed to updated" });
+        let statusUpdateData = await this.plant.findOneAndUpdate(plantParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true: statusUpdate = false );
 
         return statusUpdate;
 
     }
 
-    async updateDataShop(shopParam, shopCol){
+    async updateDataShop(shopParam){
 
         let statusUpdate;
         let generateUpdateParam = () => {
             return Object.assign({}, ...shopParam);
         };
         console.log(generateUpdateParam());
-        let statusUpdateData = await shopCol.findOneAndUpdate(shopParam[0], { $set : generateUpdateParam() });
-        if(statusUpdateData ? statusUpdate = { status: true, message: "1 Shop data successfully updated" } : statusUpdate = { status: false, message: "1 Shop data failed to updated" });
+        let statusUpdateData = await this.shop.findOneAndUpdate(shopParam[0], { $set : generateUpdateParam() });
+        if(statusUpdateData ? statusUpdate = true : statusUpdate = false);
 
         return statusUpdate;
 
@@ -82,6 +70,12 @@ class Update{
             let hasil;
             let getDataLogs = await this.logs.find().toArray();
             let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, {$set:{ "idPlant" : getDataLogs[0].idCard + 1}});
+            if( dataEdit ? hasil = true : hasil = false  );
+            return hasil;
+        } else if( typeUpdate === "Shop" ){
+            let hasil;
+            let getDataLogs = await this.logs.find().toArray();
+            let dataEdit = await this.logs.findOneAndUpdate({"_id" : getDataLogs[0]._id}, { $set : { "idShop" : getDataLogs[0].idShop + 1 } });
             if( dataEdit ? hasil = true : hasil = false  );
             return hasil;
         }
