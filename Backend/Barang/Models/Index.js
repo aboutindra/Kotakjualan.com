@@ -38,7 +38,7 @@ class Model{
             }
 
             this.database = con.db("KoperasiDB");
-            
+            
             this.get = new Get(this.database);
 
             this.post = new Post(this.database);
