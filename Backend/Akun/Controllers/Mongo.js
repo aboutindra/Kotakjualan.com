@@ -40,7 +40,15 @@ class Mongo{
 
   post(param){
 
-    return mdl.post.postOne(param);
+    let arr = mdl.get.getAccount(param.u);
+
+    if(arr.length === 0){
+      return mdl.post.postOne(param);
+    }
+    else{
+      return false;
+    }
+
 
   }
 
