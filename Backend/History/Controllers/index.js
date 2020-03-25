@@ -9,12 +9,7 @@ class DbControll {
         }
     
     async deleteRiwayat(param){
-        if(param == 1){
-        await model.delete.deletesatuRiwayat(param);
-        }else{
-        await model.delete.deletebanyakRiwayat(param);
-        }
-
+        await model.delete.deleteOneHistory(param);
     }
 
     async nambahInput(param){

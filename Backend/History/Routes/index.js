@@ -24,9 +24,10 @@ app.post('/T', async (req, res) => {
 });
         
 app.delete('/T', async (req, res) => {
-    let id = req.param.id;
+    let id = req.body.id;
     console.log(id);
-    res.send( await DB.deleteRiwayat(id) );
+    param = JSON.parse(id);
+    res.send( await DB.deleteRiwayat(param) );
 });
 
 app.put('/T', async (req, res) => {
