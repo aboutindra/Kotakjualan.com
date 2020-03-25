@@ -22,7 +22,7 @@ class ModelsIndex{
     initDB(){
         DB.connect("mongodb://127.0.0.1:27017/KoperasiDB", {useNewUrlParser:true, useUnifiedTopology:true}, (err, con) => {
 
-            if(err){ console.log("[❌] Failed Connect to Database, Messages : ", err) }
+            if(err){ console.log("[❌] Failed Connect to Database, \nMessages : ", err) }
 
             if(initCount === 0){
                 Init.createAllCollection(err, con);
