@@ -1,5 +1,4 @@
 const Mongo = require('mongodb').MongoClient;
-// Mongo.set('useFindAndModify', false);
 const insert = require('./Insert');
 const dalete = require('./Delete');
 const update = require('./Update');
@@ -38,14 +37,9 @@ class Models {
         return Insert.insertHistory(clientParam);
     }
 
-    deletesatuRiwayat(id){
+    deleteOneHistory(id){
         return Delete.deleteOneHistory(id);
     }
-
-    deletebanyakRiwayat(id){
-        Delete.deleteManyHistory(id);
-    }
-
     updateMasukan(param){
         Update.updateMasukan(param);
     }

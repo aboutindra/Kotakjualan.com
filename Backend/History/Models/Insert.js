@@ -3,7 +3,7 @@ class Insert{
     constructor(DBCon) {
         this.db = DBCon;
         this.conter = this.db.collection('counters');
-        this.dept = this.db.collection('ha');
+        this.dept = this.db.collection('hi');
           
         
         // console.log(DBCon);
@@ -29,9 +29,7 @@ class Insert{
       console.log(getID[0].sequence_value);
 
       
-       let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param),(err,ress)=>{
-        err.send("berhasil");
-       });
+       let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param));
         return proses;
           
       } 
