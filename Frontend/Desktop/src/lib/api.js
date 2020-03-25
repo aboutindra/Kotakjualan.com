@@ -1,4 +1,4 @@
-import { get, post } from './helper';
+import { get ,post } from './helper';
 
 export const getAll = async () => {
   let temp = await get("/member/gm");
@@ -33,4 +33,25 @@ export const insertMember = async (param) => {
   } catch (err) {
     return false;
   }
+}
+
+export const apiLogin = async (data) => {
+  
+  const format = {
+    
+    param:{
+      t:1,
+      f:data
+    }
+
+  }
+
+  console.log(format);
+
+  let temp = await get(`/akun/e`, format, "akun");
+
+
+
+  return temp.result;
+
 }

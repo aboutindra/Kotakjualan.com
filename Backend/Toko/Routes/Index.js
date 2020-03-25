@@ -10,7 +10,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
 app.get('/t', async (req, res) => {
-    res.send( await DB.getToko( { id : req.body.id, data : req.body.data } ) )
+    res.send( await DB.getToko( { id : req.body.id, data : JSON.parse(req.query.param) } ) )
 });
 
 app.post('/t', async (req, res) => {
