@@ -13,7 +13,7 @@ class DbControll {
     }
 
     async nambahInput(param){
-        await model.update.updateMasukan(param);
+        await model.update.updateMasukan(id,data);
     }
 }
 module.exports = DbControll; 

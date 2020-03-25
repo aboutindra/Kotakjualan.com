@@ -21,8 +21,7 @@ class Insert{
       //   // console.log(this.db);
   
       
-      for (let i = 0; i < 500; i++) {
-       
+      
        
       await this.Get();
       let getID = await this.conter.find().toArray();
@@ -32,7 +31,7 @@ class Insert{
        let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param));
         return proses;
           
-      } 
+       
     
       }
     
