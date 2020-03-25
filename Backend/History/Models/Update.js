@@ -9,8 +9,11 @@ class Update{
         console.log(param.id);
         let id = JSON.parse(param.id);
         console.log(param.data);
-            
-        let statusUpdate =  await this.col.updateOne({"id":id }, {$set:{"nama":param.data}});
+        
+        let paramss = JSON.parse(param.data);
+
+        console.log(paramss);
+        let statusUpdate =  await this.col.updateOne({"id":id }, {$set:paramss});
         
             return statusUpdate;
     
