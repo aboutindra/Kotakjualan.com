@@ -38,7 +38,7 @@ class Models{
             }
 
             this.db = con.db('KoperasiDB');
-            this.insert = new insert(this.db);
+           ` this.insert = new insert(this.db);`
             this.update = new update(this.db);
             this.drop = new drop(this.db);
             this.read = new read(this.db);
