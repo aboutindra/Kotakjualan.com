@@ -7,7 +7,7 @@ class Mongo{
 
     if(param.u != undefined || param.u != ""){
 
-      let akun = await mdl.get.getAccount(param.u);
+      let akun = await mdl.get.getAccount({u:param.u});
 
       if(akun.length != 0){
         if(akun[0].p === param.p){

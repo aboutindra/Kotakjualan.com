@@ -12,8 +12,8 @@ app.use(cors());
 app.use(comp());
 app.use(bp.json());
 
-app.get('/e', async (req,res)=>{
-  let temp = await control.mongo.get(req.body.param);
+app.get('/e', async (req,res)=>{  
+  let temp = await control.mongo.get(JSON.parse(req.query.param).param);  
   res.send({result:temp});
 });
 
