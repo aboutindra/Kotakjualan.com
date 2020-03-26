@@ -25,9 +25,9 @@ app.post('/T', async (req, ress) => {
 });
 
 app.get('/T',async (req,res)=>{
-    let id = req.body.id;
     let kunci = req.body.kunci;
-    let param = {id:id,kunci:kunci,res:res};
+    let param = { kunci : kunci, res : res};
+    console.log(kunci);
     await DB.getHistory(param);
 
 })
