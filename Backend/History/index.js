@@ -26,10 +26,10 @@ app.delete('/*', async( req, res ) => { res.send({ status: "OK" }) });
 
 app.listen(2000, (err) => {
 
-    if(err){ console.log("[❌] Failed to run Member Microservices, \nMessages : ", err) }    
+    if(err){ console.log("[❌] Failed to run History Microservices, \nMessages : ", err) }    
 
     model.initDB();
 
-    console.log("[✔] Successfully running Member Microservices at http://localhost:3011/")
+    console.log("[✔] Successfully running History Microservices at http://localhost:3011/")
 
 });     
