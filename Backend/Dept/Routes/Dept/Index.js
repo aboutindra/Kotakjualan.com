@@ -11,8 +11,9 @@ const db = require('../../Controllers/Database');
 const DB = new db();
 
 app.get('/d', async (req, res) => {
-    let id = req.body.id;
-    let keyword = req.body.keyword;
+    let data = JSON.parse(req.query.param).param;
+    let id = data.id;
+    let keyword = data.keyword;
     let param = { id : id, keyword : keyword };
     res.send( await DB.getDept(param) );
 });

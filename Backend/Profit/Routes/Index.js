@@ -12,7 +12,8 @@ app.use(comp());
 app.use(cors());
 
 app.get('/p', async (req, res) => {
-    res.send( await DB.getProfit( { id : req.body.id, data : req.body.data } ) )
+    let data = JSON.parse(req.query.param).param;
+    res.send( await DB.getProfit( { id : data.id, data : data.data } ) )
 });
 
 app.post('/p', async (req, res) => {
