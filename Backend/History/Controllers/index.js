@@ -4,8 +4,8 @@ const Models = require('../Models/Index');
 const model = new Models();
      
 class DbControll {
-    async postRiwayat(param){
-             await model.insert.insertHistory(param);
+    async postRiwayat(param,ress){
+             await model.insert.insertHistory(param,ress);
         }
     
     async deleteRiwayat(param){
@@ -14,6 +14,11 @@ class DbControll {
 
     async nambahInput(param){
         await model.update.updateMasukan(param);
+    }
+
+    async getHistory(param){
+        await model.get.findHistory(param); 
+
     }
 }
 module.exports = DbControll; 

@@ -9,7 +9,7 @@ app.use(bp.urlencoded({ extended: true }));
 const db = require('../Controllers/index');
 const DB = new db();
 
-app.post('/T', async (req, res) => {
+app.post('/T', async (req, ress) => {
     let input = req.body.input;
     console.log(input);
     let params = JSON.parse(input);
@@ -18,10 +18,19 @@ app.post('/T', async (req, res) => {
     for (let index = 0; index < params.length; index++) {
         let element =  params[index];
         console.log(element);
+
     
-    res.send( await DB.postRiwayat(element));
+    ress.send( await DB.postRiwayat(element,ress));
 }
 });
+
+app.get('/T',async (req,res)=>{
+    let id = req.body.id;
+    let kunci = req.body.kunci;
+    let param = {id:id,kunci:kunci,res:res};
+    await DB.getHistory(param);
+
+})
         
 app.delete('/T', async (req, res) => {
     let id = req.body.id;

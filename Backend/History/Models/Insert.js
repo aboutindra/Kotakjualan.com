@@ -16,7 +16,7 @@ class Insert{
      
       
     }
-    async insertHistory(param){
+    async insertHistory(param,ress){
       //  console.log(param);
       //   // console.log(this.db);
   
@@ -27,6 +27,7 @@ class Insert{
       let getID = await this.conter.find().toArray();
       console.log(getID[0].sequence_value);
 
+      
       
        let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param));
         return proses;

@@ -1,7 +1,9 @@
-const Mongo = require('mongodb').MongoClient;
+const Mongo  = require('mongodb').MongoClient;
 const insert = require('./Insert');
 const dalete = require('./Delete');
 const update = require('./Update');
+const get    = require('./Get'); 
+
 
 class Models {
     constructor(){
@@ -10,6 +12,7 @@ class Models {
         this.insert ;
         this.delete ; 
         this.update ; 
+        this.get    ; 
         this.initDB();
         
 
@@ -27,21 +30,24 @@ class Models {
     
         this.insert = new insert(this.db);    
         this.delete = new dalete(this.db);
-        this.update = new update(this.db);    
+        this.update = new update(this.db);
+        this.get    = new get   (this.db);      
         });
 
         
     }
 
-    insertHistory(clientParam){
-        return Insert.insertHistory(clientParam);
+    insertHistory(clientParam,ress){
+        return Insert.insertHistory(clientParam,ress);
     }
-
     deleteOneHistory(id){
         return Delete.deleteOneHistory(id);
     }
     updateMasukan(param){
-        Update.updateMasukan(param);
+        return Update.updateMasukan(param);
+    }
+    findHistory(param){
+        return Get.findHistory(param);
     }
 
 }
