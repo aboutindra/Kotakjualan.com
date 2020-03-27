@@ -50,19 +50,17 @@ class Get{
     
     let tempData = await this.supp.find().toArray();
     
-    let res = [];
+    let res = [];    
 
-    let tempItem = [];
-
-    let tempRes = [];
+    let tempObj = {};
 
     tempData.forEach(e => {
 
-      tempRes = res;
+      tempObj.id = e.id;
 
-      tempItem = e.item;
+      tempObj.item = e.item;
 
-      res = tempRes.concat(tempItem);
+      res.push(tempObj);
 
     });
 
