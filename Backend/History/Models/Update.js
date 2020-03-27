@@ -1,6 +1,6 @@
 class Update{
         constructor(DBcon){
-            this.db = DBcon
+            this.db = DBcon;
             this.col = this.db.collection('hasil');
         }
 
@@ -16,4 +16,4 @@ class Update{
 
 
 }
-module.exports = Update
+module.exports = Update;

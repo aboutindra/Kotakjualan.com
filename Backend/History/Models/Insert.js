@@ -27,11 +27,11 @@ class Insert{
       await this.Get();
       let getID = await this.conter.find().toArray();
       console.log(getID[0].sequence_value);
-
       
        let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param),(err,ress)=>{
         err.send("berhasil");
        });
+
         return proses;
           
       } 

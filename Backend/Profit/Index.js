@@ -18,7 +18,7 @@ app.put('/*', async( req, res ) => { res.send({ status: "OK" }) });
 app.post('/*', async( req, res ) => { res.send({ status: "OK" }) });
 app.delete('/*', async( req, res ) => { res.send({ status: "OK" }) });
 
-app.listen(3004 , (err) => {
+app.listen(3003 , (err) => {
 
     if(err){ console.log("[❌] Failed to run Profit Microservices, \nMessages : ", err) }
     model.initDB();

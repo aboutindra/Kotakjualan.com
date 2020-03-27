@@ -24,7 +24,7 @@ app.put('/*', async( req, res ) => { res.send({ status: "OK" }) });
 app.post('/*', async( req, res ) => { res.send({ status: "OK" }) });
 app.delete('/*', async( req, res ) => { res.send({ status: "OK" }) });
 
-app.listen(3001, (err) => {
+app.listen(3002, (err) => {
 
     if(err){ console.log("[❌] Failed to run Member Microservices, \nMessages : ", err) }    
 
