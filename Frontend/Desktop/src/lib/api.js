@@ -44,14 +44,26 @@ export const apiLogin = async (data) => {
       f:data
     }
 
+  } 
+  
+  const fin = {
+    param:JSON.stringify(format)
   }
 
-  console.log(format);
-
-  let temp = await get(`/akun/e`, format, "akun");
-
-
+  let temp = await get(`/akun/e`, fin);
 
   return temp.result;
+
+}
+
+export const apiSignup = async (data) => {
+
+  const fin = {
+    param:data
+  }
+
+  let res = await post("/akun/e", fin);
+
+  return res.result;
 
 }

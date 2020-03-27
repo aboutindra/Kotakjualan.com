@@ -2,7 +2,8 @@ import React from 'react';
 
 import {useHistory} from 'react-router-dom';
 
-import {apiLogin} from '../lib/api';
+import { checkAccount } from '../lib//controller';
+
 
 import { useState } from 'react';
 
@@ -20,7 +21,14 @@ export default function Login(){
 
   const atLogin = async () => {
 
-    await checkAccount(user, pass);
+    let sta =  await checkAccount(user, pass);
+
+    if(sta){
+      alert("Success Login");
+    }
+    else{
+      alert("Gagal Login");
+    }
 
   }
 
@@ -72,25 +80,5 @@ export default function Login(){
     </div>
 
   );
-
-}
-
-async function checkAccount(user, pass){
-  
-  let format = {
-    u: user,
-    p: pass
-  }
-
-  let temp = await apiLogin(format);
-
-  console.log(temp);
-
-  if(temp){
-    alert("Success login");
-  }
-  else{
-    alert("Gagal login");
-  }
 
 }

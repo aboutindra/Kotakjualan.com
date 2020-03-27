@@ -1,52 +1,41 @@
 import axios from 'axios';
 
-function createURL(param){
+function createURL(){
 
-  //let IP = "116.202.171.211";
+  let IP = "116.202.171.211";
 
-  let IP = "localhost";
-
-  let port = "";
+  // let IP = "localhost";
 
   let tipeNetwork = "http://";
 
   let version = "/api/v1";
 
-  if(param === "akun"){
-    
-    port = ":1555";
-    return `${tipeNetwork}${IP}${port}${version}`;
-
-  }
-
-  else{
-    return "";
-  }
+  return `${tipeNetwork}${IP}${version}`;
 
 }
 
-export const get = async (url, param, t) => {  
-  let baseURL = createURL(t);
+export const get = async (url, param) => {  
+  let baseURL = createURL();
   let temp = await axios({
     method:'GET',
     headers: {
       'Content-Type': 'application/json',
     },
     url:`${baseURL}${url}`,      
-    params:{param:JSON.stringify(param)}
+    params:param
   });
   return temp.data;
 }
 
-export const post = async (url, param, t) => {
-  let baseURL = createURL(t);
+export const post = async (url, param) => {
+  let baseURL = createURL();
   let temp = await axios({
     method:"POST",
     headers: {
       'Content-Type': 'application/json',
     },
     url:`${baseURL}${url}`,
-    data:{parameter:param}
+    data:param
   });
   return temp.data;
 }
