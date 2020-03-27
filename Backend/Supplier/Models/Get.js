@@ -72,7 +72,7 @@ class Get{
 
   async getItemWithParam(param){
 
-    let tempData = await this.supp.find(param).toArray();
+    let tempData = await this.supp.findOne(param).toArray();
     
     let res = tempData[0].item;
 
