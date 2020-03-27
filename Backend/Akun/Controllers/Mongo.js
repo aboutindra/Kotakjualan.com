@@ -49,11 +49,7 @@ class Mongo{
 
   async post(param){
 
-    console.log(param);
-
     let arr = await mdl.get.getAccount({u:param.u});
-
-    console.log(arr);
 
     if(arr.length === 0){
       return await mdl.post.postOne(param);
