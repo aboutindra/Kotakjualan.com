@@ -2,12 +2,33 @@ import React from 'react';
 
 import { useHistory } from 'react-router-dom';
 
+import { newAccount } from "../lib/controller";
+import { useState } from 'react';
+
 export default function Signup(){
+
+  const [user, setUser] = useState("");
+
+  const [pass, setPass] = useState("");
 
   const move = useHistory();
 
   const toLogin = () => {
     move.push('/');
+  }
+
+  const atSignup = () => {
+
+    let sta = newAccount(user, pass);
+
+    if(sta === true){
+      alert("Berhasil Signup");
+      toLogin();
+    }
+    else{
+      alert("Gagal Signup");
+    }
+
   }
 
   return(
@@ -33,10 +54,10 @@ export default function Signup(){
             <div className="form">
               
               <span>Username</span>
-              <input type="text" />
+              <input type="text" onChange={(e)=>{setUser(e.target.value)}} />
               
               <span>Password</span>
-              <input type="password" className="pw" />
+              <input type="password" className="pw" onChange={(e)=>{setPass(e.target.value)}} />
 
             </div>
 
@@ -44,7 +65,7 @@ export default function Signup(){
 
           <div className="row4">
 
-            <button className="pri">Masuk ke Koperasi</button>            
+            <button className="pri" onClick={atSignup}>Masuk ke Koperasi</button>            
             
             <button className="sec" onClick={toLogin} >Login untuk masuk</button>      
             
