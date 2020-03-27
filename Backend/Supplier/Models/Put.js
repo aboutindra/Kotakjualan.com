@@ -9,7 +9,7 @@ class Put{
   async updateOneSupp(param){
 
     try {
-      await this.supp.updateOne(param[0], {$set:param[1]});
+      await this.supp.updateOne(param.f, {$set:param.s});
       return true;
     } 
     
