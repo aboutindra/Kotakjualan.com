@@ -50,19 +50,17 @@ class Get{
     
     let tempData = await this.supp.find().toArray();
     
-    let res = [];
+    let res = [];    
 
-    let tempItem = [];
-
-    let tempRes = [];
+    let tempObj = {};
 
     tempData.forEach(e => {
 
-      tempRes = res;
+      tempObj.id = e.id;
 
-      tempItem = e.item;
+      tempObj.item = e.item;
 
-      res = tempRes.concat(tempItem);
+      res.push(tempObj);
 
     });
 
@@ -72,7 +70,7 @@ class Get{
 
   async getItemWithParam(param){
 
-    let tempData = await this.supp.find(param).toArray();
+    let tempData = await this.supp.findOne(param).toArray();
     
     let res = tempData[0].item;
 

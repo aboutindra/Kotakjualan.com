@@ -1,4 +1,4 @@
-import { get, post } from './helper';
+import { get ,post } from './helper';
 
 export const getAll = async () => {
   let temp = await get("/member/gm");
@@ -33,4 +33,37 @@ export const insertMember = async (param) => {
   } catch (err) {
     return false;
   }
+}
+
+export const apiLogin = async (data) => {
+  
+  const format = {
+    
+    param:{
+      t:1,
+      f:data
+    }
+
+  } 
+  
+  const fin = {
+    param:JSON.stringify(format)
+  }
+
+  let temp = await get(`/akun/e`, fin);
+
+  return temp.result;
+
+}
+
+export const apiSignup = async (data) => {
+
+  const fin = {
+    param:data
+  }
+
+  let res = await post("/akun/e", fin);
+
+  return res.result;
+
 }

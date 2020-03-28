@@ -2,6 +2,8 @@ class Update{
         constructor(DBcon){
             this.db = DBcon
             this.col = this.db.collection('hi');
+            this.db = DBcon;
+            this.col = this.db.collection('hasil');
         }
 
         async updateMasukan(param){

@@ -13,7 +13,7 @@ app.use(comp());
 app.use(bp.json());
 
 app.get('/e', async (req,res)=>{
-  let temp = await control.mongo.getOrder(req.body.param);
+  let temp = await control.mongo.getOrder(JSON.parse(req.query.param).param);
   res.send({result:temp});
 });
 

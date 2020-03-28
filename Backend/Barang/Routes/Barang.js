@@ -13,12 +13,12 @@ app.use(comp());
 app.use(bp.json());
 
 app.get('/e', async (req,res)=>{
-  let temp = await control.mongo.getBarang(req.body.param);
+  let temp = await control.mongo.getBarang(JSON.parse(req.query.param).param);
   res.send({result:temp});
 });
 
 app.post('/e', async (req, res) => {
-  let temp = await control.mongo.postBarang(req.body.param);
+  let temp = await control.mongo.postBarang(JSON.parse(req.query.param).param);
   res.send({result:temp});
 });
 

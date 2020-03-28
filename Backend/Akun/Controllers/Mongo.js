@@ -7,7 +7,7 @@ class Mongo{
 
     if(param.u != undefined || param.u != ""){
 
-      let akun = await mdl.get.getAccount(param.u);
+      let akun = await mdl.get.getAccount({u:param.u});
 
       if(akun.length != 0){
         if(akun[0].p === param.p){
@@ -49,7 +49,7 @@ class Mongo{
 
   async post(param){
 
-    let arr = await mdl.get.getAccount(param.u);
+    let arr = await mdl.get.getAccount({u:param.u});
 
     if(arr.length === 0){
       return await mdl.post.postOne(param);
