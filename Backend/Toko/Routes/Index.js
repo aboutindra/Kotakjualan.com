@@ -10,7 +10,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
 app.get('/t', async (req, res) => {
-    let data = JSON.parse(req.query.param).param;
+    let data = JSON.parse(req.query.param);
     res.send( await DB.getToko( { id : data.id, data : data.data  } ) )
 });
 

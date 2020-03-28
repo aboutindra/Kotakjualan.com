@@ -11,11 +11,11 @@ const db = require('../../Controllers/Database');
 const DB = new db();
 
 app.get('/d', async (req, res) => {
-    let data = JSON.parse(req.query.param).param;
-    let id = data.id;
-    let keyword = data.keyword;
-    let param = { id : id, keyword : keyword };
-    res.send( await DB.getDept(param) );
+    let param = JSON.parse(req.query.param);
+    let data = param.data;
+    let id = param.id;
+    let parameter = { id : id, keyword : data };
+    res.send( await DB.getDept(parameter) );
 });
 
 app.post('/d', async (req, res) => {

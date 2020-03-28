@@ -6,7 +6,7 @@ class Insert{
         this.logs = this.db.collection("Logs");
     }
 
-    async insertDataDept(memberParam){
+    async insertDataMember(memberParam){
         let checkDataIsComplete = true;
         console.log(memberParam);
         for(let i = 0; i <= 1; i++ ){
@@ -40,6 +40,7 @@ class Insert{
         } else {
             return checkDataIsComplete;
         }
+        /*Test*/
 
     }
 
