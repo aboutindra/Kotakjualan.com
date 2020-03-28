@@ -5,7 +5,7 @@ class Delete{
 
     }
 
-    async deleteOneHistory(param){
+    async deleteTransaksi(param){
         console.log(param);
         
         let proses = await this.db.collection('hi').deleteOne({"id":param});

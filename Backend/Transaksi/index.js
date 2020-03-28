@@ -12,7 +12,7 @@ const model = new Model();
 
 const app = new express();
 
-app.use('/api/v1/history' , endpointRoutes);
+app.use('/api/v1/transaksi' , endpointRoutes);
 
 app.use(comp());
 app.use(bp.json());
@@ -26,10 +26,10 @@ app.delete('/*', async( req, res ) => { res.send({ status: "OK" }) });
 
 app.listen(2100, (err) => {
 
-    if(err){ console.log("[❌] Failed to run History Microservices, \nMessages : ", err) }    
+    if(err){ console.log("[❌] Failed to run Transaksi Microservices, \nMessages : ", err) }    
 
     model.initDB();
 
-    console.log("[✔] Successfully running History Microservices at http://localhost:2100/")
+    console.log("[✔] Successfully running Transaksi Microservices at http://localhost:2100/")
 
 });     

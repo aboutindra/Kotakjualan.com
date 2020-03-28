@@ -37,17 +37,17 @@ class Models {
         
     }
 
-    insertHistory(clientParam,ress){
-        return Insert.insertHistory(clientParam,ress);
+    insertTransaksi(param){
+        return Insert.insertTransaksi(param);
     }
     deleteOneHistory(id){
         return Delete.deleteOneHistory(id);
     }
-    updateMasukan(param){
-        return Update.updateMasukan(param);
+    updateTransaksi(param){
+        return Update.updateTransaksi(param);
     }
-    findHistory(param){
-        return Get.findHistory(param);
+    findTransaksi(param){
+        return Get.findTransaksi(param);
     }
 
 }

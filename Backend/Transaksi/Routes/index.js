@@ -20,7 +20,7 @@ app.post('/T', async (req, ress) => {
         console.log(element);
 
     
-    ress.send( await DB.postRiwayat(element,ress));
+    ress.send( await DB.postTransaksi(element,ress));
 }
 });
 
@@ -28,22 +28,21 @@ app.get('/T',async (req,res)=>{
     let kunci = req.body.kunci;
     let param = { kunci : kunci, res : res};
     console.log(kunci);
-    await DB.getHistory(param);
-
-})
+    res.json(await DB.getTransaksi(param));
+});
         
 app.delete('/T', async (req, res) => {
     let id = req.body.id;
     console.log(id);
     param = JSON.parse(id);
-    res.send( await DB.deleteRiwayat(param) );
+    res.send( await DB.deleteTransaksi(param) );
 });
 
 app.put('/T', async (req, res) => {
     let id = req.body.id;
     let data = req.body.data;
     let param = { id : id, data : data };
-    res.send( await DB.nambahInput(param) );
+    res.send( await DB.putTransaksi(param) );
 });
 
 module.exports = app;   
