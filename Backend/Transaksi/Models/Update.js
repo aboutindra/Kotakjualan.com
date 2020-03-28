@@ -1,7 +1,7 @@
 class Update{
         constructor(DBcon){
             this.db = DBcon
-            this.col = this.db.collection('hi');
+            this.col = this.db.collection('Transaksi');
         }
         
         async updateTransaksi(param){
@@ -12,11 +12,14 @@ class Update{
         
         let paramss = JSON.parse(param.data);
 
+        let result ; 
+
         console.log(paramss);
         let statusUpdate =  await this.col.updateOne({"id":id }, {$set:paramss});
         
-            return statusUpdate;
-            
+        if(statusUpdate ? result = true : result = false);
+        return result; 
+    
         }
     
 

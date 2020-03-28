@@ -14,13 +14,11 @@ app.post('/T', async (req, ress) => {
     console.log(input);
     let params = JSON.parse(input);
 
-
-    for (let index = 0; index < params.length; index++) {
-        let element =  params[index];
+for (let index = 0; index < params.length; index++) {
+    let element =  params[index];
         console.log(element);
 
-    
-    ress.send( await DB.postTransaksi(element,ress));
+    ress.send( await DB.postTransaksi(element));
 }
 });
 

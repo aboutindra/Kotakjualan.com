@@ -3,10 +3,13 @@ const insert = require('./Insert');
 const dalete = require('./Delete');
 const update = require('./Update');
 const get    = require('./Get'); 
+const init   = require('../Schema/index');
+const Init   = new init();
 
+let param = 0;
 
 class Models {
-    constructor(){
+    constructor(){                                
 
         this.db = null;
         this.insert ;
@@ -15,7 +18,6 @@ class Models {
         this.get    ; 
         this.initDB();
         
-
 
       }
   
@@ -26,12 +28,20 @@ class Models {
             if (err) {
                 console.log("[❌] Failed Connect to Database, Messages : ", err);
             }
-        this.db = con.db('test');
-    
+        this.db = con.db('KoperasiDB');
+
+       
+        if(param === 0){
+            Init.addCollection(con);
+            console.log("[✔] Successfully connected to Database");
+            param = param + 1;
+        }
+
         this.insert = new insert(this.db);    
         this.delete = new dalete(this.db);
         this.update = new update(this.db);
         this.get    = new get   (this.db);      
+
         });
 
         

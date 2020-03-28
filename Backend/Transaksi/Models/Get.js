@@ -1,7 +1,7 @@
 class Get{
     constructor(DBCon){
         this.db = DBCon;
-        this.dept = this.db.collection('hi');
+        this.col = this.db.collection('Transaksi');
     }
 
    async findTransaksi(param){
@@ -11,7 +11,7 @@ class Get{
         let params = JSON.parse(param.kunci);
         console.log(params)
     
-        return await this.dept.find(params).toArray();
+        return await this.col.find(params).toArray();
 
        }else{
            

@@ -2,8 +2,8 @@
 class Insert{
     constructor(DBCon) {
         this.db = DBCon;
-        this.conter = this.db.collection('counters');
-        this.dept = this.db.collection('hi');
+        this.Logs = this.db.collection('Logs');
+        this.col = this.db.collection('Transaksi');
           
         
         // console.log(DBCon);
@@ -11,23 +11,25 @@ class Insert{
     }
 
     async Get (){ 
-     await this.conter.findOneAndUpdate({_id: 'studentid' }, {$inc:{sequence_value:1}});
+     await this.conter.findOneAndUpdate({id:1}, {$inc:{idTransaksi:1}});
     }
 
     async insertTransaksi(param,ress){
       //  console.log(param);
       //   // console.log(this.db);
       
-       
-      await this.Get();
-      let getID = await this.conter.find().toArray();
-      console.log(getID[0].sequence_value);
+      let result; 
 
+      await this.Get();
+      let getID = await this.Logs.find().toArray();
+      console.log(getID[0].idTransaksi);
+      let id = getID[0].idTransaksi;
       
       
-       let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param));
-        return proses;
-          
+       let proses = await this.col.insertOne(Object.assign({"id":id},param));
+       if(proses ? result = true : result = false);
+        return result; 
+    
        
     
       }

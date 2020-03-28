@@ -1,15 +1,19 @@
 class Delete{
     constructor(DBCon){
         this.db = DBCon;
-        this.col = this.db.collection('hi');
+        this.col = this.db.collection('Transaksi');
 
     }
 
     async deleteTransaksi(param){
         console.log(param);
         
-        let proses = await this.db.collection('hi').deleteOne({"id":param});
-        return proses;
+        let result;
+
+        let proses = await this.col.deleteOne({"id":param});
+
+        if(proses ? result = true : result = false);
+        return result; 
     }
 
 

@@ -4,20 +4,20 @@ const Models = require('../Models/Index');
 const model = new Models();
      
 class DbControll {
-    async postTransaksi(param,ress){
-             await model.insert.insertTransaksi(param,ress);
+    async postTransaksi(param){
+    return await model.insert.insertTransaksi(param);
         }
     
     async deleteTransaksi(param){
-        await model.delete.deleteTransaksi(param);
+    return await model.delete.deleteTransaksi(param);
     }
 
     async putTransaksi(param){
-        await model.update.updateTransaksi(param);
+    return await model.update.updateTransaksi(param);
     }
 
     async getTransaksi(param){
-       return await model.get.findTransaksi(param); 
+    return await model.get.findTransaksi(param); 
 
     }
 }
