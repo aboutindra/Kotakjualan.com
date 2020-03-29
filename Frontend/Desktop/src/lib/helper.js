@@ -2,11 +2,13 @@ import axios from 'axios';
 
 function createURL(){
 
-  let IP = "116.202.171.211";
+  let IP = "dev.koperasipintar.com"
+
+  // let IP = "116.202.171.211";
 
   // let IP = "localhost";
 
-  let tipeNetwork = "http://";
+  let tipeNetwork = "https://";
 
   let version = "/api/v1";
 

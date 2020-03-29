@@ -56,7 +56,7 @@ class Get{
 
     tempData.forEach(e => {
 
-      tempObj.id = e.id;
+      tempObj.idSupp = e.id;
 
       tempObj.item = e.item;
 
