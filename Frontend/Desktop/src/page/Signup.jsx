@@ -17,9 +17,9 @@ export default function Signup(){
     move.push('/');
   }
 
-  const atSignup = () => {
+  const atSignup = async () => {
 
-    let sta = newAccount(user, pass);
+    let sta = await newAccount(user, pass);
 
     if(sta === true){
       alert("Berhasil Signup");
