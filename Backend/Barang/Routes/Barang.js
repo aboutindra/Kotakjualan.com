@@ -18,7 +18,7 @@ app.get('/e', async (req,res)=>{
 });
 
 app.post('/e', async (req, res) => {
-  let temp = await control.mongo.postBarang(JSON.parse(req.query.param).param);
+  let temp = await control.mongo.postBarang(req.body.param);
   res.send({result:temp});
 });
 
