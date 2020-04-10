@@ -11,8 +11,8 @@ class Read{
     }
 
     async getSpecificToko(param){
-        let generateDeleteparam = () => {return Object.assign({}, ...param )};
-        return await this.toko.find(generateDeleteparam()).toArray();
+        let generateParam = () => {return Object.assign({}, ...param )};
+        return await this.toko.find(generateParam()).toArray();
     }
 
 }

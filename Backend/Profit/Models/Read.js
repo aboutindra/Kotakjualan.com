@@ -10,6 +10,10 @@ class Read{
         return hasil;
     }
 
+    async getSpecificProfit( param ){
+        
+    }
+
 
 }
 module.exports = Read;

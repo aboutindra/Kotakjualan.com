@@ -7,6 +7,8 @@ class DatabaseController {
         let hasil;
         if( param.id === 1 ){
             hasil = await Model.read.getAllProfit();
+        } else if( param.id === 2 ){
+            hasil = await Model.read.getSpecificProfit( param.data );
         }
         return hasil;
     }
