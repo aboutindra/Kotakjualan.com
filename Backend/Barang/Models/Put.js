@@ -11,7 +11,7 @@ class Put{
         let sta = new Boolean(true);
 
         try {        
-            await thisbarang.updateOne(param.f,{$set: param.s});
+            await this.barang.updateOne(param.f,{$set: param.s});
         } 
         
         catch (error) {
@@ -27,7 +27,7 @@ class Put{
         let sta = new Boolean(true);
 
         try {        
-            await thisbarang.updateMany(param.f,{$set: param.s});
+            await this.barang.updateMany(param.f,{$set: param.s});
         } 
         
         catch (error) {

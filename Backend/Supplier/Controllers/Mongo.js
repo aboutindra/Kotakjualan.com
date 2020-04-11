@@ -53,7 +53,7 @@ class Mongo{
     }
 
     else if(tipe === 8){
-      temp  = await model.get.getItemWithParam(param);
+      temp  = await model.get.getItemWithParam(param.f);
     }
     
     else{

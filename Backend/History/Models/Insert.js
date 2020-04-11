@@ -3,7 +3,7 @@ class Insert{
     constructor(DBCon) {
         this.db = DBCon;
         this.conter = this.db.collection('counters');
-        this.dept = this.db.collection('ha');
+        this.dept = this.db.collection('hi');
           
         
         // console.log(DBCon);
@@ -16,25 +16,26 @@ class Insert{
      
       
     }
-    async insertHistory(param){
+    async insertHistory(param,ress){
       //  console.log(param);
       //   // console.log(this.db);
   
       
-      for (let i = 0; i < 500; i++) {
-       
+      
        
       await this.Get();
       let getID = await this.conter.find().toArray();
       console.log(getID[0].sequence_value);
       
+      
+       let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param));
        let proses = await this.dept.insertOne(Object.assign({"id":getID[0].sequence_value},param),(err,ress)=>{
         err.send("berhasil");
        });
 
         return proses;
           
-      } 
+       
     
       }
     

@@ -12,7 +12,7 @@ class Post{
 
         try {
             
-            await this.barang.insertOne();
+            await this.barang.insertOne(param);
 
         } catch (e) {
             
@@ -30,7 +30,7 @@ class Post{
 
         try {
             
-            await this.barang.insertMany();
+            await this.barang.insertMany(param);
 
         } catch (e) {
             

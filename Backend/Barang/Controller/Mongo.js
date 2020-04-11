@@ -8,12 +8,12 @@ class Mongo{
 
     cekTypeOfArray(param){
 
-        if(param.length === undefined){
-            return false;
-        }
-        else{
-            return true;
-        }
+      if(param.length === undefined){
+        return false;
+      }
+      else{
+        return true;
+      }
 
     }
 
@@ -68,11 +68,15 @@ class Mongo{
 
         let sta = s;
 
-        if(sta){
+        console.log(s);
+
+        if(sta == true){
 
             let len = p.length;
 
-            let tempId = q;
+            console.log(len);
+
+            let tempId = q + 1;
 
             let i = 0;
 
@@ -80,12 +84,12 @@ class Mongo{
 
             while(i<len){
 
-                obj.id = tempId;
+                obj[i].id = tempId;
 
                 tempId++;
 
                 i++;
-            }
+            }            
 
             return {o:obj, i:tempId-1};
 
@@ -162,7 +166,7 @@ class Mongo{
         
         let len = await model.get.getCount();
 
-        let sta = this.cekTypeOfArray(param);
+        let sta = this.cekTypeOfArray(param);        
 
         if(len === 0){
 
@@ -174,7 +178,7 @@ class Mongo{
 
         else{
 
-            let tempId = await this.getLastId();
+            let tempId = await this.getLastId();            
 
             let temp = this.addItemObject(param, tempId, sta);
 
@@ -184,14 +188,13 @@ class Mongo{
 
     }
 
-    async putBarang(param){
-
-        return await model.put.putSingleResult(param);
+    async putBarang(param){      
+      return await model.put.putSingleResult(param);
 
     }
 
     async delBarang(param){
-        return await model.del.delOne(param);    }
+      return await model.del.delOne(param);    }
 
 }
 
