@@ -78,13 +78,9 @@ class Mongo{
 
             let tempId = q + 1;
 
-            console.log(tempId);
-
             let i = 0;
 
             let obj = p;
-
-            console.log(obj);
 
             while(i<len){
 
@@ -93,9 +89,7 @@ class Mongo{
                 tempId++;
 
                 i++;
-            }
-
-            console.log(obj);
+            }            
 
             return {o:obj, i:tempId-1};
 
@@ -172,13 +166,7 @@ class Mongo{
         
         let len = await model.get.getCount();
 
-        let sta = this.cekTypeOfArray(param);
-
-        console.log(len);
-
-        console.log(sta);
-
-        console.log(param);
+        let sta = this.cekTypeOfArray(param);        
 
         if(len === 0){
 
@@ -190,9 +178,7 @@ class Mongo{
 
         else{
 
-            let tempId = await this.getLastId();
-
-            console.log(tempId+" tempID");
+            let tempId = await this.getLastId();            
 
             let temp = this.addItemObject(param, tempId, sta);
 
@@ -202,8 +188,7 @@ class Mongo{
 
     }
 
-    async putBarang(param){
-      console.log(param);
+    async putBarang(param){      
       return await model.put.putSingleResult(param);
 
     }
