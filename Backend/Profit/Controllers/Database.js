@@ -14,7 +14,11 @@ class DatabaseController {
     }
 
     async postProfit(param){
-
+        let hasil;
+        if( param.id === 2 ){
+            hasil = await Model.insert.insertProfit( param.data );
+        }
+        return hasil;
     }
 
     async deleteProfit(param){
