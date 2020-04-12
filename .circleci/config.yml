@@ -10,17 +10,17 @@ jobs:
       - node/with-cache:
           steps:
             - run: ls && cd Backend/Akun && npm i && node Index
-            - run: cd /Backed/Barang && npm install && node Index
-            - run: cd /Backed/Dept && npm install && node Index
-            - run: cd /Backed/History && npm install && node Index
-            - run: cd /Backed/Logs && npm install
-            - run: cd /Backed/Member && npm install && node Index
-            - run: cd /Backed/Order && npm install && node Index
-            - run: cd /Backed/Profit && npm install && node Index
-            - run: cd /Backed/Realtime && npm install && node Index
-            - run: cd /Backed/Supplier && npm install && node Index
-            - run: cd /Backed/Toko && npm install && node Index
-            - run: cd /Backed/Transaksi && npm install && node Index
+            - run: ls && cd Backend/Barang && npm i && node Index
+            - run: ls && cd Backend/Dept && npm i && node Index
+            - run: ls && cd Backend/History && npm i && node Index
+            - run: ls && cd Backend/Logs && npm i
+            - run: ls && cd Backend/Member && npm i && node Index
+            - run: ls && cd Backend/Order && npm i && node Index
+            - run: ls && cd Backend/Profit && npm i && node Index
+            - run: ls && cd Backend/Realtime && npm i && node Index
+            - run: ls && cd Backend/Supplier && npm i && node Index
+            - run: ls && cd Backend/Toko && npm i && node Index
+            - run: ls && cd Backend/Transaksi && npm i && node Index
 workflows:
     build-and-test:
       jobs:
