@@ -9,7 +9,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: cd Backed/Akun && npm install && node Index
+            - run: ls
             - run: cd /Backed/Barang && npm install && node Index
             - run: cd /Backed/Dept && npm install && node Index
             - run: cd /Backed/History && npm install && node Index
