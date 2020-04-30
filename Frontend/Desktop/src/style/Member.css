@@ -1,0 +1,188 @@
+/* .BodMember{
+  display: flex;
+  flex-direction: row;  
+}
+
+.BodMember .container{  
+  padding: 25px;
+  padding-left: 75px;
+  width: 100%;  
+}
+
+.BodMember .container .col1{
+  width: 40%;
+  float: left;  
+}
+
+.BodMember .container .col1 .wrapAdd{
+  padding: 15px;
+  padding-top: 10px;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd{
+  width: 100%;
+  max-width: 400px;
+  height: auto;  
+  background-color: white;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 15px;
+  box-shadow: 5px 2.5px 10px 2.5px lightgray;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap{
+  padding: 25px;
+  padding-top: 5px;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .txtHead{
+  font-size: large;
+  font-weight: bold;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap span{
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .input{
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .btn{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 9px;
+  padding-top: 15px;  
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .btn button{
+  font-size: 13.5px;
+  font-weight: bold;
+  padding: 12px 17px;
+  border: none;
+  background-color: #45abff;
+  color: white;
+  border-radius: 2.5px;
+
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .btn button:hover{
+  cursor: pointer;
+  background-color: #45b5ff;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .input input{
+  width: 95%;
+  padding: 8px;
+  padding-right: 0px;
+  border: 1px solid lightgray;
+  border-radius: 2.5px;
+  font-size: 12px;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .input select{
+  width: 98%;  
+  padding: 8px;
+  padding-right: 0px;
+  border: none;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 2.5px;
+  font-size: 12px;
+}
+
+.BodMember .container .col1 .wrapAdd .boxAdd .wrap .input input[type=number]::-webkit-inner-spin-button{
+  -webkit-appearance: none;  
+}
+
+.BodMember .container .col2{
+  width: 60%;
+  float: left;
+}
+
+.BodMember .container .col2 .wrapTable{
+  padding: 15px;
+  padding-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.BodMember .container .col2 .wrapTable .txtHead{
+  font-size: 2em;
+  font-weight: 700;
+  color: dimgray;  
+}
+
+.BodMember .container .col2 .wrapTable .txtContent{
+  font-size: 0.8em;
+  line-height: 20px;
+  padding-top: 10px;
+  padding-bottom: 25px;  
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row1{
+  display: flex;
+  flex-direction: row;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row1 .col .input select{
+  margin-right: 10px;  
+  padding: 4px;
+  background-color: white;
+  border: 1px solid lightgray;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row1 .col .input input{
+  padding: 6px;  
+  font-size: 12px;  
+  border: 1px solid lightgray;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row1 .col .btn button{
+  text-align: center;
+  padding: 6px 12px;
+  border: none;
+  background-color: #45abff;
+  color: white;  
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row1 .col .btn button:hover{
+  cursor: pointer;
+  background-color: #45b5ff;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row2{
+  margin-top: 25px;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead{
+  display: flex;
+  flex-direction: row;  
+  font-weight: bold;
+  font-size: 0.85em;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 5px 2.5px 10px 0px lightgray;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead .nokop, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead .nik, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead .idcard, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead .nama, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .itemHead .sta{
+  padding: 10px;
+  padding-right: 15px;  
+  width: 20%;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item{
+  display: flex;
+  flex-direction: row;    
+  font-size: 0.75em;      
+  color: #232424;
+}
+
+.BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item .nokop, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item .nik, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item .idcard, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item .nama, .BodMember .container .col2 .wrapTable .boxTable .wrap .row2 .item .sta{
+  padding: 10px;
+  padding-right: 15px;  
+  width: 20%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+} */

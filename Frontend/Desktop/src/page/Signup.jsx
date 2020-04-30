@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { newAccount } from "../lib/controller";
 import { useState } from 'react';
 
+import '../style/Signup.css';
+
 export default function Signup(){
 
   const [user, setUser] = useState("");
@@ -65,7 +67,7 @@ export default function Signup(){
 
           <div className="row4">
 
-            <button className="pri" onClick={atSignup}>Masuk ke Koperasi</button>            
+            <button className="pri" onClick={atSignup}>Buat akun Kotakjualan.com</button>            
             
             <button className="sec" onClick={toLogin} >Login untuk masuk</button>      
             

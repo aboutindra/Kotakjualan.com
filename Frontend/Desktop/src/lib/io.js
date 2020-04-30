@@ -1,6 +1,6 @@
 import soc from "socket.io-client";
 
-const baseURL = "http://localhost:1999/";
+const baseURL = "https://api.kotakjualan.com";
 
 export const buildIO = () => {
   const io = new soc(baseURL);

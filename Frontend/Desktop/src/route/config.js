@@ -1,8 +1,8 @@
-import Member from '../page/Member';
-
 import Login from '../page/Login';
 
 import Signup from '../page/Signup';
+
+import Supplier from '../page/Supplier';
 
 export const configRoute = 
 [
@@ -13,9 +13,8 @@ export const configRoute =
   {
     p:'/r',
     c: Signup
-  },
-  {
-    p:'/e/:u/member',
-    c: Member
+  },{
+    p:'/k/:toko',
+    c: Supplier
   }
 ]

@@ -4,8 +4,9 @@ import {useHistory} from 'react-router-dom';
 
 import { checkAccount } from '../lib//controller';
 
-
 import { useState } from 'react';
+
+import '../style/Login.css';
 
 export default function Login(){
 
@@ -19,12 +20,17 @@ export default function Login(){
     move.push('/r');
   }
 
+  const toSupplier = (nameStore) => {
+    move.push(`/k/${nameStore}`);
+  }
+
   const atLogin = async () => {
 
     let sta =  await checkAccount(user, pass);
 
     if(sta){
       alert("Success Login");
+      toSupplier(user);      
     }
     else{
       alert("Gagal Login");
@@ -66,7 +72,7 @@ export default function Login(){
 
           <div className="row4">
 
-            <button className="pri" onClick={atLogin} >Masuk ke Koperasi</button>            
+            <button className="pri" onClick={atLogin} >Masuk ke Kotak</button>            
             
             <button className="sec" onClick={toRegis} >Buat Akun</button>      
             

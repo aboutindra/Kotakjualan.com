@@ -2,9 +2,9 @@ import axios from 'axios';
 
 function createURL(){
 
-  let IP = "dev.koperasipintar.com"
+  let IP = "api.kotakjualan.com"
 
-  // let IP = "116.202.171.211";
+  // let IP = "111.221.44.108";
 
   // let IP = "localhost";
 
@@ -40,4 +40,30 @@ export const post = async (url, param) => {
     data:param
   });
   return temp.data;
+}
+
+export const put = async (url, param) => {
+  let baseURL = createURL();
+  let tmp = await axios({
+    method:"PUT",
+    headers: {
+      'Content-Type' : 'application/json',      
+    },
+    url: `${baseURL}${url}`,
+    data:param
+  });
+  return tmp.data; 
+}
+
+export const del = async (url, param) => {
+  let baseURL = createURL();
+  let tmp = await axios({
+    method:"DELETE",
+    headers: {
+      'Content-Type' : 'application/json',      
+    },
+    url: `${baseURL}${url}`,
+    data:param
+  });
+  return tmp.data; 
 }
